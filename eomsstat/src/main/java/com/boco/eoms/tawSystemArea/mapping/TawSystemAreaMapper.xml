@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.tawSystemArea.dao.TawSystemAreaMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.tawSystemArea.model.TawSystemArea" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="AREAID" property="areaid" jdbcType="VARCHAR" />
+    <result column="AREANAME" property="areaname" jdbcType="VARCHAR" />
+    <result column="LEAF" property="leaf" jdbcType="DECIMAL" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="PARENTAREAID" property="parentareaid" jdbcType="VARCHAR" />
+    <result column="ORDERCODE" property="ordercode" jdbcType="DECIMAL" />
+    <result column="AREACODE" property="areacode" jdbcType="VARCHAR" />
+    <result column="CAPITAL" property="capital" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, AREAID, AREANAME, LEAF, REMARK, PARENTAREAID, ORDERCODE, AREACODE, CAPITAL
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_AREA
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  
+  <select id="listAllArea" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_AREA
+  </select>
+  
+  <select id="listAreaByParentId" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_AREA where PARENTAREAID=#{parentId,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="queryByAreaId" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_AREA where AREAID=#{areaid,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from TAW_SYSTEM_AREA
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.boco.eoms.tawSystemArea.model.TawSystemArea" >
+    insert into TAW_SYSTEM_AREA (ID, AREAID, AREANAME, 
+      LEAF, REMARK, PARENTAREAID, 
+      ORDERCODE, AREACODE, CAPITAL
+      )
+    values (#{id,jdbcType=DECIMAL}, #{areaid,jdbcType=VARCHAR}, #{areaname,jdbcType=VARCHAR}, 
+      #{leaf,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{parentareaid,jdbcType=VARCHAR}, 
+      #{ordercode,jdbcType=DECIMAL}, #{areacode,jdbcType=VARCHAR}, #{capital,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.boco.eoms.tawSystemArea.model.TawSystemArea" >
+    insert into TAW_SYSTEM_AREA
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="areaid != null" >
+        AREAID,
+      </if>
+      <if test="areaname != null" >
+        AREANAME,
+      </if>
+      <if test="leaf != null" >
+        LEAF,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="parentareaid != null" >
+        PARENTAREAID,
+      </if>
+      <if test="ordercode != null" >
+        ORDERCODE,
+      </if>
+      <if test="areacode != null" >
+        AREACODE,
+      </if>
+      <if test="capital != null" >
+        CAPITAL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="areaid != null" >
+        #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="leaf != null" >
+        #{leaf,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="parentareaid != null" >
+        #{parentareaid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordercode != null" >
+        #{ordercode,jdbcType=DECIMAL},
+      </if>
+      <if test="areacode != null" >
+        #{areacode,jdbcType=VARCHAR},
+      </if>
+      <if test="capital != null" >
+        #{capital,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.boco.eoms.tawSystemArea.model.TawSystemArea" >
+    update TAW_SYSTEM_AREA
+    <set >
+      <if test="areaid != null" >
+        AREAID = #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        AREANAME = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="leaf != null" >
+        LEAF = #{leaf,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="parentareaid != null" >
+        PARENTAREAID = #{parentareaid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordercode != null" >
+        ORDERCODE = #{ordercode,jdbcType=DECIMAL},
+      </if>
+      <if test="areacode != null" >
+        AREACODE = #{areacode,jdbcType=VARCHAR},
+      </if>
+      <if test="capital != null" >
+        CAPITAL = #{capital,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.boco.eoms.tawSystemArea.model.TawSystemArea" >
+    update TAW_SYSTEM_AREA
+    set AREAID = #{areaid,jdbcType=VARCHAR},
+      AREANAME = #{areaname,jdbcType=VARCHAR},
+      LEAF = #{leaf,jdbcType=DECIMAL},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      PARENTAREAID = #{parentareaid,jdbcType=VARCHAR},
+      ORDERCODE = #{ordercode,jdbcType=DECIMAL},
+      AREACODE = #{areacode,jdbcType=VARCHAR},
+      CAPITAL = #{capital,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  
+  <select id="listAllAreaByParentAreaID" resultMap="BaseResultMap" parameterType="java.lang.String">
+	select <include refid="Base_Column_List" />  from TAW_SYSTEM_AREA t start with t.PARENTAREAID=#{parentId,jdbcType=VARCHAR}  CONNECT BY PRIOR  t.AREAID=t.PARENTAREAID  
+  </select>
+</mapper>

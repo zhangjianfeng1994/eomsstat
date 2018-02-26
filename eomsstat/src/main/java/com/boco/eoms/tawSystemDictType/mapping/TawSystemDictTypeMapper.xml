@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.tawSystemDictType.dao.TawSystemDictTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.tawSystemDictType.model.TawSystemDictType" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="DICTNAME" property="dictname" jdbcType="VARCHAR" />
+    <result column="MODULEID" property="moduleid" jdbcType="DECIMAL" />
+    <result column="MODULENAME" property="modulename" jdbcType="VARCHAR" />
+    <result column="DICTREMARK" property="dictremark" jdbcType="VARCHAR" />
+    <result column="DICTID" property="dictid" jdbcType="VARCHAR" />
+    <result column="PARENTDICTID" property="parentdictid" jdbcType="VARCHAR" />
+    <result column="SYSTYPE" property="systype" jdbcType="DECIMAL" />
+    <result column="DICTCODE" property="dictcode" jdbcType="VARCHAR" />
+    <result column="LEAF" property="leaf" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, DICTNAME, MODULEID, MODULENAME, DICTREMARK, DICTID, PARENTDICTID, SYSTYPE, DICTCODE, 
+    LEAF
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_DICTTYPE
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  
+  <!-- 查询所有 -->
+  <select id="listTawSystemDictTypeAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from taw_system_dicttype
+  </select>
+  
+  
+  <!-- 根据父id查询 -->
+  <select id="listAreaByParentDictTypeID" resultMap="BaseResultMap" parameterType="java.lang.String">	
+	select  
+	<include refid="Base_Column_List" />
+	from taw_system_dicttype
+	where PARENTDICTID=#{parentId,jdbcType=VARCHAR}
+	order by id
+  </select>
+  
+  
+  
+   <select id="listAllDictByParentDictID" resultMap="BaseResultMap" parameterType="java.lang.String">
+	select <include refid="Base_Column_List" />  from taw_system_dicttype d start with d.PARENTDICTID=#{parentId,jdbcType=VARCHAR}  CONNECT BY PRIOR  d.DICTID=d.PARENTDICTID  
+  </select>
+  
+  
+  
+  
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from TAW_SYSTEM_DICTTYPE
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.boco.eoms.tawSystemDictType.model.TawSystemDictType" >
+    insert into TAW_SYSTEM_DICTTYPE (ID, DICTNAME, MODULEID, 
+      MODULENAME, DICTREMARK, DICTID, 
+      PARENTDICTID, SYSTYPE, DICTCODE, 
+      LEAF)
+    values (#{id,jdbcType=DECIMAL}, #{dictname,jdbcType=VARCHAR}, #{moduleid,jdbcType=DECIMAL}, 
+      #{modulename,jdbcType=VARCHAR}, #{dictremark,jdbcType=VARCHAR}, #{dictid,jdbcType=VARCHAR}, 
+      #{parentdictid,jdbcType=VARCHAR}, #{systype,jdbcType=DECIMAL}, #{dictcode,jdbcType=VARCHAR}, 
+      #{leaf,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.boco.eoms.tawSystemDictType.model.TawSystemDictType" >
+    insert into TAW_SYSTEM_DICTTYPE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="dictname != null" >
+        DICTNAME,
+      </if>
+      <if test="moduleid != null" >
+        MODULEID,
+      </if>
+      <if test="modulename != null" >
+        MODULENAME,
+      </if>
+      <if test="dictremark != null" >
+        DICTREMARK,
+      </if>
+      <if test="dictid != null" >
+        DICTID,
+      </if>
+      <if test="parentdictid != null" >
+        PARENTDICTID,
+      </if>
+      <if test="systype != null" >
+        SYSTYPE,
+      </if>
+      <if test="dictcode != null" >
+        DICTCODE,
+      </if>
+      <if test="leaf != null" >
+        LEAF,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="dictname != null" >
+        #{dictname,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleid != null" >
+        #{moduleid,jdbcType=DECIMAL},
+      </if>
+      <if test="modulename != null" >
+        #{modulename,jdbcType=VARCHAR},
+      </if>
+      <if test="dictremark != null" >
+        #{dictremark,jdbcType=VARCHAR},
+      </if>
+      <if test="dictid != null" >
+        #{dictid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentdictid != null" >
+        #{parentdictid,jdbcType=VARCHAR},
+      </if>
+      <if test="systype != null" >
+        #{systype,jdbcType=DECIMAL},
+      </if>
+      <if test="dictcode != null" >
+        #{dictcode,jdbcType=VARCHAR},
+      </if>
+      <if test="leaf != null" >
+        #{leaf,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.boco.eoms.tawSystemDictType.model.TawSystemDictType" >
+    update TAW_SYSTEM_DICTTYPE
+    <set >
+      <if test="dictname != null" >
+        DICTNAME = #{dictname,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleid != null" >
+        MODULEID = #{moduleid,jdbcType=DECIMAL},
+      </if>
+      <if test="modulename != null" >
+        MODULENAME = #{modulename,jdbcType=VARCHAR},
+      </if>
+      <if test="dictremark != null" >
+        DICTREMARK = #{dictremark,jdbcType=VARCHAR},
+      </if>
+      <if test="dictid != null" >
+        DICTID = #{dictid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentdictid != null" >
+        PARENTDICTID = #{parentdictid,jdbcType=VARCHAR},
+      </if>
+      <if test="systype != null" >
+        SYSTYPE = #{systype,jdbcType=DECIMAL},
+      </if>
+      <if test="dictcode != null" >
+        DICTCODE = #{dictcode,jdbcType=VARCHAR},
+      </if>
+      <if test="leaf != null" >
+        LEAF = #{leaf,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.boco.eoms.tawSystemDictType.model.TawSystemDictType" >
+    update TAW_SYSTEM_DICTTYPE
+    set DICTNAME = #{dictname,jdbcType=VARCHAR},
+      MODULEID = #{moduleid,jdbcType=DECIMAL},
+      MODULENAME = #{modulename,jdbcType=VARCHAR},
+      DICTREMARK = #{dictremark,jdbcType=VARCHAR},
+      DICTID = #{dictid,jdbcType=VARCHAR},
+      PARENTDICTID = #{parentdictid,jdbcType=VARCHAR},
+      SYSTYPE = #{systype,jdbcType=DECIMAL},
+      DICTCODE = #{dictcode,jdbcType=VARCHAR},
+      LEAF = #{leaf,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  
+   <select id="listByDictId" resultMap="BaseResultMap" parameterType="java.lang.String">	
+	select  
+	<include refid="Base_Column_List" />
+	from taw_system_dicttype
+	where DICTID=#{dictid,jdbcType=VARCHAR}
+	order by id
+  </select>
+  
+  
+  
+  
+  
+</mapper>

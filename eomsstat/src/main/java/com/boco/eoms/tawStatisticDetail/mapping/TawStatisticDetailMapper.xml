@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.tawStatisticDetail.dao.TawStatisticDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.tawStatisticDetail.model.TawStatisticDetail" >
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="DETAIL_NUM" property="detailNum" jdbcType="DECIMAL" />
+    <result column="DETAIL_NUM_NAME" property="detailNumName" jdbcType="VARCHAR" />
+    <result column="GROUP_TYPE" property="groupType" jdbcType="VARCHAR" />
+    <result column="URL_FLAG" property="urlFlag" jdbcType="VARCHAR" />
+    <result column="URL" property="url" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    ID,DETAIL_NUM,DETAIL_NUM_NAME,GROUP_TYPE,URL_FLAG,URL
+  </sql>
+  
+  <insert id="insert" parameterType="com.boco.eoms.tawStatisticDetail.model.TawStatisticDetail" >
+    insert into TAW_STATISTIC_DETAIL (ID, DETAIL_NUM, DETAIL_NUM_NAME, 
+      GROUP_TYPE, URL_FLAG, URL
+      )
+    values (#{id,jdbcType=VARCHAR}, #{detailNum,jdbcType=DECIMAL}, #{detailNumName,jdbcType=VARCHAR}, 
+      #{groupType,jdbcType=VARCHAR}, #{urlFlag,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.boco.eoms.tawStatisticDetail.model.TawStatisticDetail" >
+    insert into TAW_STATISTIC_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="detailNum != null" >
+        DETAIL_NUM,
+      </if>
+      <if test="detailNumName != null" >
+        DETAIL_NUM_NAME,
+      </if>
+      <if test="groupType != null" >
+        GROUP_TYPE,
+      </if>
+      <if test="urlFlag != null" >
+        URL_FLAG,
+      </if>
+      <if test="url != null" >
+        URL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="detailNum != null" >
+        #{detailNum,jdbcType=DECIMAL},
+      </if>
+      <if test="detailNumName != null" >
+        #{detailNumName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupType != null" >
+        #{groupType,jdbcType=VARCHAR},
+      </if>
+      <if test="urlFlag != null" >
+        #{urlFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  
+   <update id="updateByDetail" parameterType="com.boco.eoms.tawStatisticDetail.model.TawStatisticDetail" >
+    update TAW_STATISTIC_DETAIL
+    	set 
+    	DETAIL_NUM=#{detailNum,jdbcType=VARCHAR},
+    	DETAIL_NUM_NAME=#{detailNumName,jdbcType=VARCHAR},
+    	GROUP_TYPE=#{groupType,jdbcType=VARCHAR},
+    	URL_FLAG=#{urlFlag,jdbcType=VARCHAR},
+    	URL=#{url,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <!-- 条件查询 -->
+  <select id="listDetailConditionByPage" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select  <include refid="Base_Column_List" />
+	from (select rownum AS rowno,<include refid="Base_Column_List" />
+	from TAW_STATISTIC_DETAIL
+	where  1=1 
+		    <if test="detailNamequery != ''">
+		      AND DETAIL_NUM_NAME like '%'||#{detailNamequery}||'%'
+		    </if>
+		    <if test="groupTypequery != ''">
+		      AND GROUP_TYPE = #{groupTypequery}
+		    </if>
+	 and ROWNUM <![CDATA[<=]]>#{endPageNum}) tablealias
+	WHERE tablealias.rowno <![CDATA[>=]]>#{begainPageNum}
+  </select>
+  
+  <!-- 条件查询数据总数 -->
+  <select id="listDetailConditonAllCount" resultType="java.lang.String" parameterType="java.util.Map">
+    select count(ID)
+    from TAW_STATISTIC_DETAIL where 1=1 
+    		<if test="detailNamequery != ''">
+		      AND DETAIL_NUM_NAME like '%'||#{detailNamequery}||'%'
+		    </if>
+		    <if test="groupTypequery != ''">
+		      AND GROUP_TYPE = #{groupTypequery}
+		    </if>
+  </select>
+  
+	<select id="getTawStatisticDetailById" resultMap="BaseResultMap"  parameterType="java.lang.String">
+       select <include refid="Base_Column_List" />
+       from TAW_STATISTIC_DETAIL  
+       	where id=#{detailId}
+   </select>
+   
+   <select id="getTawStatisticDetailByGroupType" resultMap="BaseResultMap"  parameterType="java.lang.String">
+       select <include refid="Base_Column_List" />
+       from TAW_STATISTIC_DETAIL  
+       	where GROUP_TYPE=#{groupType}
+   </select>
+   
+   <select id="getTawStatisticDetailByNum" resultMap="BaseResultMap"  parameterType="java.lang.String">
+       select <include refid="Base_Column_List" />
+       from TAW_STATISTIC_DETAIL  
+       	where DETAIL_NUM=#{detailNum}
+   </select>
+  
+  <!-- 查询结束 -->
+  
+  
+  <delete id="deleteDetail" parameterType="java.lang.String">
+        delete TAW_STATISTIC_DETAIL where id=#{detailId}
+  </delete>
+  
+  
+</mapper>

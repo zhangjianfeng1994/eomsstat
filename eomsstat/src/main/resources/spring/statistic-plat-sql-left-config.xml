@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<boco-statisticPlat>
+	<statistic-demension-title><rowspan>2</rowspan><totalcolumn>12</totalcolumn><text>人员姓名</text></statistic-demension-title>
+	<statistic-demension-table>table</statistic-demension-table>
+	<statistic-demension-table-sql>select distinct taw.userid as dutyman,taw.username  from t_statistic_left_user a,taw_system_user taw where a.dutyman = taw.userid and to_date(a.dutydate,'YYYY-MM-DD')&gt;=to_date('@begintime@','YYYY-MM-DD') and to_date(a.dutydate,'YYYY-MM-DD')&lt;=to_date('@endtime@','YYYY-MM-DD') or taw.userid='jks'</statistic-demension-table-sql>
+	<statistic-demension-column>username</statistic-demension-column>
+	<statistic-demension-codeType>tableType</statistic-demension-codeType>
+	<statistic-demension-parentCode></statistic-demension-parentCode>
+	<statistic-demension-items>
+		<rowspan>2</rowspan>
+		<item>
+			<item-no>item1</item-no>
+			<colspan>11</colspan>
+			<title>遗留工单统计指标</title>
+			<table-belong>t_statistic_left_all</table-belong>
+				<index>
+					<index-no>no1</index-no>
+					<index-title>所处班次处理工单量</index-title>
+					<index-statistic>nvl(sum(case when (dealsheetflagTime&gt;=to_date(starttime_defined,'YYYY-MM-DD HH24:MI:SS') and dealsheetflagTime&lt;= to_date(endtime_defined,'YYYY-MM-DD HH24:MI:SS')) then 1 else 0 end),0)</index-statistic>
+					<index-condition>and dealsheetflagTime&gt;=to_date(starttime_defined,'YYYY-MM-DD HH24:MI:SS') and dealsheetflagTime&lt;= to_date(endtime_defined,'YYYY-MM-DD HH24:MI:SS')</index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no2</index-no>
+					<index-title>所处班次处理及时工单量</index-title>
+					<index-statistic>nvl(sum(case when (dealsheetflagTime&lt;nodecompletelimit and dealsheetflagTime&gt;=to_date(starttime_defined,'YYYY-MM-DD HH24:MI:SS') and dealsheetflagTime&lt;= to_date(endtime_defined,'YYYY-MM-DD HH24:MI:SS')) then 1 else 0 end),0)</index-statistic>
+					<index-condition>and dealsheetflagTime&lt;nodecompletelimit and dealsheetflagTime&gt;=to_date(starttime_defined,'YYYY-MM-DD HH24:MI:SS') and dealsheetflagTime&lt;= to_date(endtime_defined,'YYYY-MM-DD HH24:MI:SS')</index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+			
+				<index>
+					<index-no>no3</index-no>
+					<index-title>所处班次受理工单量</index-title>
+					<index-statistic>nvl(sum(case when (accpsheetflagTime&gt;=to_date(starttime_defined,'YYYY-MM-DD HH24:MI:SS') and accpsheetflagTime&lt;= to_date(endtime_defined,'YYYY-MM-DD HH24:MI:SS')) then 1 else 0 end),0)</index-statistic>
+					<index-condition>and accpsheetflagTime&gt;=to_date(starttime_defined,'YYYY-MM-DD HH24:MI:SS') and accpsheetflagTime&lt;= to_date(endtime_defined,'YYYY-MM-DD HH24:MI:SS')</index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num></index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no4</index-no>
+					<index-title>所处班次受理及时工单量</index-title>
+					<index-statistic>nvl(sum(case when (accpsheetflagTime&lt;accpnodecompletelimit and accpsheetflagTime&gt;=to_date(starttime_defined,'YYYY-MM-DD HH24:MI:SS') and accpsheetflagTime&lt;= to_date(endtime_defined,'YYYY-MM-DD HH24:MI:SS')) then 1 else 0 end),0)</index-statistic>
+					<index-condition>and accpsheetflagTime&lt;accpnodecompletelimit and accpsheetflagTime&gt;=to_date(starttime_defined,'YYYY-MM-DD HH24:MI:SS') and accpsheetflagTime&lt;= to_date(endtime_defined,'YYYY-MM-DD HH24:MI:SS')</index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num></index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				
+				<index>
+					<index-no>no5</index-no>
+					<index-title>受理时长【分钟】</index-title>
+					<index-statistic>ROUND(nvl(sum(case when (accpsheetflagTime&gt;=to_date(starttime_defined,'YYYY-MM-DD HH24:MI:SS') and accpsheetflagTime&lt;= to_date(endtime_defined,'YYYY-MM-DD HH24:MI:SS')) then (accpsheetflagTime-SENDTIME)* 24 * 60 else 0 end),0))</index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num></index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no6</index-no>
+					<index-title>完结工单量</index-title>
+					<index-statistic>nvl(sum(case when (t1overflagTime&gt;=to_date(starttime_defined,'YYYY-MM-DD HH24:MI:SS') and t1overflagTime&lt;= to_date(endtime_defined,'YYYY-MM-DD HH24:MI:SS')) then 1 else 0 end),0)</index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num></index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no7</index-no>
+					<index-title>遗留工单总量</index-title>
+					<index-statistic>nvl(sum(case when (dealsheetflagTime&gt;=to_date(starttime_defined,'YYYY-MM-DD HH24:MI:SS') and dealsheetflagTime&lt;= to_date(endtime_defined,'YYYY-MM-DD HH24:MI:SS')) then 1 else 0 end),0)</index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num></index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+					<index>
+					<index-no>no2/no1</index-no>
+					<index-title>处理及时率【%】</index-title>
+					<index-statistic></index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>1</index-rate>
+				</index>
+				
+				<index>
+					<index-no>no4/no3</index-no>
+					<index-title>受理及时率【%】</index-title>
+					<index-statistic></index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num></index-grasp-num>
+					<index-rate>1</index-rate>
+				</index>
+				
+				<index>
+					<index-no>no5/no3</index-no>
+					<index-title>平均受理时长【分钟】</index-title>
+					<index-statistic></index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num></index-grasp-num>
+					<index-rate>2</index-rate>
+				</index>
+				<index>
+					<index-no>no6/no7</index-no>
+					<index-title>工单完结率【%】</index-title>
+					<index-statistic></index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num></index-grasp-num>
+					<index-rate>1</index-rate>
+				</index>
+		</item>
+		
+
+
+	
+		
+	</statistic-demension-items>
+	<!-- 详单配置 -->
+	<statistic-details>
+		<statistic-detail-item>
+			<detail-num>0</detail-num>
+			<detail-name>集中故障漏消除比率</detail-name>
+			<detail-url>http://wwww.baidu.com</detail-url>
+			<detail-groupType>t_statistic_unclear_rate</detail-groupType>
+			<cloumns>
+				<column-item>
+					<column-name>title</column-name>
+					<column-cnname>标题</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>sheetid</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+			</cloumns>
+		</statistic-detail-item>
+		
+		
+	</statistic-details>
+</boco-statisticPlat>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stat>
+		<stat0 type="all"><!-- 所有报表全部限制权限  -->
+			<sql>areaid</sql> <!-- 权限限制所需的字段  -->
+		</stat0>
+		<stat1 type="part"><!-- 部分报表限制权限  -->
+			<model modelId="">
+				<sql>deptid</sql>
+			</model>
+			<model modelId="">
+				<sql>deptid,userid</sql>
+			</model>
+		</stat1>
+</stat>

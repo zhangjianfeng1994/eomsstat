@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.tawSystemUser.dao.TawSystemUserMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.tawSystemUser.model.TawSystemUser" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="CPTROOMID" property="cptroomid" jdbcType="VARCHAR" />
+    <result column="CPTROOMNAME" property="cptroomname" jdbcType="VARCHAR" />
+    <result column="DEPTID" property="deptid" jdbcType="VARCHAR" />
+    <result column="DEPTNAME" property="deptname" jdbcType="VARCHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="FAMILYADDRESS" property="familyaddress" jdbcType="VARCHAR" />
+    <result column="FAX" property="fax" jdbcType="VARCHAR" />
+    <result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+    <result column="OPERUSERID" property="operuserid" jdbcType="VARCHAR" />
+    <result column="PHONE" property="phone" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="SEX" property="sex" jdbcType="VARCHAR" />
+    <result column="USERDEGREE" property="userdegree" jdbcType="VARCHAR" />
+    <result column="USERID" property="userid" jdbcType="VARCHAR" />
+    <result column="USERNAME" property="username" jdbcType="VARCHAR" />
+    <result column="OPERREMOTIP" property="operremotip" jdbcType="VARCHAR" />
+    <result column="SAVETIME" property="savetime" jdbcType="TIMESTAMP" />
+    <result column="UPDATETIME" property="updatetime" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_ENABLED" property="accountEnabled" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_EXPIRED" property="accountExpired" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_LOCKED" property="accountLocked" jdbcType="VARCHAR" />
+    <result column="CREDENTIALS_EXPIRED" property="credentialsExpired" jdbcType="VARCHAR" />
+    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="POSTAL_CODE" property="postalCode" jdbcType="VARCHAR" />
+    <result column="DELETED" property="deleted" jdbcType="VARCHAR" />
+    <result column="ISFULLEMPLOY" property="isfullemploy" jdbcType="VARCHAR" />
+    <result column="ISREST" property="isrest" jdbcType="VARCHAR" />
+    <result column="USERSTATUS" property="userstatus" jdbcType="VARCHAR" />
+    <result column="PORTALROLENAME" property="portalrolename" jdbcType="VARCHAR" />
+    <result column="FLAG" property="flag" jdbcType="DECIMAL" />
+    <result column="FAIL_COUNT" property="failCount" jdbcType="DECIMAL" />
+    <result column="ISPARTNERS" property="ispartners" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, CPTROOMID, CPTROOMNAME, DEPTID, DEPTNAME, EMAIL, FAMILYADDRESS, FAX, MOBILE, 
+    OPERUSERID, PHONE, REMARK, SEX, USERDEGREE, USERID, USERNAME, OPERREMOTIP, SAVETIME, 
+    UPDATETIME, ACCOUNT_ENABLED, ACCOUNT_EXPIRED, ACCOUNT_LOCKED, CREDENTIALS_EXPIRED, 
+    PASSWORD, POSTAL_CODE, DELETED, ISFULLEMPLOY, ISREST, USERSTATUS, PORTALROLENAME, 
+    FLAG, FAIL_COUNT, ISPARTNERS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_USER
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from TAW_SYSTEM_USER
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.boco.eoms.tawSystemUser.model.TawSystemUser" >
+    insert into TAW_SYSTEM_USER (ID, CPTROOMID, CPTROOMNAME, 
+      DEPTID, DEPTNAME, EMAIL, 
+      FAMILYADDRESS, FAX, MOBILE, 
+      OPERUSERID, PHONE, REMARK, 
+      SEX, USERDEGREE, USERID, 
+      USERNAME, OPERREMOTIP, SAVETIME, 
+      UPDATETIME, ACCOUNT_ENABLED, ACCOUNT_EXPIRED, 
+      ACCOUNT_LOCKED, CREDENTIALS_EXPIRED, PASSWORD, 
+      POSTAL_CODE, DELETED, ISFULLEMPLOY, 
+      ISREST, USERSTATUS, PORTALROLENAME, 
+      FLAG, FAIL_COUNT, ISPARTNERS
+      )
+    values (#{id,jdbcType=VARCHAR}, #{cptroomid,jdbcType=VARCHAR}, #{cptroomname,jdbcType=VARCHAR}, 
+      #{deptid,jdbcType=VARCHAR}, #{deptname,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{familyaddress,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{operuserid,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{userdegree,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
+      #{username,jdbcType=VARCHAR}, #{operremotip,jdbcType=VARCHAR}, #{savetime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=VARCHAR}, #{accountEnabled,jdbcType=VARCHAR}, #{accountExpired,jdbcType=VARCHAR}, 
+      #{accountLocked,jdbcType=VARCHAR}, #{credentialsExpired,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{postalCode,jdbcType=VARCHAR}, #{deleted,jdbcType=VARCHAR}, #{isfullemploy,jdbcType=VARCHAR}, 
+      #{isrest,jdbcType=VARCHAR}, #{userstatus,jdbcType=VARCHAR}, #{portalrolename,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=DECIMAL}, #{failCount,jdbcType=DECIMAL}, #{ispartners,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.boco.eoms.tawSystemUser.model.TawSystemUser" >
+    insert into TAW_SYSTEM_USER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="cptroomid != null" >
+        CPTROOMID,
+      </if>
+      <if test="cptroomname != null" >
+        CPTROOMNAME,
+      </if>
+      <if test="deptid != null" >
+        DEPTID,
+      </if>
+      <if test="deptname != null" >
+        DEPTNAME,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="familyaddress != null" >
+        FAMILYADDRESS,
+      </if>
+      <if test="fax != null" >
+        FAX,
+      </if>
+      <if test="mobile != null" >
+        MOBILE,
+      </if>
+      <if test="operuserid != null" >
+        OPERUSERID,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="sex != null" >
+        SEX,
+      </if>
+      <if test="userdegree != null" >
+        USERDEGREE,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="username != null" >
+        USERNAME,
+      </if>
+      <if test="operremotip != null" >
+        OPERREMOTIP,
+      </if>
+      <if test="savetime != null" >
+        SAVETIME,
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME,
+      </if>
+      <if test="accountEnabled != null" >
+        ACCOUNT_ENABLED,
+      </if>
+      <if test="accountExpired != null" >
+        ACCOUNT_EXPIRED,
+      </if>
+      <if test="accountLocked != null" >
+        ACCOUNT_LOCKED,
+      </if>
+      <if test="credentialsExpired != null" >
+        CREDENTIALS_EXPIRED,
+      </if>
+      <if test="password != null" >
+        PASSWORD,
+      </if>
+      <if test="postalCode != null" >
+        POSTAL_CODE,
+      </if>
+      <if test="deleted != null" >
+        DELETED,
+      </if>
+      <if test="isfullemploy != null" >
+        ISFULLEMPLOY,
+      </if>
+      <if test="isrest != null" >
+        ISREST,
+      </if>
+      <if test="userstatus != null" >
+        USERSTATUS,
+      </if>
+      <if test="portalrolename != null" >
+        PORTALROLENAME,
+      </if>
+      <if test="flag != null" >
+        FLAG,
+      </if>
+      <if test="failCount != null" >
+        FAIL_COUNT,
+      </if>
+      <if test="ispartners != null" >
+        ISPARTNERS,
+      </if>
+     
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="cptroomid != null" >
+        #{cptroomid,jdbcType=VARCHAR},
+      </if>
+      <if test="cptroomname != null" >
+        #{cptroomname,jdbcType=VARCHAR},
+      </if>
+      <if test="deptid != null" >
+        #{deptid,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null" >
+        #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="familyaddress != null" >
+        #{familyaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="operuserid != null" >
+        #{operuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="userdegree != null" >
+        #{userdegree,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="operremotip != null" >
+        #{operremotip,jdbcType=VARCHAR},
+      </if>
+      <if test="savetime != null" >
+        #{savetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="accountEnabled != null" >
+        #{accountEnabled,jdbcType=VARCHAR},
+      </if>
+      <if test="accountExpired != null" >
+        #{accountExpired,jdbcType=VARCHAR},
+      </if>
+      <if test="accountLocked != null" >
+        #{accountLocked,jdbcType=VARCHAR},
+      </if>
+      <if test="credentialsExpired != null" >
+        #{credentialsExpired,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="postalCode != null" >
+        #{postalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=VARCHAR},
+      </if>
+      <if test="isfullemploy != null" >
+        #{isfullemploy,jdbcType=VARCHAR},
+      </if>
+      <if test="isrest != null" >
+        #{isrest,jdbcType=VARCHAR},
+      </if>
+      <if test="userstatus != null" >
+        #{userstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="portalrolename != null" >
+        #{portalrolename,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="failCount != null" >
+        #{failCount,jdbcType=DECIMAL},
+      </if>
+      <if test="ispartners != null" >
+        #{ispartners,jdbcType=VARCHAR},
+      </if>
+      
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.boco.eoms.tawSystemUser.model.TawSystemUser" >
+    update TAW_SYSTEM_USER
+    <set >
+      <if test="cptroomid != null" >
+        CPTROOMID = #{cptroomid,jdbcType=VARCHAR},
+      </if>
+      <if test="cptroomname != null" >
+        CPTROOMNAME = #{cptroomname,jdbcType=VARCHAR},
+      </if>
+      <if test="deptid != null" >
+        DEPTID = #{deptid,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null" >
+        DEPTNAME = #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="familyaddress != null" >
+        FAMILYADDRESS = #{familyaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        FAX = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        MOBILE = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="operuserid != null" >
+        OPERUSERID = #{operuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        SEX = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="userdegree != null" >
+        USERDEGREE = #{userdegree,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        USERID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="operremotip != null" >
+        OPERREMOTIP = #{operremotip,jdbcType=VARCHAR},
+      </if>
+      <if test="savetime != null" >
+        SAVETIME = #{savetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME = #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="accountEnabled != null" >
+        ACCOUNT_ENABLED = #{accountEnabled,jdbcType=VARCHAR},
+      </if>
+      <if test="accountExpired != null" >
+        ACCOUNT_EXPIRED = #{accountExpired,jdbcType=VARCHAR},
+      </if>
+      <if test="accountLocked != null" >
+        ACCOUNT_LOCKED = #{accountLocked,jdbcType=VARCHAR},
+      </if>
+      <if test="credentialsExpired != null" >
+        CREDENTIALS_EXPIRED = #{credentialsExpired,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="postalCode != null" >
+        POSTAL_CODE = #{postalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null" >
+        DELETED = #{deleted,jdbcType=VARCHAR},
+      </if>
+      <if test="isfullemploy != null" >
+        ISFULLEMPLOY = #{isfullemploy,jdbcType=VARCHAR},
+      </if>
+      <if test="isrest != null" >
+        ISREST = #{isrest,jdbcType=VARCHAR},
+      </if>
+      <if test="userstatus != null" >
+        USERSTATUS = #{userstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="portalrolename != null" >
+        PORTALROLENAME = #{portalrolename,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        FLAG = #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="failCount != null" >
+        FAIL_COUNT = #{failCount,jdbcType=DECIMAL},
+      </if>
+      <if test="ispartners != null" >
+        ISPARTNERS = #{ispartners,jdbcType=VARCHAR},
+      </if>
+      
+   
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.boco.eoms.tawSystemUser.model.TawSystemUser" >
+    update TAW_SYSTEM_USER
+    set CPTROOMID = #{cptroomid,jdbcType=VARCHAR},
+      CPTROOMNAME = #{cptroomname,jdbcType=VARCHAR},
+      DEPTID = #{deptid,jdbcType=VARCHAR},
+      DEPTNAME = #{deptname,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      FAMILYADDRESS = #{familyaddress,jdbcType=VARCHAR},
+      FAX = #{fax,jdbcType=VARCHAR},
+      MOBILE = #{mobile,jdbcType=VARCHAR},
+      OPERUSERID = #{operuserid,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      USERDEGREE = #{userdegree,jdbcType=VARCHAR},
+      USERID = #{userid,jdbcType=VARCHAR},
+      USERNAME = #{username,jdbcType=VARCHAR},
+      OPERREMOTIP = #{operremotip,jdbcType=VARCHAR},
+      SAVETIME = #{savetime,jdbcType=TIMESTAMP},
+      UPDATETIME = #{updatetime,jdbcType=VARCHAR},
+      ACCOUNT_ENABLED = #{accountEnabled,jdbcType=VARCHAR},
+      ACCOUNT_EXPIRED = #{accountExpired,jdbcType=VARCHAR},
+      ACCOUNT_LOCKED = #{accountLocked,jdbcType=VARCHAR},
+      CREDENTIALS_EXPIRED = #{credentialsExpired,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      POSTAL_CODE = #{postalCode,jdbcType=VARCHAR},
+      DELETED = #{deleted,jdbcType=VARCHAR},
+      ISFULLEMPLOY = #{isfullemploy,jdbcType=VARCHAR},
+      ISREST = #{isrest,jdbcType=VARCHAR},
+      USERSTATUS = #{userstatus,jdbcType=VARCHAR},
+      PORTALROLENAME = #{portalrolename,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=DECIMAL},
+      FAIL_COUNT = #{failCount,jdbcType=DECIMAL},
+      ISPARTNERS = #{ispartners,jdbcType=VARCHAR}
+     
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  
+  <select id="getUserByUserid" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_USER
+    where USERID = #{userid,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="getAllUsers" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_USER
+  </select>
+  
+  <select id="getUsersByDeptId" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_USER
+    where DEPTID = #{deptId,jdbcType=VARCHAR}
+  </select>
+  
+</mapper>

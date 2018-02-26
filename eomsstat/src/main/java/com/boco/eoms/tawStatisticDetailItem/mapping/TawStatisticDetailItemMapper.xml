@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.tawStatisticDetailItem.dao.TawStatisticDetailItemMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.tawStatisticDetailItem.model.TawStatisticDetailItem" >
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="DETAIL_ID" property="detailId" jdbcType="VARCHAR" />
+    <result column="DETAIL_COLUMN_ENG" property="detailColumnEng" jdbcType="VARCHAR" />
+    <result column="DETAIL_COLUMN_CHINA" property="detailColumnChina" jdbcType="VARCHAR" />
+    <result column="TRANSFER_TYPE" property="transferType" jdbcType="VARCHAR" />
+    <result column="TRANSFER_CODE" property="transferCode" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    ID,DETAIL_ID,DETAIL_COLUMN_ENG,DETAIL_COLUMN_CHINA,TRANSFER_TYPE,TRANSFER_CODE
+  </sql>
+  
+  <insert id="insert" parameterType="com.boco.eoms.tawStatisticDetailItem.model.TawStatisticDetailItem" >
+    insert into TAW_STATISTIC_DETAIL_ITEM (ID, DETAIL_ID, DETAIL_COLUMN_ENG, 
+      DETAIL_COLUMN_CHINA, TRANSFER_TYPE, TRANSFER_CODE
+      )
+    values (#{id,jdbcType=VARCHAR}, #{detailId,jdbcType=VARCHAR}, #{detailColumnEng,jdbcType=VARCHAR}, 
+      #{detailColumnChina,jdbcType=VARCHAR}, #{transferType,jdbcType=VARCHAR}, #{transferCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.boco.eoms.tawStatisticDetailItem.model.TawStatisticDetailItem" >
+    insert into TAW_STATISTIC_DETAIL_ITEM
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="detailId != null" >
+        DETAIL_ID,
+      </if>
+      <if test="detailColumnEng != null" >
+        DETAIL_COLUMN_ENG,
+      </if>
+      <if test="detailColumnChina != null" >
+        DETAIL_COLUMN_CHINA,
+      </if>
+      <if test="transferType != null" >
+        TRANSFER_TYPE,
+      </if>
+      <if test="transferCode != null" >
+        TRANSFER_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="detailId != null" >
+        #{detailId,jdbcType=VARCHAR},
+      </if>
+      <if test="detailColumnEng != null" >
+        #{detailColumnEng,jdbcType=VARCHAR},
+      </if>
+      <if test="detailColumnChina != null" >
+        #{detailColumnChina,jdbcType=VARCHAR},
+      </if>
+      <if test="transferType != null" >
+        #{transferType,jdbcType=VARCHAR},
+      </if>
+      <if test="transferCode != null" >
+        #{transferCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateTawStatisticDetailItem" parameterType="com.boco.eoms.tawStatisticDetailItem.model.TawStatisticDetailItem" >
+    update TAW_STATISTIC_DETAIL_ITEM
+    	set 
+    	DETAIL_COLUMN_ENG=#{detailColumnEng,jdbcType=VARCHAR},
+    	DETAIL_COLUMN_CHINA=#{detailColumnChina,jdbcType=VARCHAR},
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="getDetailItemByDetailId" resultMap="BaseResultMap" parameterType="java.lang.String">
+  	select <include refid="Base_Column_List" /> 
+  		from TAW_STATISTIC_DETAIL_ITEM 
+  	where DETAIL_ID=#{detailItemId} order by TRANSFER_CODE
+  </select>
+  
+  
+    <delete id="deleteDetailItem" parameterType="java.lang.String">
+        delete TAW_STATISTIC_DETAIL_ITEM where id=#{detailItemId}
+  </delete>
+  
+  <delete id="deleteDetailItemByItemid" parameterType="java.lang.String">
+        delete TAW_STATISTIC_DETAIL_ITEM where DETAIL_ID=#{detailItemId}
+  </delete>
+  
+</mapper>

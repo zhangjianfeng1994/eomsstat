@@ -1,0 +1,8 @@
+<?xml   version="1.0"   encoding="utf-8"?>       
+<boco-statisticPlat>
+	<tableBelong tableName="人员看板">t_statistic_plat_human</tableBelong>
+	<tableBelong tableName="遗留工单看板">t_statistic_left_all</tableBelong>
+	<tableBelong tableName="测试中间表">ccmf_statistic_table</tableBelong>
+	<tableBelong tableName="联通中间表">OP_RE_ST_GW_HY</tableBelong>
+	<tableBelong tableName="故障工单表">CentralCommonfault_main</tableBelong>
+</boco-statisticPlat>

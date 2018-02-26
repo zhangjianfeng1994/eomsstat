@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<boco-statisticPlat>
+	<statistic-demension-title><rowspan>2</rowspan><totalcolumn>28</totalcolumn><text>网络分类</text></statistic-demension-title>
+
+	<statistic-demension-column>mainnetsortone</statistic-demension-column>
+	<statistic-demension-codeType>dictType</statistic-demension-codeType>
+	<statistic-demension-parentCode>-1</statistic-demension-parentCode>
+	<statistic-demension-items>
+		<rowspan>2</rowspan>
+		<item>
+			<item-no>item1</item-no>
+			<colspan>3</colspan>
+			<title>漏清除消息比率</title>
+			<table-belong>t_statistic_kpi_section1</table-belong>
+				<index>
+					<index-no>no1</index-no>
+					<index-title>已报结未有清除时间的工单量</index-title>
+					<index-statistic>nvl(sum(case when (f1=1) then 1 else 0 end),0)</index-statistic>
+					<index-condition>and f1=1</index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no2</index-no>
+					<index-title>已报结的工单总量</index-title>
+					<index-statistic>nvl(sum(case when (operatetime is not null) then 1 else 0 end),0)</index-statistic>
+					<index-condition>and operatetime is not null</index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no1/no2</index-no>
+					<index-title>漏清除消息比率</index-title>
+					<index-statistic></index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num></index-grasp-num>
+					<index-rate>3</index-rate>
+				</index>
+		</item>
+		
+		<item>
+			<item-no>item2</item-no>
+			<colspan>3</colspan>
+			<title>故障拦截率</title>
+			<table-belong>t_statistic_kpi_section1</table-belong>
+				<index>
+					<index-no>no1</index-no>
+					<index-title>T2环节前报结的工单量</index-title>
+					<index-statistic>nvl(sum(case when (f2=1) then 1 else 0 end),0)</index-statistic>
+					<index-condition>and f2=1</index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no2</index-no>
+					<index-title>故障工单总量</index-title>
+					<index-statistic>nvl(sum(case when (status in (1,-13)) then 1 else 0 end),0)</index-statistic>
+					<index-condition>and status in(1,-13)</index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no1/no2</index-no>
+					<index-title>故障拦截比率</index-title>
+					<index-statistic></index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num></index-grasp-num>
+					<index-rate>1</index-rate>
+				</index>
+		</item>
+		
+		<item>
+			<item-no>item3</item-no>
+			<colspan>3</colspan>
+			<title>派单故障命中率</title>
+			<table-belong>t_statistic_kpi_section1</table-belong>
+				<index>
+					<index-no>no1</index-no>
+					<index-title>故障工单总量</index-title>
+					<index-statistic>nvl(sum(case when (status in (1,-13)) then 1 else 0 end),0)</index-statistic>
+					<index-condition>and stauts=(1,-13)</index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no2</index-no>
+					<index-title>专业核实为故障的故障工单量</index-title>
+					<index-statistic>nvl(sum(case when (f3=1) then 1 else 0 end),0)</index-statistic>
+					<index-condition>and f3=1</index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no2/no1</index-no>
+					<index-title>派单故障命中率</index-title>
+					<index-statistic></index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num></index-grasp-num>
+					<index-rate>1</index-rate>
+				</index>
+		</item>
+		
+		<item>
+			<item-no>item4</item-no>
+			<colspan>3</colspan>
+			<title>派单准确率</title>
+			<table-belong>t_statistic_kpi_section1</table-belong>
+				<index>
+					<index-no>no1</index-no>
+					<index-title>故障工单总量</index-title>
+					<index-statistic>nvl(sum(case when (status in (1,-13)) then 1 else 0 end),0)</index-statistic>
+					<index-condition>and stauts=(1,-13)</index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no2</index-no>
+					<index-title>地市驳回T1故障工单量</index-title>
+					<index-statistic>nvl(sum(case when (f4=1) then 1 else 0 end),0)</index-statistic>
+					<index-condition>and f4=1</index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no2/no1</index-no>
+					<index-title>派单准确率</index-title>
+					<index-statistic></index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num></index-grasp-num>
+					<index-rate>1</index-rate>
+				</index>
+		</item>
+		
+		<item>
+			<item-no>item5</item-no>
+			<colspan>3</colspan>
+			<title>督办及时率</title>
+			<table-belong>t_statistic_kpi_section1</table-belong>
+				<index>
+					<index-no>no1</index-no>
+					<index-title>故障工单总量</index-title>
+					<index-statistic>nvl(sum(f3),0)</index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no2</index-no>
+					<index-title>及时督办工单量</index-title>
+					<index-statistic>nvl(sum(case when (f51=1 and status in (1,-13)) then 1 else 0 end),0)</index-statistic>
+					<index-condition>and status in(1,-13)</index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no2/no1</index-no>
+					<index-title>督办及时率</index-title>
+					<index-statistic></index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num></index-grasp-num>
+					<index-rate>1</index-rate>
+				</index>
+		</item>
+			
+			
+			
+			
+			
+			
+			
+			
+ 		<item>
+ 			<item-no>item6</item-no>
+ 			<colspan>3</colspan>
+ 			<title>平均故障历时</title> 
+ 			<table-belong>t_statistic_kpi_section1</table-belong> 
+				<index>
+ 					<index-no>no1</index-no>
+ 					<index-title>故障工单总量</index-title> 
+					<index-statistic>nvl(sum(case when (status in (1,-13)) then 1 else 0 end),0)</index-statistic>
+					<index-condition>and status in(0,1,-13)</index-condition> 
+					<index-grasp>0</index-grasp>
+ 					<index-grasp-num>0</index-grasp-num>
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+				<index>
+					<index-no>no2</index-no>
+ 					<index-title>故障总历时（小时）</index-title> 
+ 					
+ 					<index-statistic>nvl(round(sum(case when (linkFaultAvoidTime is not null and sendtime is not null) then linkFaultAvoidTime-sendtime else 0 end),2),0)</index-statistic> 
+ 					<index-condition>and status in(1,-13)</index-condition> 
+ 					<index-grasp>0</index-grasp> 
+ 					<index-grasp-num>0</index-grasp-num> 
+					<index-rate>0</index-rate> 
+				</index> 
+ 				<index> 
+ 					<index-no>no2/no1</index-no> 
+ 					<index-title>平均故障历时（小时）</index-title> 
+ 					<index-statistic></index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>0</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>2</index-rate>
+ 				</index> 
+ 		</item> 
+		
+ 		<item> 
+ 			<item-no>item7</item-no>
+ 			<colspan>3</colspan> 
+ 			<title>工单响应时长</title> 
+ 			<table-belong>t_statistic_kpi_section1</table-belong> 
+ 				<index> 
+ 					<index-no>no1</index-no> 
+					<index-title>故障工单总量</index-title> 
+ 					<index-statistic>nvl(sum(case when (status in (1,-13)) then 1 else 0 end),0)</index-statistic> 
+ 					<index-condition></index-condition>
+ 					<index-grasp>0</index-grasp> 
+ 					<index-grasp-num>0</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+ 				<index> 
+ 					<index-no>no2</index-no> 
+ 					<index-title>工单响应总时长（小时）</index-title> 
+ 					
+ 					<index-statistic>nvl(round(sum(case when (f7 is not null and sendtime is not null) then f7-sendtime else 0 end),2),0)</index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>0</index-grasp> 
+					<index-grasp-num>0</index-grasp-num>
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+ 				<index> 
+					<index-no>no2/no1</index-no> 
+ 					<index-title>平均工单响应时长（小时）</index-title> 
+ 					<index-statistic></index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>0</index-grasp> 
+ 					<index-grasp-num></index-grasp-num> 
+ 					<index-rate>2</index-rate>
+ 				</index> 
+ 		</item> 
+		
+ 		<item> 
+ 			<item-no>item8</item-no> 
+ 			<colspan>3</colspan> 
+ 			<title>工单回复历时</title> 
+ 			<table-belong>t_statistic_kpi_section1</table-belong> 
+ 				<index> 
+ 					<index-no>no1</index-no> 
+ 					<index-title>故障工单总量</index-title> 
+ 					<index-statistic>nvl(sum(case when (status in (1,-13)) then 1 else 0 end),0)</index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>0</index-grasp> 
+ 					<index-grasp-num>0</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index>
+ 				<index> 
+ 					<index-no>no2</index-no> 
+					<index-title>工单流转总历时（小时）</index-title> 
+ 					<index-statistic>nvl(round(sum(case when (operatetime is not null and sendtime is not null) then operatetime-sendtime else 0 end),2),0)</index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>0</index-grasp> 
+ 					<index-grasp-num>0</index-grasp-num> 
+ 					<index-rate>0</index-rate>
+ 				</index> 
+ 				<index> 
+ 					<index-no>no2/no1</index-no> 
+ 					<index-title>平均工单回复历时（小时）</index-title> 
+ 					<index-statistic></index-statistic> 
+ 					<index-condition></index-condition> 
+					<index-grasp>0</index-grasp> 
+ 					<index-grasp-num></index-grasp-num> 
+ 					<index-rate>2</index-rate>
+ 				</index> 
+		</item> 
+		
+		<item>
+			<item-no>item9</item-no>
+			<colspan>3</colspan>
+			<title>工单质检合格率</title>
+			<table-belong>t_statistic_kpi_section1</table-belong>
+				<index>
+					<index-no>no1</index-no>
+					<index-title>实际质检工单量</index-title>
+					<index-statistic>nvl(sum(f82),0)</index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no2</index-no>
+					<index-title>人工质检合格的故障工单量</index-title>
+					<index-statistic>nvl(sum(f81),0)</index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no2/no1</index-no>
+					<index-title>故障工单质检合格率</index-title>
+					<index-statistic></index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num></index-grasp-num>
+					<index-rate>1</index-rate>
+				</index>
+		</item>
+		
+		
+<!--  		<item>  -->
+<!--  			<item-no>item5</item-no>  -->
+<!--  			<colspan>3</colspan>  -->
+<!--  			<title>网元告警监控率</title>  -->
+<!--  			<table-belong>t_statistic_kpi_section2</table-belong>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no1</index-no>  -->
+<!--  					<index-title>本专业已入网网元数量</index-title>  -->
+<!--  					<index-statistic>nvl(to_char(sum(network_monitor_result)),0)</index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>1</index-grasp>  -->
+<!--  					<index-grasp-num>0</index-grasp-num>  -->
+<!--  					<index-rate>0</index-rate>  -->
+<!--  				</index>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no2</index-no>  -->
+<!--  					<index-title>本专业纳入集中监控网元数量</index-title>  -->
+<!--  					<index-statistic>nvl(to_char(sum(network_monitor_denominator)),0)</index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>1</index-grasp>  -->
+<!--  					<index-grasp-num>0</index-grasp-num>  -->
+<!--  					<index-rate>0</index-rate>  -->
+<!--  				</index>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no1/no2</index-no>  -->
+<!--  					<index-title>本专业网元告警监控率</index-title>  -->
+<!--  					<index-statistic></index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>0</index-grasp>  -->
+<!--  					<index-grasp-num></index-grasp-num>  -->
+<!--  					<index-rate>1</index-rate>  -->
+<!--  				</index>  -->
+<!-- 		</item>  -->
+		
+<!--  		<item>  -->
+<!--  			<item-no>item5</item-no>  -->
+<!--  			<colspan>3</colspan>  -->
+<!--  			<title>告警标准化匹配率</title>  -->
+<!--  			<table-belong>t_statistic_kpi_section2</table-belong>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no1</index-no>  -->
+<!--  					<index-title>本专业匹配成功的标准化告警量</index-title>  -->
+<!--  					<index-statistic>nvl(to_char(sum(alarm_standard_result)),0)</index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>1</index-grasp>  -->
+<!--  					<index-grasp-num>0</index-grasp-num>  -->
+<!--  					<index-rate>0</index-rate>  -->
+<!--  				</index>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no2</index-no>  -->
+<!--  					<index-title>本专业集团已牵头梳理的专业设备全告警 量</index-title>  -->
+<!--  					<index-statistic>nvl(to_char(sum(alarm_standard_denominator)),0)</index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>1</index-grasp>  -->
+<!--  					<index-grasp-num>0</index-grasp-num>  -->
+<!--  					<index-rate>0</index-rate>  -->
+<!--  				</index>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no1/no2</index-no>  -->
+<!--  					<index-title>本专业告警标准化匹配率</index-title>  -->
+<!--  					<index-statistic></index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>0</index-grasp>  -->
+<!--  					<index-grasp-num></index-grasp-num>  -->
+<!--  					<index-rate>1</index-rate>  -->
+<!--  				</index>  -->
+<!--  		</item>  -->
+		
+<!--  		<item>  -->
+<!--  			<item-no>item5</item-no>  -->
+<!--  			<colspan>3</colspan>  -->
+<!--  			<title>告警呈现及时率</title>  -->
+<!--  			<table-belong>t_statistic_kpi_section2</table-belong>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no1</index-no>  -->
+<!--  					<index-title>本专业(发现时间-发生时间)小于3分钟告警量</index-title>  -->
+<!--  					<index-statistic>nvl(to_char(sum(alarm_show_denominator)),0)</index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>1</index-grasp>  -->
+<!--  					<index-grasp-num>0</index-grasp-num>  -->
+<!--  					<index-rate>0</index-rate>  -->
+<!--  				</index>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no2</index-no>  -->
+<!--  					<index-title>本专业网元告警总量</index-title>  -->
+<!--  					<index-statistic>nvl(to_char(sum(alarm_show_result)),0)</index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>1</index-grasp>  -->
+<!--  					<index-grasp-num>0</index-grasp-num>  -->
+<!--  					<index-rate>0</index-rate>  -->
+<!--  				</index>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no1/no2</index-no>  -->
+<!--  					<index-title>本专业告警呈现及时率</index-title>  -->
+<!--  					<index-statistic></index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>0</index-grasp>  -->
+<!--  					<index-grasp-num></index-grasp-num>  -->
+<!--  					<index-rate>1</index-rate>  -->
+<!--  				</index>  -->
+<!--  		</item>  -->
+		
+<!--  		<item>  -->
+<!--  			<item-no>item5</item-no>  -->
+<!--  			<colspan>3</colspan>  -->
+<!--  			<title>漏告警比率</title>  -->
+<!--  			<table-belong>t_statistic_kpi_section2</table-belong>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no1</index-no>  -->
+<!--  					<index-title>本专业综合网管呈现的告警量</index-title>  -->
+<!--  					<index-statistic>nvl(to_char(sum(leakage_alarm_denominator)),0)</index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>1</index-grasp>  -->
+<!--  					<index-grasp-num>0</index-grasp-num>  -->
+<!--  					<index-rate>0</index-rate>  -->
+<!--  				</index>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no2</index-no>  -->
+<!--  					<index-title>本专业OMC上报的告警量</index-title>  -->
+<!--  					<index-statistic>nvl(to_char(sum(leakage_alarm_result)),0)</index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>1</index-grasp>  -->
+<!--  					<index-grasp-num>0</index-grasp-num>  -->
+<!--  					<index-rate>0</index-rate>  -->
+<!--  				</index>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no1/no2</index-no>  -->
+<!--  					<index-title>本专业漏告警率</index-title>  -->
+<!--  					<index-statistic></index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>0</index-grasp>  -->
+<!--  					<index-grasp-num></index-grasp-num>  -->
+<!--  					<index-rate>1</index-rate>  -->
+<!--  				</index>  -->
+<!--  		</item>  -->
+		
+<!--  		<item>  -->
+<!--  			<item-no>item5</item-no>  -->
+<!--  			<colspan>3</colspan>  -->
+<!--  			<title>工程告警标识率</title>  -->
+<!--  			<table-belong>t_statistic_kpi_section2</table-belong>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no1</index-no>  -->
+<!--  					<index-title>人工质检合格的故障工单量</index-title>  -->
+<!--  					<index-statistic>nvl(to_char(sum(engineer_alarm_denominator)),0)</index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>1</index-grasp>  -->
+<!--  					<index-grasp-num>0</index-grasp-num>  -->
+<!--  					<index-rate>0</index-rate>  -->
+<!--  				</index>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no2</index-no>  -->
+<!--  					<index-title>某专业标识为工程的告警量</index-title>  -->
+<!--  					<index-statistic>nvl(to_char(sum(engineer_alarm_result)),0)</index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>1</index-grasp>  -->
+<!--  					<index-grasp-num>0</index-grasp-num>  -->
+<!--  					<index-rate>0</index-rate>  -->
+<!--  				</index>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no1/no2</index-no>  -->
+<!--  					<index-title>本专业工程告警标识率</index-title>  -->
+<!--  					<index-statistic></index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>0</index-grasp>  -->
+<!--  					<index-grasp-num></index-grasp-num>  -->
+<!--  					<index-rate>1</index-rate>  -->
+<!--  				</index>  -->
+<!--  		</item>  -->
+		
+<!--  		<item>  -->
+<!--  			<item-no>item5</item-no>  -->
+<!--  			<colspan>3</colspan>  -->
+<!--  			<title>工单关联压缩率</title>  -->
+<!--  			<table-belong>t_statistic_kpi_section2</table-belong>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no1</index-no>  -->
+<!--  					<index-title>本专业已派单涉及的告警量</index-title>  -->
+<!--  					<index-statistic>nvl(to_char(sum(job_related_denominator)),0)</index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>1</index-grasp>  -->
+<!--  					<index-grasp-num>0</index-grasp-num>  -->
+<!--  					<index-rate>0</index-rate>  -->
+<!--  				</index>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no2</index-no>  -->
+<!--  					<index-title>本专业已派发的工单量</index-title>  -->
+<!--  					<index-statistic>nvl(to_char(sum(job_related_result)),0)</index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>1</index-grasp>  -->
+<!--  					<index-grasp-num>0</index-grasp-num>  -->
+<!--  					<index-rate>0</index-rate>  -->
+<!--  				</index>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no1/no2</index-no>  -->
+<!--  					<index-title>本专业工单关联压缩率</index-title>  -->
+<!--  					<index-statistic></index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>0</index-grasp>  -->
+<!--  					<index-grasp-num></index-grasp-num>  -->
+<!--  					<index-rate>1</index-rate>  -->
+<!--  				</index>  -->
+<!--  		</item>  -->
+		
+<!--  		<item>  -->
+<!--  			<item-no>item5</item-no>  -->
+<!--  			<colspan>3</colspan>  -->
+<!--  			<title>告警派单比</title>  -->
+<!--  			<table-belong>t_statistic_kpi_section2</table-belong>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no1</index-no>  -->
+<!--  					<index-title>本专业故障工单总量</index-title>  -->
+<!--  					<index-statistic>nvl(to_char(sum(alarm_sent_denominator)),0)</index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>1</index-grasp>  -->
+<!--  					<index-grasp-num>0</index-grasp-num>  -->
+<!--  					<index-rate>0</index-rate>  -->
+<!--  				</index>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no2</index-no>  -->
+<!--  					<index-title>本专业1-3级告警总量</index-title>  -->
+<!--  					<index-statistic>nvl(to_char(sum(alarm_sent_result)),0)</index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>1</index-grasp>  -->
+<!--  					<index-grasp-num>0</index-grasp-num>  -->
+<!--  					<index-rate>0</index-rate>  -->
+<!--  				</index>  -->
+<!--  				<index>  -->
+<!--  					<index-no>no1/no2</index-no>  -->
+<!--  					<index-title>本专业告警派单比</index-title>  -->
+<!--  					<index-statistic></index-statistic>  -->
+<!--  					<index-condition></index-condition>  -->
+<!--  					<index-grasp>0</index-grasp>  -->
+<!--  					<index-grasp-num></index-grasp-num>  -->
+<!--  					<index-rate>1</index-rate>  -->
+<!--  				</index>  -->
+<!--  		</item>  -->
+		
+<!--  		<item> -->
+<!--  			<item-no>item5</item-no> -->
+<!--  			<colspan>3</colspan> -->
+<!--  			<title>派单及时率</title> -->
+<!--  			<table-belong>t_statistic_kpi_section2</table-belong> -->
+<!--  				<index> -->
+<!--  					<index-no>no1</index-no> -->
+<!--  					<index-title>本专业派单总量</index-title> -->
+<!--  					<index-statistic>nvl(to_char(sum(send_timely_denominator)),0)</index-statistic> -->
+<!--  					<index-condition></index-condition> -->
+<!--  					<index-grasp>1</index-grasp> -->
+<!--  					<index-grasp-num>0</index-grasp-num> -->
+<!--  					<index-rate>0</index-rate> -->
+<!--  				</index> -->
+<!--  				<index> -->
+<!--  					<index-no>no2</index-no> -->
+<!--  					<index-title>本专业时延5分钟内的派单量</index-title> -->
+<!--  					<index-statistic>nvl(to_char(sum(send_timely_result)),0)</index-statistic> -->
+<!--  					<index-condition></index-condition> -->
+<!--  					<index-grasp>1</index-grasp> -->
+<!--  					<index-grasp-num>0</index-grasp-num> -->
+<!--  					<index-rate>0</index-rate> -->
+<!--  				</index> -->
+<!--  				<index> -->
+<!--  					<index-no>no1/no2</index-no> -->
+<!--  					<index-title>本专业派单及时率</index-title> -->
+<!--  					<index-statistic></index-statistic> -->
+<!--  					<index-condition></index-condition> -->
+<!--  					<index-grasp>0</index-grasp> -->
+<!--  					<index-grasp-num></index-grasp-num> -->
+<!--  					<index-rate>1</index-rate> -->
+<!--  				</index> -->
+<!--  		</item> -->
+		
+	</statistic-demension-items>
+	<!-- 详单配置 -->
+	<statistic-details>
+		<statistic-detail-item>
+			<detail-num>0</detail-num>
+			<detail-name>集中故障漏消除比率</detail-name>
+			<detail-url>http://wwww.baidu.com</detail-url>
+			<detail-groupType>t_statistic_unclear_rate</detail-groupType>
+			<cloumns>
+				<column-item>
+					<column-name>title</column-name>
+					<column-cnname>标题</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>sheetid</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+			</cloumns>
+		</statistic-detail-item>
+		
+		
+	</statistic-details>
+</boco-statisticPlat>

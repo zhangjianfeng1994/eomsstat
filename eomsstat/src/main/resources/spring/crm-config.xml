@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="GB2312"?>
+<boco>
+    <ServiceUrl>http://10.21.1.106:9000/krms/services/addKnowledgeService?wsdl</ServiceUrl>
+    <SendImmediately>true</SendImmediately>
+    <uploadType>ftp</uploadType>
+    <sheet>
+    	<item sheettype="31" url="http://10.16.181.127:7001/openprm/services/CRMProcessSheet" />
+    	<item sheettype="32" url="http://10.16.181.127:7001/openprm/services/CRMProcessSheet" />
+    	<item sheettype="33" url="http://10.16.181.127:7001/openprm/services/CRMProcessSheet" />
+    	<item sheettype="34" url="http://10.16.181.127:7001/openprm/services/CRMProcessSheet" />
+    	<item sheettype="56" url="http://10.16.181.146:8080/csp/services/toeoms/KFComplainSheetToEomsService" />
+        <item sheettype="57" url="http://10.131.55.11:8780/csp/services/si/CRMProcessSheet?wsdl" />
+    </sheet>
+    <dict>
+    	<sender>
+    		<item dictid="gzjdr" interfacecode="XJ_JH_WNMS" />
+                <item dictid="gzjdr" interfacecode="BOCO_WNMS" />
+    			<item dictid="shengdongli" interfacecode="BOCO_ZHGJ" />
+                <item dictid="gzjdr" interfacecode="NM_CS_TNMS" />
+                <item dictid="gzjdr" interfacecode="boco" />
+                <item dictid="gzjdr" interfacecode="NM_TSOMCMS" />
+                <item dictid="gzjdr" interfacecode="JS_JH_DHNMS_EMS" />
+                <item dictid="gzjdr" interfacecode="NM_TNMS" />
+    	</sender>
+	<interfaceSender>
+		   <item dictid="8a5a87b11f91c0ca011fa7a76b3c0002" interfacecode="XJ_JH_WNMS" />	
+    	   <item dictid="8a5a87b11f91c0ca011fa7a76b3c0002" interfacecode="BOCO_ZHGJ" />
+           <item dictid="8a5a87b11f91c0ca011fa7a76b3c0002" interfacecode="NM_CS_TNMS" /> 	
+           <item dictid="8a5a87b11f91c0ca011fa7a76b3c0002" interfacecode="NM_TSOMCMS" /> 
+           <item dictid="8a5a87b11f91c0ca011fa7a76b3c0002" interfacecode="JS_JH_DHNMS_EMS" />
+           <item dictid="8a5a87b11f91c0ca011fa7a76b3c0002" interfacecode="NM_TNMS" />	
+    </interfaceSender>
+    	<serviceType>
+    		<item dictid="101100201" interfacecode="1" />
+    		<item dictid="101100202" interfacecode="2" />
+    		<item dictid="101100203" interfacecode="3" />
+    		<item dictid="101100204" interfacecode="4" />
+    		<item dictid="101100205" interfacecode="5" />
+    		<item dictid="101100206" interfacecode="999" />
+    	</serviceType>
+
+    	<urgentDegree>
+    		<!--item dictid="101010201" interfacecode="001" /-->
+    		<!--item dictid="101010202" interfacecode="002" /-->
+    		<!--item dictid="101010203" interfacecode="003" /-->
+    		<!--item dictid="101010204" interfacecode="004" /-->
+                <item dictid="101010201" interfacecode="紧急" />
+    		<item dictid="101010202" interfacecode="一般" />
+    	</urgentDegree>
+        
+    	<customBrand>
+    		<item dictid="101060401" interfacecode="全球通品牌" />
+    		<item dictid="101060402" interfacecode="动感地带品牌" />
+    	</customBrand>
+    	<yesOrNo>
+    		<item dictid="1030101" interfacecode="是" />
+    		<item dictid="1030102" interfacecode="否" />
+    	</yesOrNo>
+    	<affectedAreas><!-- 集团投诉故障影响范围 -->
+    		<item dictid="101010201" interfacecode="1" />
+    		<item dictid="101010202" interfacecode="2" />
+    		<item dictid="101010203" interfacecode="3" />
+    	</affectedAreas>
+    	<ecsiType><!-- EC/SI类型 -->
+    		<item dictid="101010201" interfacecode="1" />
+    		<item dictid="101010202" interfacecode="2" />
+    		<item dictid="101010203" interfacecode="3" />
+    	</ecsiType>
+    	<connectType><!-- 接入类型 -->
+    		<item dictid="101010201" interfacecode="互联网" />
+    		<item dictid="101010202" interfacecode="专线" />
+    	</connectType>
+    	<holdStatisfied><!-- 归档满意度 -->
+    		<item dictid="101010501" interfacecode="很满意" />
+    		<item dictid="101010504" interfacecode="满意" />
+    		<item dictid="101010502" interfacecode="一般" />
+    		<item dictid="101010503" interfacecode="不满意" />
+    	</holdStatisfied>
+    	<ipAddressAssign><!-- IP地址分配方式 -->
+    		<item dictid="101100801" interfacecode="静态" />
+    		<item dictid="101100802" interfacecode="动态" />
+    		<item dictid="101100803" interfacecode="RADIUS" />
+    	</ipAddressAssign>
+    	<apnRouterMode><!-- APN路由方式 -->
+    		<item dictid="101100901" interfacecode="APN路由" />
+    		<item dictid="101100902" interfacecode="IP路由" />
+    	</apnRouterMode>
+    	<transferMode><!-- 传输方式 -->
+    		<item dictid="101101001" interfacecode="专网直连" />
+    		<item dictid="101101002" interfacecode="互联网隧道方式" />
+    	</transferMode>
+    	<comProtocol><!-- 通信协议 -->
+    		<item dictid="101101401" interfacecode="CMPP2.0" />
+    		<item dictid="101101402" interfacecode="CMPP3.0" />
+    		<item dictid="101101403" interfacecode="SMPP" />
+    	</comProtocol>
+    	<nameListSetType><!-- 黑白名单设置方式 -->
+    		<item dictid="101101401" interfacecode="" />
+    		<item dictid="101101402" interfacecode="" />
+    	</nameListSetType>
+    	<connectGatewayBandwidth>
+    		<item dictid="101101302" interfacecode="秒" />
+    		<item dictid="101101301" interfacecode="条" />
+    	</connectGatewayBandwidth>
+    	
+    	<dealResult><!-- 处理结果 -->
+   			<item dictid="解决" interfacecode="101061101" />
+   			<item dictid="未解决" interfacecode="101061102" />
+   		</dealResult>
+		<compProp><!-- 投诉性质 -->
+   			<item dictid="有理由" interfacecode="101061001" />
+   			<item dictid="无理由" interfacecode="101061002" />
+   		</compProp>
+		<isReplied><!-- 是否已答复客户 -->
+   			<item dictid="是" interfacecode="1030101" />
+   			<item dictid="否" interfacecode="1030102" />
+   		</isReplied>
+		<isCorrect><!-- 工单派单是否准确 -->
+   			<item dictid="是" interfacecode="1030101" />
+   			<item dictid="否" interfacecode="1030102" />
+   		</isCorrect>
+		<affectedAreas><!-- 故障处理范围 -->
+   			<item dictid="本地" interfacecode="101100301" />
+   			<item dictid="全网" interfacecode="101100302" />
+			<item dictid="本地与全网" interfacecode="101100303" />
+   		</affectedAreas>
+
+		<mainFaultResponseLevel>
+    		<item dictid="101030401" interfacecode="一级响应" />
+    		<item dictid="101030402" interfacecode="二级响应" />
+    		<item dictid="101030403" interfacecode="三级响应" />
+    	</mainFaultResponseLevel>
+        <toDeptId>
+    		<item dictid="呼和浩特" interfacecode="701" />
+    		<item dictid="包头" interfacecode="702" />
+    		<item dictid="集宁" interfacecode="703" />
+    		<item dictid="鄂尔多斯" interfacecode="704" />
+    		<item dictid="临河" interfacecode="705" />
+    		<item dictid="海拉尔" interfacecode="707" />
+    		<item dictid="赤峰" interfacecode="708" />
+    		<item dictid="乌海" interfacecode="709" />
+    		<item dictid="阿拉善左旗" interfacecode="710" />
+    		<item dictid="通辽" interfacecode="711" />
+    		<item dictid="乌兰浩特" interfacecode="712" />
+    		<item dictid="锡林浩特" interfacecode="713" />
+    	</toDeptId>
+    	
+    	<mainBusinessScene>
+    		<item dictid="21" interfacecode="12401" />
+    		<item dictid="22" interfacecode="12402" />
+    		<item dictid="41" interfacecode="12501" />
+    		<item dictid="42" interfacecode="12502" />
+    		<item dictid="43" interfacecode="12503" />
+    	</mainBusinessScene>
+        <!--add by zhaoru 性能工单  -->
+		<performAlarmFlag><!-- 性能告警区分标志位 -->
+			<item dictid="1030101" interfacecode="性能" />
+			<item dictid="1030102" interfacecode="故障" />
+		</performAlarmFlag>
+		
+		<performIndexLevel><!-- 性能指标级别 -->
+			<item dictid="2110201" interfacecode="一级性能指标" />
+			<item dictid="2110202" interfacecode="其余性能指标" />
+		</performIndexLevel>
+		
+		<baseStationLevel><!-- 基站级别 -->
+			<item dictid="2110301" interfacecode="VVIP" />
+			<item dictid="2110302" interfacecode="VIP" />
+			<item dictid="2110303" interfacecode="普通" />
+		</baseStationLevel>
+		
+		<indexName><!-- 指标名称 -->
+			<item dictid="2110101" interfacecode="RRC连接建立成功率" />
+			<item dictid="2110102" interfacecode="RAB建立成功率" />
+		</indexName>
+	</dict>
+</boco>
+

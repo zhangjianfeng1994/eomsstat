@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="GBK"?>
+<boco>
+	<!-- 掌上运维接口类型配置 -->
+	<interfaceType>
+		<allDeptList>allDeptInfo</allDeptList><!-- 部门信息 -->
+		<allUserList>allUserInfo</allUserList><!-- 人员信息 -->
+		<allRoleList>allRoleInfo</allRoleList><!-- 角色信息 -->
+		<allSubRoleList>allSubRoleInfo</allSubRoleList><!-- 子角色信息 -->
+		<allDictList>allDictInfo</allDictList><!-- 枚举信息 -->
+		<replyObjInfoList>replyObjListInfo</replyObjInfoList><!-- 处理回复通过和不通过的知会对象 -->
+		<alarmInfo>alarmInfo</alarmInfo><!-- 告警信息 -->
+	    <todoInfoList>todoListInfo</todoInfoList><!-- 故障待办输出 -->
+		<finishInfoList>finishListInfo</finishInfoList><!-- 故障已办输出 -->
+		<faultInfoList>faultInfoList</faultInfoList><!-- 故障工单查询服务 -->
+		<faultHistoryList>faultHistoryListInfo</faultHistoryList><!-- 故障历史信息 -->
+		
+		<faultAnswerObjInfo>faultAnswerObjInfo</faultAnswerObjInfo><!-- 阶段回复对象 -->
+		<faultReplyStInfoInfo>faultReplyStInfoInfo</faultReplyStInfoInfo><!-- 查询故障工单标准回复 -->
+		<subFaultSheetInfo>subFaultSheetInfo</subFaultSheetInfo><!-- 查询故障单从单详情服务 -->
+		<superviseSheetInfo>superviseSheetInfo</superviseSheetInfo><!-- 查询故障督办信息服务 -->
+		<resourceInfo>resourceInfo</resourceInfo><!-- 查询故障资源信息服务 -->
+		<sameTeamInfoList>sameTeamInfoList</sameTeamInfoList><!-- 故障同组处理输出 -->
+		<holdListInfo>holdListInfo</holdListInfo><!-- 查询故障单归档列表服务 -->
+	</interfaceType>
+	
+	<allDeptInfo>	
+		<content columnName="deptid" interfaceEnName="deptId" defauleValue="" />
+		<content columnName="deptname"  interfaceEnName="deptName" defauleValue="" />
+		<content columnName="parentdeptid" interfaceEnName="parentDeptId" defauleValue="" />
+		<content columnName="deptphone" interfaceEnName="deptPhone" defauleValue="" />
+		<content columnName="deptmobile" interfaceEnName="deptMobile" defauleValue="" />
+	</allDeptInfo>
+	
+	<allUserInfo>	
+		<content columnName="userid" interfaceEnName="userId" defauleValue="" />
+		<content columnName="username" interfaceEnName="userName" defauleValue="" />
+		<content columnName="password" interfaceEnName="password" defauleValue="" />
+		<content columnName="deptid" interfaceEnName="deptId" defauleValue="" />
+		<content columnName="deptname"  interfaceEnName="deptName" defauleValue="" />
+		<content columnName="phone" interfaceEnName="phone" defauleValue="" />
+		<content columnName="email" interfaceEnName="email" defauleValue="" />
+		<content columnName="mobile" interfaceEnName="mobile" defauleValue="" />
+		<content columnName="sex" interfaceEnName="sex" defauleValue="" />
+		<content columnName="fax" interfaceEnName="fax" defauleValue="" />
+		<content columnName="remark" interfaceEnName="remark" defauleValue="" />
+	</allUserInfo>
+	
+	<allRoleInfo>	
+		<content columnName="role_id" interfaceEnName="roleId" defauleValue="" />
+		<content columnName="role_name" interfaceEnName="roleName" defauleValue="" />
+		<content columnName="dept_id" interfaceEnName="deptId" defauleValue="" />
+		<content columnName="parent_id" interfaceEnName="parentId" defauleValue="" />
+		<content columnName="remark"  interfaceEnName="remark" defauleValue="" />
+	</allRoleInfo>
+	
+	<allSubRoleInfo>	
+		<content columnName="id" interfaceEnName="subRoleId" defauleValue="" />
+		<content columnName="subRoleName" interfaceEnName="subRoleId" defauleValue="" />
+		<content columnName="area" interfaceEnName="area" defauleValue="" />
+		<content columnName="deptId" interfaceEnName="deptId" defauleValue="" />
+		<content columnName="roleId"  interfaceEnName="roleId" defauleValue="" />
+		<content columnName="remark" interfaceEnName="remark"  defauleValue="" />
+	</allSubRoleInfo>
+	
+	<allDictInfo>	
+		<content columnName="id" interfaceEnName="dictId" defauleValue="" />
+		<content columnName="dictName" interfaceEnName="dictName" defauleValue="" />
+		<content columnName="parentDictId" interfaceEnName="parentDictId" defauleValue=""  />	
+	</allDictInfo>
+	
+	<replyObjListInfo>
+		<content columnName="taskowner" interfaceEnName="dealPerformer" defauleValue="" />
+		<content columnName="operatetype" interfaceEnName="dealPerformerType" defauleValue="" />
+		<content columnName="dealPerformerLeader" interfaceEnName="dealPerformerLeader" defauleValue="" />
+		<content columnName="taskdisplayname" interfaceEnName="taskDisplayName" defauleValue="" />
+		<content columnName="id" interfaceEnName="taskId" defauleValue="" />
+		<content columnName="isCheck" interfaceEnName="isCheck" defauleValue="false" />
+		<content columnName="taskowner" interfaceEnName="dealPerformerName" defauleValue="" type="userAndRole"/>
+		<content columnName="dealPerformerLeaderName" interfaceEnName="dealPerformerLeaderName" defauleValue="" />
+	</replyObjListInfo>
+	
+	<faultInfoList>
+		<content columnName="id" interfaceEnName="mainId" defauleValue="" />
+		<content columnName="sheetid" interfaceEnName="sheetId" defauleValue="" />
+		<content columnName="title" interfaceEnName="title" defauleValue="" />	
+		<content columnName="sendtime" interfaceEnName="sendTime" defauleValue="" />
+		<content columnName="todeptid" interfaceEnName="faultPlace" defauleValue="" />
+		<content columnName="sheetcompletelimit" interfaceEnName="replyTimeLimit" defauleValue="" />
+		<content columnName="taskdisplayname" interfaceEnName="taskStatus" defauleValue="" />
+		<content columnName="overtimetype" interfaceEnName="overTimeStatus" defauleValue="0" />
+		<content columnName="taskId" interfaceEnName="taskId" defauleValue="" />
+		<content columnName="mainmasterslaveflag" interfaceEnName="reserved1" defauleValue="" />
+	</faultInfoList>
+	
+	<alarmInfo>	
+		<content columnName="alarmTitle" interfaceEnName="alarmTitle" defauleValue="" />
+		<content columnName="alarmTitleTrans" interfaceEnName="alarmTitleTrans" defauleValue="" />
+		<content columnName="mainAlarmDescTrans" interfaceEnName="mainAlarmDescTrans" defauleValue="" />	
+		<content columnName="mainAlarmStaId" interfaceEnName="alarmId" defauleValue="" />
+		<content columnName="mainAlarmId" interfaceEnName="alarmSheetId" defauleValue="" />
+		<content columnName="mainAlarmSolveDate" interfaceEnName="alarmClearTime" defauleValue="" />	
+		<content columnName="mainAlarmSource" interfaceEnName="alarmOrigin" defauleValue="" />
+		<content columnName="mainAlarmLevel" interfaceEnName="alarmLevel" defauleValue="" />
+		<content columnName="mainAlarmLogicSort" interfaceEnName="alarmLogicType" defauleValue="" />
+		<content columnName="mainAlarmLogicSortSub" interfaceEnName="alarmSubLogicType" defauleValue="" />
+		<content columnName="mainAlarmDesc" interfaceEnName="mainAlarmDesc" defauleValue="" />
+		<content columnName="mainAutoHandle" interfaceEnName="alarmIntelDeal" defauleValue="" />
+		<content columnName="mainFaultDiscoverableMode" interfaceEnName="alarmFandWay" defauleValue="" />
+		<content columnName="mainFaultResponseLevel" interfaceEnName="alarmDealLevel" defauleValue="" type="dict"/>
+		<content columnName="mainNetSortOne" interfaceEnName="netType1" defauleValue="" type="dict"/>
+		<content columnName="mainNetSortTwo" interfaceEnName="netType2" defauleValue="" type="dict"/>	
+		<content columnName="mainNetSortThree" interfaceEnName="netType3" defauleValue="" />
+		<content columnName="mainSendMode" interfaceEnName="sendType" defauleValue="dict" />
+		<content columnName="mainEquipmentFactory" interfaceEnName="mainEquipmentFactory" defauleValue="" type="dict"/>
+		<content columnName="mainNetName" interfaceEnName="mainNetName" defauleValue="" />
+		<content columnName="mainEquipmentType" interfaceEnName="alarmUnitType" defauleValue="" type="dict" />
+		<content columnName="mainFaultGenerantTime" interfaceEnName="alarmOccurTime" defauleValue="" />
+		<content columnName="mainFaultGenerantPriv" interfaceEnName="alarmProvice"  defauleValue="" />
+		<content columnName="mainFaultGenerantCity" interfaceEnName="alarmCity" defauleValue="" type="area"/>
+		<content columnName="mainIfAffectOperation" interfaceEnName="isAffactBus" defauleValue="" type="dict"/>
+		<content columnName="busAffactIns" interfaceEnName="busAffactIns" defauleValue="" />	
+		<content columnName="mainIfUrgentFault" interfaceEnName="isBigAlarm" defauleValue="" type="dict"/>
+		<content columnName="mainApplySheetId" interfaceEnName="complainSheetId" defauleValue="" />
+		<content columnName="mainIsPretreatment" interfaceEnName="isPretreat" defauleValue="" type="dict"/>
+		<content columnName="mainFaultGenerantCounty" interfaceEnName="alarmArea" defauleValue="" />
+		<content columnName="mainEquipmentId" interfaceEnName="deviceId" defauleValue="" />
+		<content columnName="mainEquipmentName" interfaceEnName="deviceName" defauleValue="" />
+		<content columnName="mainGuaranteeLevel" interfaceEnName="reserved1" defauleValue="" />
+		<content columnName="mainIsGroupCustomSheet" interfaceEnName="reserved2" defauleValue="" type="dict"/>
+		<content columnName="mainManualHandle" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="mainBCFNo" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="mainSiteController" interfaceEnName="reserved5" defauleValue="" />
+		<content columnName="mainResrcInfo" interfaceEnName="reserved6" defauleValue="" />
+		<content columnName="mainHotLevel" interfaceEnName="reserved7" defauleValue="" />
+		<content columnName="mainHotType" interfaceEnName="reserved8" defauleValue="" />
+		<content columnName="mainRemoteEQP" interfaceEnName="reserved9" defauleValue="" />
+		<content columnName="mainElementType" interfaceEnName="reserved10" defauleValue="" />
+		<content columnName="mainOriAlarmId" interfaceEnName="reserved11" defauleValue="" />
+		<content columnName="mainAlarmLocation" interfaceEnName="reserved12" defauleValue="" />
+		<content columnName="mainMachineSpot" interfaceEnName="reserved13" defauleValue="" />
+		<content columnName="mainNetCode" interfaceEnName="reserved14" defauleValue="" />
+		<content columnName="mainSignaleRate" interfaceEnName="reserved15" defauleValue="" />
+		<content columnName="mainSystemName" interfaceEnName="reserved16" defauleValue="" />
+		
+	</alarmInfo>
+	
+	<attachInfo>	
+		<content columnName="id" interfaceEnName="attachName" defauleValue="" />
+		<content columnName="dictName" interfaceEnName="attachURL" defauleValue="" />
+		<content columnName="parentDictId" interfaceEnName="attachLength" defauleValue="" />	
+	</attachInfo>
+	
+	<faultHistoryListInfo>	
+		<content columnName="operateType" interfaceEnName="operateType" defauleValue="" dictPath="dict-sheet-centralcommonfault.xml"/>
+		<content columnName="operateTime" interfaceEnName="operateTime" defauleValue="" />
+		<content columnName="operateUserId" interfaceEnName="operateUserId" defauleValue="" type="user"/>	
+		<content columnName="operateDeptId" interfaceEnName="operateDeptId" defauleValue="" type="dept"/>
+		<content columnName="operaterContact" interfaceEnName="operaterContact" defauleValue="" />
+		<content columnName="nodeAcceptLimit" interfaceEnName="nodeAcceptLimit" defauleValue="" />
+		<content columnName="nodeCompleteLimit" interfaceEnName="nodeCompleteLimit" defauleValue="" />
+		<content columnName="toOrgRoleId" interfaceEnName="toOrgId" defauleValue="" />
+		<content columnName="toOrgRoleId" interfaceEnName="toOrgName" defauleValue="" type="userAndRole"/>
+		<content columnName="toOrgType" interfaceEnName="toOrgType" defauleValue="" />
+		<content columnName="dealContent" interfaceEnName="dealContent" defauleValue="" />
+		
+		<content columnName="linkIfGreatFault" interfaceEnName="linkIfGreatFault" defauleValue="" type="dict"/>
+		<content columnName="linkFaultDealResult" interfaceEnName="linkFaultDealResult" defauleValue="" type="dict"/>
+		<content columnName="linkFaultReasonSort" interfaceEnName="linkFaultReasonSort" defauleValue="" type="dict"/>
+		<content columnName="linkFaultReasonSubsection" interfaceEnName="linkFaultReasonSubsection" defauleValue="" type="dict"/>
+		<content columnName="lastNetType" interfaceEnName="lastNetType" defauleValue="" type="dict"/><!-- 暂无此字段 -->
+		<content columnName="lastDeviceVender" interfaceEnName="lastDeviceVender" defauleValue="" type="dict"/><!-- 暂无此字段 -->
+		<content columnName="linkDealStep" interfaceEnName="linkDealStep" defauleValue="" />
+		<content columnName="linkIfExcuteNetChange" interfaceEnName="linkIfExcuteNetChange" defauleValue="" type="dict"/>
+		<content columnName="linkIfFinallySolveProject" interfaceEnName="linkIfFinallySolveProject" defauleValue="" type="dict"/>
+		<content columnName="linkIfAddCaseDataBase" interfaceEnName="linkIfAddCaseDataBase" defauleValue="" type="dict"/>
+		<content columnName="linkFaultAvoidTime" interfaceEnName="linkFaultAvoidTime" defauleValue="" />
+		<content columnName="linkOperRenewTime" interfaceEnName="linkOperRenewTime" defauleValue="" />
+		<content columnName="linkAffectTimeLength" interfaceEnName="linkAffectTimeLength" defauleValue="" />
+		<content columnName="linkDelayDate" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="linkDelayContent" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="linkcheckcontent" interfaceEnName="reserved3" defauleValue="" /> 
+		<content columnName="linkcheckresult" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="operateRoleId" interfaceEnName="reserved5" defauleValue="" type="userAndRole"/>
+		<content columnName="toOrgUserId" interfaceEnName="reserved6" defauleValue="" />
+		<content columnName="toOrgUserContact" interfaceEnName="reserved7" defauleValue="" />
+		<content columnName="mainAutoHandle" interfaceEnName="reserved8" defauleValue="" />
+		<content columnName="linkFaultReasonThird" interfaceEnName="reserved9" defauleValue="" type="dict"/>
+		<content columnName="mainIfManalSolveDate" interfaceEnName="reserved10" defauleValue="" />
+		<content columnName="linkExamineResult" interfaceEnName="reserved11" defauleValue="" />
+		<content columnName="linkExamineContent" interfaceEnName="reserved12" defauleValue="" />
+		<!-- add by kuai -->
+		<content columnName="linkIfMutualCommunication" interfaceEnName="linkIfContact" defauleValue="" type="dict"/>
+		<content columnName="linkIfSafe" interfaceEnName="linkIfSafe" defauleValue="" type="dict"/>
+		<content columnName="linkFaultFirstDealDesc" interfaceEnName="faultDealDesc" defauleValue="" />
+		<content columnName="remark" interfaceEnName="dealPerformDesc" defauleValue="" />
+		<content columnName="remark" interfaceEnName="rejectDesc" defauleValue="" />
+		
+	</faultHistoryListInfo>
+		
+	<todoListInfo>
+		<content columnName="sheetkey" interfaceEnName="mainId" defauleValue="" />
+		<content columnName="sheetid" interfaceEnName="sheetId" defauleValue="" />
+		<content columnName="title" interfaceEnName="title" defauleValue="" />	
+		<content columnName="sendtime" interfaceEnName="sendTime" defauleValue="" />
+		<content columnName="todeptid" interfaceEnName="faultPlace" defauleValue="" />
+		<content columnName="sheetcompletelimit" interfaceEnName="replyTimeLimit" defauleValue="" />
+		<content columnName="taskdisplayname" interfaceEnName="taskStatus" defauleValue="" />
+		<content columnName="taskowner" interfaceEnName="taskOwner" defauleValue="" />
+		<content columnName="operateType" interfaceEnName="taskOwnerType" defauleValue="" />
+		<content columnName="overtimetype" interfaceEnName="overTimeStatus" defauleValue="0" />
+		<content columnName="id" interfaceEnName="taskId" defauleValue="" />
+		<content columnName="taskStatus" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="mainAlarmSolveDate" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="mainFaultGenerantTime" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="operatetype" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</todoListInfo>
+	
+	<finishListInfo>
+		<content columnName="id" interfaceEnName="mainId" defauleValue="" />
+		<content columnName="sheetid" interfaceEnName="sheetId" defauleValue="" />
+		<content columnName="title" interfaceEnName="title" defauleValue="" />	
+		<content columnName="sendtime" interfaceEnName="sendTime" defauleValue="" />
+		<content columnName="todeptid" interfaceEnName="faultPlace" defauleValue="" />
+		<content columnName="sheetcompletelimit" interfaceEnName="replyTimeLimit" defauleValue="" />
+		<content columnName="taskdisplayname" interfaceEnName="taskStatus" defauleValue="" />
+		<content columnName="overtimetype" interfaceEnName="overTimeStatus" defauleValue="0" />
+		<content columnName="taskId" interfaceEnName="taskId" defauleValue="" />
+	</finishListInfo>
+	
+	<asheetList>	
+		<content columnName="id" interfaceEnName="mainId" interfaceCnName="工单编号" defauleValue="" />
+		<content columnName="sheetId"  interfaceName="sheetId"  defauleValue=""/><!-- 工单编号 -->
+		<content columnName="title" interfaceEnName="title" interfaceCnName="工单标题" defauleValue="" />
+		<content columnName="sendtime" interfaceEnName="sendTime" interfaceCnName="工单处理时限" defauleValue="" />
+		<content columnName="taskStatus" interfaceEnName="Sheet_status" interfaceCnName="工单状态" defauleValue="" />
+		<content columnName="sheet_totals" interfaceEnName="Sheet_totals" interfaceCnName="总条数" defauleValue="" />
+	</asheetList>
+	
+	<faultAnswerObjInfo>
+		<content columnName="dealPerformerId" interfaceEnName="dealPerformerId" defauleValue="" />
+		<content columnName="dealPerformerName" interfaceEnName="dealPerformerName" defauleValue="" type="userAndRole"/>
+		<content columnName="dealPerformerType" interfaceEnName="dealPerformerType" defauleValue="" />
+		<content columnName="taskDisplayName" interfaceEnName="taskDisplayName" defauleValue="" />
+		<content columnName="taskId" interfaceEnName="taskId" defauleValue="" />
+		<content columnName="isCheck" interfaceEnName="isCheck" defauleValue="2" />
+	</faultAnswerObjInfo>
+	
+	<subFaultSheetInfo>	
+	    <content columnName="mainid" interfaceEnName="mainId" defauleValue="" />
+	    <content columnName="sheetid" interfaceEnName="sheetId" defauleValue="" />
+	    <content columnName="title" interfaceEnName="sheetTitle" defauleValue="" />
+	    <content columnName="taskName" interfaceEnName="taskName" defauleValue="" />
+	    <content columnName="taskOwner" interfaceEnName="taskOwner" defauleValue="" />
+	    <content columnName="operateType" interfaceEnName="taskOwnerType" defauleValue="" />
+	    <content columnName="taskStatus" interfaceEnName="taskStatus" defauleValue="" />
+	    <content columnName="taskId" interfaceEnName="taskId" defauleValue="" />
+	    <content columnName="completetimelimit" interfaceEnName="completeLimit" defauleValue="" />
+	    <content columnName="mainAlarmSolveDate" interfaceEnName="alarmClearTime" defauleValue="" />
+	    <content columnName="" interfaceEnName="reserved1" defauleValue="" />
+	    <content columnName="" interfaceEnName="reserved2" defauleValue="" />
+	    <content columnName="" interfaceEnName="reserved3" defauleValue="" />
+	    <content columnName="" interfaceEnName="reserved4" defauleValue="" />
+	    <content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</subFaultSheetInfo>
+	
+	<superviseSheetInfo>
+	    <content columnName="person" interfaceEnName="toSuperviseUser" defauleValue="" type="user"/>
+	    <content columnName="creator" interfaceEnName="superviseUser" defauleValue="" type="user"/>
+	    <content columnName="create_time" interfaceEnName="superviseTime" defauleValue="" />
+	    <content columnName="content" interfaceEnName="superviseContent" defauleValue="" />
+	    <content columnName="" interfaceEnName="reserved1" defauleValue="" />
+	    <content columnName="" interfaceEnName="reserved2" defauleValue="" />
+	    <content columnName="" interfaceEnName="reserved3" defauleValue="" />
+	    <content columnName="" interfaceEnName="reserved4" defauleValue="" />
+	    <content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</superviseSheetInfo>
+		<resourceInfo>
+	   <content columnName="alarmClearTime" interfaceEnName="alarmClearTime" defauleValue="" />
+	    <content columnName="" interfaceEnName="reserved1" defauleValue="" />
+	    <content columnName="" interfaceEnName="reserved2" defauleValue="" />
+	    <content columnName="" interfaceEnName="reserved3" defauleValue="" />
+	    <content columnName="" interfaceEnName="reserved4" defauleValue="" />
+	    <content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</resourceInfo>
+	
+	<sameTeamInfoList>
+		<content columnName="sheetkey" interfaceEnName="mainId" defauleValue="" />
+		<content columnName="sheetid" interfaceEnName="sheetId" defauleValue="" />
+		<content columnName="title" interfaceEnName="title" defauleValue="" />	
+		<content columnName="sendtime" interfaceEnName="sendTime" defauleValue="" />
+		<content columnName="todeptid" interfaceEnName="faultPlace" defauleValue="" />
+		<content columnName="sheetcompletelimit" interfaceEnName="replyTimeLimit" defauleValue="" />
+		<content columnName="taskdisplayname" interfaceEnName="taskStatus" defauleValue="" />
+		<content columnName="taskowner" interfaceEnName="taskOwner" defauleValue="" type="userAndRole"/>
+		<content columnName="operateType" interfaceEnName="taskOwnerType" defauleValue="" />
+		<content columnName="overtimetype" interfaceEnName="overTimeStatus" defauleValue="0" />
+		<content columnName="id" interfaceEnName="taskId" defauleValue="" />
+		<content columnName="taskStatus" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="mainAlarmSolveDate" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="mainFaultGenerantTime" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</sameTeamInfoList>
+	
+	<holdListInfo>
+	  <content columnName="id" interfaceEnName="mainId" defauleValue="" />
+		<content columnName="sheetid" interfaceEnName="sheetId" defauleValue="" />
+		<content columnName="title" interfaceEnName="title" defauleValue="" />	
+		<content columnName="sendtime" interfaceEnName="sendTime" defauleValue="" />
+		<content columnName="maincompletelimitt2" interfaceEnName="faultT2TimeLimit" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" />
+	  <content columnName="" interfaceEnName="reserved2" defauleValue="" />
+	  <content columnName="" interfaceEnName="reserved3" defauleValue="" />
+	  <content columnName="" interfaceEnName="reserved4" defauleValue="" />
+	  <content columnName="" interfaceEnName="reserved5" defauleValue="" />        
+    </holdListInfo>
+</boco>

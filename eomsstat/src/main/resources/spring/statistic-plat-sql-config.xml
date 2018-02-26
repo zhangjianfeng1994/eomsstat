@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<boco-statisticPlat>
+	<statistic-demension-title><rowspan>2</rowspan><totalcolumn>38</totalcolumn><text>部门</text></statistic-demension-title>
+	<statistic-demension-column>deptid</statistic-demension-column>
+	<statistic-demension-codeType>deptType</statistic-demension-codeType>
+	<statistic-demension-parentCode>-1</statistic-demension-parentCode>
+	<statistic-demension-items>
+		<rowspan>2</rowspan>
+		<item>
+			<item-no>item1</item-no>
+			<colspan>3</colspan>
+			<title>漏清除消息比率</title>
+			<table-belong>t_statistic_unclear_rate</table-belong>
+				<index>
+					<index-no>no1</index-no>
+					<index-title>已报结未有清除时间的工单量</index-title>
+					<index-statistic>nvl(sum(case when (status in(0,1,-13) and uncleartime=1) then 1 else 0 end),0)</index-statistic>
+					<index-condition>and status in(0,1,-13) and uncleartime=0</index-condition>
+					<index-grasp>1</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no2</index-no>
+					<index-title>已报结的工单总量</index-title>
+					<index-statistic>nvl(sum(case when (status in(1,-13)) then 1 else 0 end),0)</index-statistic>
+					<index-condition>and status in(1,-13)</index-condition>
+					<index-grasp>1</index-grasp>
+					<index-grasp-num>0</index-grasp-num>
+					<index-rate>0</index-rate>
+				</index>
+				<index>
+					<index-no>no1/no2</index-no>
+					<index-title>漏清除消息比率</index-title>
+					<index-statistic></index-statistic>
+					<index-condition></index-condition>
+					<index-grasp>0</index-grasp>
+					<index-grasp-num></index-grasp-num>
+					<index-rate>3</index-rate>
+				</index>
+		</item>
+		
+ 		<item>
+ 			<item-no>item2</item-no>
+ 			<colspan>3</colspan>
+ 			<title>故障拦截率</title>
+ 			<table-belong>t_statistic_intercept_shoot</table-belong>
+ 				<index> 
+ 					<index-no>no1</index-no> 
+ 					<index-title>T2环节前报结的工单量</index-title> 
+ 					<index-statistic>nvl(sum(case when (t2_report_over_flag='1') then 1 else 0 end),0)</index-statistic> 
+ 					<index-condition>and t2_report_over_flag='1'</index-condition> 
+ 					<index-grasp>1</index-grasp> 
+ 					<index-grasp-num>1</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+ 				<index> 
+ 					<index-no>no2</index-no> 
+ 					<index-title>故障工单总量</index-title> 
+ 					<index-statistic>count(id)</index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>1</index-grasp> 
+ 					<index-grasp-num>1</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index>
+ 				<index>
+ 					<index-no>no1/no2</index-no>
+ 					<index-title>故障拦截比率</index-title> 
+ 					<index-statistic></index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>0</index-grasp> 
+ 					<index-grasp-num>1</index-grasp-num> 
+ 					<index-rate>1</index-rate> 
+ 				</index> 
+ 		</item>
+		
+ 		<item> 
+ 			<item-no>item3</item-no> 
+ 			<colspan>3</colspan> 
+ 			<title>派单故障命中率</title> 
+ 			<table-belong>t_statistic_intercept_shoot</table-belong> 
+ 				
+ 				<index> 
+ 					<index-no>no1</index-no> 
+ 					<index-title>专业核实为故障的故障工单量</index-title> 
+ 					<index-statistic>nvl(sum(case when (check_fault_flag='1') then 1 else 0 end),0)</index-statistic> 
+ 					<index-condition>and check_fault_flag='1'</index-condition> 
+ 					<index-grasp>1</index-grasp> 
+ 					<index-grasp-num>1</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+ 				<index> 
+ 					<index-no>no2</index-no> 
+ 					<index-title>故障工单总量</index-title> 
+ 					<index-statistic>count(id)</index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>1</index-grasp> 
+ 					<index-grasp-num>1</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+ 				<index> 
+ 					<index-no>no1/no2</index-no> 
+ 					<index-title>派单故障命中率</index-title> 
+ 					<index-statistic></index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>0</index-grasp>
+ 					<index-rate>1</index-rate> 
+ 				</index> 
+ 		</item> 
+		
+ 		<item> 
+ 			<item-no>item4</item-no> 
+ 			<colspan>4</colspan> 
+ 			<title>派单准确率</title> 
+ 			<table-belong>t_statistic_send_acurrate</table-belong> 
+ 				
+ 				<index> 
+ 					<index-no>no1</index-no> 
+ 					<index-title>地市驳回T1故障工单量</index-title> 
+ 					<index-statistic>nvl(sum(case when (t1_reject_area='1') then 1 else 0 end),0)</index-statistic> 
+ 					<index-condition>and t1_reject_area=1</index-condition> 
+ 					<index-grasp>1</index-grasp> 
+ 					<index-grasp-num>2</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+ 				<index> 
+ 					<index-no>no2</index-no> 
+ 					<index-title>故障工单总量</index-title> 
+ 					<index-statistic>nvl(sum(case when (t1_reject_area=0 or t1_reject_area=1) then 1 else 0 end),0)</index-statistic> 
+ 					<index-condition>and (t1_reject_area=0 or t1_reject_area=1)</index-condition> 
+ 					<index-grasp>1</index-grasp> 
+ 					<index-grasp-num>2</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index>
+ 				<index> 
+ 					<index-no>no1/no2</index-no> 
+ 					<index-title>派单错误率</index-title> 
+ 					<index-statistic></index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>0</index-grasp> 
+ 					<index-grasp-num>2</index-grasp-num> 
+ 					<index-rate>3</index-rate> 
+ 				</index>
+ 				<index> 
+ 					<index-no>(no2-no1)/no2</index-no> 
+ 					<index-title>派单准确率</index-title> 
+ 					<index-statistic></index-statistic> 
+ 					<index-condition></index-condition> 
+					<index-grasp>0</index-grasp> 
+ 					<index-grasp-num>2</index-grasp-num> 
+ 					<index-rate>1</index-rate> 
+ 				</index> 
+				
+ 		</item> 
+		
+ 		<item> 
+ 			<item-no>item5</item-no> 
+ 			<colspan>3</colspan> 
+ 			<title>督办及时率</title> 
+ 			<table-belong>t_statistic_supervise_ontime</table-belong> 
+ 				 
+ 				<index> 
+ 					<index-no>no1</index-no> 
+ 					<index-title>及时督办工单量</index-title> 
+ 					<index-statistic>nvl(sum(case when (on_time_deal_sheet='1') then 1 else 0 end),0)</index-statistic> 
+ 					<index-condition>and on_time_deal_sheet='1'</index-condition> 
+ 					<index-grasp>7</index-grasp> 
+ 					<index-grasp-num>0</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+ 				<index> 
+ 					<index-no>no2</index-no> 
+ 					<index-title>故障工单总量</index-title> 
+ 					<index-statistic>count(id)</index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>7</index-grasp> 
+ 					<index-grasp-num>0</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+ 				<index> 
+ 					<index-no>no1/no2</index-no> 
+ 					<index-title>督办及时率</index-title> 
+ 					<index-statistic></index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>0</index-grasp> 
+ 					<index-grasp-num>0</index-grasp-num> 
+ 					<index-rate>1</index-rate> 
+ 				</index>
+ 		</item>  
+		
+ 		<item> 
+ 			<item-no>item6</item-no>
+ 			<colspan>3</colspan> 
+ 			<title>平均故障历时</title> 
+ 			<table-belong>t_statistic_duration_time</table-belong> 
+ 				<index> 
+ 					<index-no>no1</index-no> 
+ 					<index-title>平均故障历时</index-title> 
+ 					<index-statistic>nvl(round(avg(fault_time_last),2),0)</index-statistic>
+ 					<index-condition></index-condition> 
+					<index-grasp>0</index-grasp>
+ 					<index-grasp-num>3</index-grasp-num>
+ 					<index-rate>0</index-rate> 
+				</index>
+ 				<index> 
+ 					<index-no>no2</index-no> 
+ 					<index-title>故障总历时（小时）</index-title>
+					<index-statistic>nvl(round(sum(fault_time_last),2),0)</index-statistic>
+ 					<index-condition></index-condition> 
+ 					<index-grasp>0</index-grasp> 
+ 					<index-grasp-num>3</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+ 				<index> 
+ 					<index-no>no3</index-no>
+ 					<index-title>故障工单总量</index-title>
+ 					<index-statistic>count(id)</index-statistic>
+ 					<index-condition></index-condition>
+ 					<index-grasp>1</index-grasp> 
+ 					<index-grasp-num>3</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+		 </item> 
+		
+ 		<item> 
+ 			<item-no>item7</item-no>
+ 			<colspan>3</colspan> 
+ 			<title>工单响应时长</title> 
+ 			<table-belong>t_statistic_duration_time</table-belong> 
+ 				<index> 
+ 					<index-no>no1</index-no> 
+ 					<index-title>平均工单响应时长（小时）</index-title> 
+					<index-statistic>nvl(round(avg(reponse_time_length),2),0)</index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>0</index-grasp> 
+ 					<index-grasp-num>3</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+ 				<index> 
+ 					<index-no>no2</index-no> 
+ 					<index-title>故障总历时（小时）</index-title> 
+ 					<index-statistic>nvl(round(sum(fault_time_last),2),0)</index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>0</index-grasp> 
+ 					<index-grasp-num>3</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+ 				<index>
+ 					<index-no>no3</index-no> 
+ 					<index-title>故障工单总量</index-title> 
+ 					<index-statistic>count(id)</index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>1</index-grasp> 
+ 					<index-grasp-num>3</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+ 		</item> 
+		
+ 		<item> 
+ 			<item-no>item8</item-no> 
+ 			<colspan>3</colspan> 
+ 			<title>工单回复历时</title> 
+ 			<table-belong>t_statistic_duration_time</table-belong> 
+ 				<index> 
+ 					<index-no>no1</index-no> 
+ 					<index-title>平均工单回复历时（小时）</index-title> 
+ 					<index-statistic>nvl(round(avg(sheet_flow_time),2),0)</index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>0</index-grasp>
+ 					<index-grasp-num>3</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+ 				<index> 
+ 					<index-no>no2</index-no> 
+ 					<index-title>工单流转总历时（小时）</index-title> 
+ 					<index-statistic>nvl(round(sum(fault_time_last),2),0)</index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>0</index-grasp> 
+ 					<index-grasp-num>3</index-grasp-num>
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+ 				<index> 
+ 					<index-no>no3</index-no> 
+ 					<index-title>故障工单总量</index-title> 
+ 					<index-statistic>count(id)</index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>1</index-grasp> 
+ 					<index-grasp-num>3</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+ 		</item>
+		
+ 		<item> 
+ 			<item-no>item9</item-no> 
+ 			<colspan>3</colspan> 
+ 			<title>工单质检合格率</title> 
+ 			<table-belong>t_statistic_check_qualified</table-belong> 
+ 				
+ 				<index> 
+ 					<index-no>no1</index-no> 
+					<index-title>实际质检工单量</index-title> 
+ 					<index-statistic>count(id)</index-statistic> 
+ 					<index-condition></index-condition> 
+					<index-grasp>1</index-grasp> 
+					<index-grasp-num>4</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+				</index> 
+ 				<index> 
+					<index-no>no2</index-no> 
+ 					<index-title>人工质检合格的故障工单量</index-title> 
+ 					<index-statistic>nvl(sum(case when (check_qualified='1') then 1 else 0 end),0)</index-statistic> 
+					<index-condition>and check_qualified=1</index-condition> 
+ 					<index-grasp>1</index-grasp>
+ 					<index-grasp-num>4</index-grasp-num> 
+					<index-rate>0</index-rate>
+ 				</index>
+ 				<index> 
+ 					<index-no>no2/no1</index-no> 
+ 					<index-title>故障工单质检合格率</index-title> 
+ 					<index-statistic></index-statistic>
+					<index-condition></index-condition> 
+ 					<index-grasp>0</index-grasp> 
+					<index-grasp-num>4</index-grasp-num> 
+					<index-rate>1</index-rate> 
+				</index> 
+ 		</item> 
+		
+ 		<item> 
+ 			<item-no>item10</item-no> 
+ 			<colspan>3</colspan> 
+ 			<title>工单响应及时率</title> 
+ 			<table-belong>vi_middle_repones_ontime</table-belong>
+ 				<index> 
+ 					<index-no>no1</index-no> 
+ 					<index-title>工单受理超时总量</index-title> 
+ 					<index-statistic>nvl(sum(case when (deptid is not null) then 1 else 0 end),0)</index-statistic> 
+ 					<index-condition>and deptid is not null</index-condition> 
+ 					<index-grasp>5</index-grasp> 
+ 					<index-grasp-num>0</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index> 
+ 				<index> 
+ 					<index-no>no2</index-no> 
+ 					<index-title>故障工单总量</index-title> 
+ 					<index-statistic>count(id)</index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>5</index-grasp>
+ 					<index-grasp-num>0</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index>
+ 				<index> 
+ 					<index-no>(no2-no1)/no2</index-no> 
+ 					<index-title>故障工单响应及时率</index-title> 
+ 					<index-statistic></index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>5</index-grasp> 
+ 					<index-grasp-num>0</index-grasp-num> 
+ 					<index-rate>1</index-rate> 
+ 				</index> 
+ 		</item> 
+		
+ 		<item> 
+ 			<item-no>item11</item-no> 
+ 			<colspan>3</colspan> 
+ 			<title>故障处理及时率</title> 
+ 			<table-belong>t_statistic_deal_overtime</table-belong>
+ 				 
+ 				<index> 
+ 					<index-no>no1</index-no> 
+ 					<index-title>故障处理超时量</index-title>
+ 					<index-statistic>nvl(sum(case when (fault_deal_over_time='1') then 1 else 0 end),0)</index-statistic> 
+					<index-condition>and fault_deal_over_time='1'</index-condition> 
+ 					<index-grasp>1</index-grasp>
+ 					<index-grasp-num>6</index-grasp-num> 
+					<index-rate>0</index-rate> 
+ 				</index> 
+				<index> 
+ 					<index-no>no2</index-no>
+ 					<index-title>故障工单总量</index-title> 
+ 					<index-statistic>count(id)</index-statistic>
+ 					<index-condition></index-condition>
+					<index-grasp>1</index-grasp> 
+ 					<index-grasp-num>6</index-grasp-num> 
+ 					<index-rate>0</index-rate>
+ 				</index> 
+ 				<index> 
+ 					<index-no>no1/no2</index-no> 
+ 					<index-title>故障故障处理及时率</index-title> 
+ 					<index-statistic></index-statistic> 
+ 					<index-condition></index-condition> 
+					<index-grasp>0</index-grasp>
+					<index-grasp-num>6</index-grasp-num> 
+ 					<index-rate>1</index-rate> 
+ 				</index>
+ 		</item>
+		
+		<item> 
+			<item-no>item12</item-no>
+ 			<colspan>3</colspan>
+			<title>工单回复及时率</title> 
+ 			<table-belong>t_statistic_replay_ontime</table-belong>
+ 				<index> 
+ 					<index-no>no1</index-no>
+ 					<index-title>故障工单回复超时总量</index-title> 
+ 					<index-statistic>nvl(sum(case when ((sendtime-t1overtime)&gt;=2) then 1 else 0 end),0)</index-statistic> 
+ 					<index-condition>and (sendtime-t1overtime)&gt;=2</index-condition> 
+ 					<index-grasp>1</index-grasp> 
+ 					<index-grasp-num>7</index-grasp-num> 
+ 					<index-rate>0</index-rate> 
+ 				</index>
+ 				<index> 
+ 					<index-no>no2</index-no> 
+ 					<index-title>故障工单总量</index-title> 
+ 					<index-statistic>count(id)</index-statistic>
+ 					<index-condition></index-condition> 
+ 					<index-grasp>1</index-grasp> 
+ 					<index-grasp-num>7</index-grasp-num>
+ 					<index-rate>0</index-rate> 
+ 				</index>
+ 				<index> 
+ 					<index-no>(no2-no1)/no2</index-no> 
+ 					<index-title>故障工单回复及时率</index-title> 
+ 					<index-statistic></index-statistic> 
+ 					<index-condition></index-condition> 
+ 					<index-grasp>0</index-grasp> 
+ 					<index-grasp-num>7</index-grasp-num> 
+ 					<index-rate>1</index-rate> 
+ 				</index> 
+ 		</item> 
+		
+	</statistic-demension-items>
+	<!-- 详单配置 -->
+	<statistic-details>
+		<statistic-detail-item>
+			<detail-num>0</detail-num>
+			<detail-name>集中故障漏消除比率</detail-name>
+			<detail-url>http://10.199.145.50:9080/eoms35/sheet/centralcommonfault/centralcommonfault.do?method=showMainDetailPage&amp;amp;type=interface&amp;userName=admin&amp;sheetKey=</detail-url>
+			<detail-groupType>t_statistic_unclear_rate</detail-groupType>
+			<cloumns>
+				<column-item>
+					<column-name>id</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>sheetid</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>title</column-name>
+					<column-cnname>标题</column-cnname>
+				</column-item>
+				
+			</cloumns>
+		</statistic-detail-item>
+		
+		<statistic-detail-item>
+			<detail-num>1</detail-num>
+			<detail-name>集中故障拦截率</detail-name>
+			<detail-url>http://10.199.145.50:9080/eoms35/sheet/centralcommonfault/centralcommonfault.do?method=showMainDetailPage&amp;type=interface&amp;userName=admin&amp;sheetKey=</detail-url>
+			<detail-groupType>t_statistic_intercept_shoot</detail-groupType>
+			<cloumns>
+				<column-item>
+					<column-name>id</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>sheetid</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>title</column-name>
+					<column-cnname>标题</column-cnname>
+				</column-item>
+			</cloumns>
+		</statistic-detail-item>
+		
+		<statistic-detail-item>
+			<detail-num>2</detail-num>
+			<detail-name>集中派单准确率</detail-name>
+			<detail-url>http://10.199.145.50:9080/eoms35/sheet/centralcommonfault/centralcommonfault.do?method=showMainDetailPage&amp;type=interface&amp;userName=admin&amp;sheetKey=</detail-url>
+			<detail-groupType>t_statistic_send_acurrate</detail-groupType>
+			<cloumns>
+				<column-item>
+					<column-name>id</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>sheetid</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>title</column-name>
+					<column-cnname>标题</column-cnname>
+				</column-item>
+				
+			</cloumns>
+		</statistic-detail-item>
+		
+		
+		
+		<statistic-detail-item>
+			<detail-num>3</detail-num>
+			<detail-name>集中督办时长</detail-name>
+			<detail-url>http://10.199.145.50:9080/eoms35/sheet/centralcommonfault/centralcommonfault.do?method=showMainDetailPage&amp;type=interface&amp;userName=admin&amp;sheetKey=</detail-url>
+			<detail-groupType>t_statistic_duration_time</detail-groupType>
+			<cloumns>
+				<column-item>
+					<column-name>id</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>sheetid</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>title</column-name>
+					<column-cnname>标题</column-cnname>
+				</column-item>
+				
+			</cloumns>
+		</statistic-detail-item>
+		
+		<statistic-detail-item>
+			<detail-num>4</detail-num>
+			<detail-name>集中质检合格率</detail-name>
+			<detail-url>http://10.199.145.50:9080/eoms35/sheet/centralcommonfault/centralcommonfault.do?method=showMainDetailPage&amp;type=interface&amp;userName=admin&amp;sheetKey=</detail-url>
+			<detail-groupType>t_statistic_check_qualified</detail-groupType>
+			<cloumns>
+				<column-item>
+					<column-name>id</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>sheetid</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>title</column-name>
+					<column-cnname>标题</column-cnname>
+				</column-item>
+				
+			</cloumns>
+		</statistic-detail-item>
+		
+		<statistic-detail-item>
+			<detail-num>5</detail-num>
+			<detail-name>集中工单响应及时率</detail-name>
+			<detail-url>http://10.199.145.50:9080/eoms35/sheet/centralcommonfault/centralcommonfault.do?method=showMainDetailPage&amp;type=interface&amp;userName=admin&amp;sheetKey=</detail-url>
+			<detail-groupType>t_statistic_repones_ontime</detail-groupType>
+			<cloumns>
+				<column-item>
+					<column-name>id</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>sheetid</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>title</column-name>
+					<column-cnname>标题</column-cnname>
+				</column-item>
+				
+			</cloumns>
+		</statistic-detail-item>
+		
+		<statistic-detail-item>
+			<detail-num>6</detail-num>
+			<detail-name>集中工单响应及时率</detail-name>
+			<detail-url>http://10.199.145.50:9080/eoms35/sheet/centralcommonfault/centralcommonfault.do?method=showMainDetailPage&amp;type=interface&amp;userName=admin&amp;sheetKey=</detail-url>
+			<detail-groupType>t_statistic_deal_overtime</detail-groupType>
+			<cloumns>
+				<column-item>
+					<column-name>id</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>sheetid</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>title</column-name>
+					<column-cnname>标题</column-cnname>
+				</column-item>
+				
+			</cloumns>
+		</statistic-detail-item>
+		
+		<statistic-detail-item>
+			<detail-num>7</detail-num>
+			<detail-name>集中工单响应及时率</detail-name>
+			<detail-url>http://10.199.145.50:9080/eoms35/sheet/centralcommonfault/centralcommonfault.do?method=showMainDetailPage&amp;type=interface&amp;userName=admin&amp;sheetKey=</detail-url>
+			<detail-groupType>t_statistic_replay_ontime</detail-groupType>
+			<cloumns>
+				<column-item>
+					<column-name>id</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>sheetid</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>title</column-name>
+					<column-cnname>标题</column-cnname>
+				</column-item>
+				
+			</cloumns>
+		</statistic-detail-item>
+		
+		<statistic-detail-item>
+			<detail-num>8</detail-num>
+			<detail-name>集中督办及时率</detail-name>
+			<detail-url>http://10.199.145.50:9080/eoms35/sheet/centralcommonfault/centralcommonfault.do?method=showMainDetailPage&amp;type=interface&amp;userName=admin&amp;sheetKey=</detail-url>
+			<detail-groupType>t_statistic_supervise_ontime</detail-groupType>
+			<cloumns>
+				<column-item>
+					<column-name>id</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>sheetid</column-name>
+					<column-cnname>工单号</column-cnname>
+				</column-item>
+				<column-item>
+					<column-name>title</column-name>
+					<column-cnname>标题</column-cnname>
+				</column-item>
+				
+			</cloumns>
+		</statistic-detail-item>
+		
+		
+		
+		
+	</statistic-details>
+</boco-statisticPlat>

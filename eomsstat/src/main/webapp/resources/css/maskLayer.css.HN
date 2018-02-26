@@ -1,0 +1,26 @@
+/*  遮罩层  控件begin */
+#lean_overlay { position: fixed; z-index: 100; top: 0px; left: 0px; height: 100%; width: 100%; background: #000; display: none; }
+.open_window { background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 4px rgba(0, 0, 0, 0.7); display: none; padding-bottom: 2px; width: 404px; z-index: 11000; left: 50%; margin-left: -202px; opacity: 1; position: absolute; top: 200px;scroll-y:auto;height: 1400; }
+.open_window_loading { background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px 5px 5px 5px; box-shadow: 0 0 4px rgba(0, 0, 0, 0.7); display: none; padding-bottom: 2px; width: 200px; z-index: 11000; left: 60%; margin-left: -202px; opacity: 1; position: absolute; top: 250px;scroll-y:auto;}
+.open_window_header { background:none repeat scroll 0 0 #D7E3F0; border-bottom: 1px solid #CCCCCC; border-top-left-radius: 5px; border-top-right-radius: 5px; padding: 18px 18px 14px; }
+.open_window_header_loading{ background:none repeat scroll 0 0 #2B88D5; border-bottom: 0px solid #CCCCCC; border-top-left-radius: 2px; border-top-right-radius: 2px; padding: 1px 1px 1px; }
+.open_window_header_loading p{color:#fff; font-size: 0.8em}
+
+.open_window_header h3{color:#617e9c; font-weight:600;}
+.modal_close { background: url("../images/modal_close.png") repeat scroll 0 0 transparent; display: block; height: 14px; position: absolute; right: 12px; top: 12px; width: 14px; z-index: 2; }  
+/*  弹出框元素样式  */
+.open_window .txt-fld { border-bottom: 1px solid #EEEEEE; padding: 14px 20px; position: relative; text-align: right; width: 364px; }
+.open_window .txt-fld_left { border-bottom: 1px solid #EEEEEE; padding: 14px 20px; position: relative; text-align: left; width: 364px; }
+.open_window .txt-fld_center { border-bottom: 1px solid #EEEEEE; padding: 14px 20px; position: relative; text-align: center; width: 364px; }
+.open_window .txt-fld input {border-color: #CCCCCC #E7E6E6 #E7E6E6 #CCCCCC; border-radius: 4px 4px 4px 4px; border-style: solid; border-width: 1px; color: #222222; font-family: "Helvetica Neue"; font-size: 1.2em; outline: medium none; padding: 8px; width: 244px; }
+.open_window .txt-fld input.good_input { background: url("../images/good.png") no-repeat scroll 236px center #DEF5E1; }
+.open_window .btn-fld { overflow: hidden; padding: 12px 20px 12px 130px; width: 254px; }
+.open_window .hidden-area {display:none }
+
+。open_window-select-font{color: #222222; font-family: "Helvetica Neue"; font-size: 1.2em; outline: medium none; padding: 8px; width: 244px;}
+
+.input_inline{display: inline;}
+/* 设置按钮的颜色*/
+button {vertical-align:middle;font-family:inherit;font-size:100%;}
+.button.bg-sub,.button.bg-main{color:#617e9c; font-weight:600;}
+/*  遮罩层 控件end */

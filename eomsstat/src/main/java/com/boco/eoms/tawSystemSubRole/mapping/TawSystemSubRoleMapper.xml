@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.tawSystemSubRole.dao.TawSystemSubRoleMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.tawSystemSubRole.model.TawSystemSubRole" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="AREA" property="area" jdbcType="VARCHAR" />
+    <result column="DEPTID" property="deptid" jdbcType="VARCHAR" />
+    <result column="LEAF" property="leaf" jdbcType="DECIMAL" />
+    <result column="LIMITCOUNT" property="limitcount" jdbcType="DECIMAL" />
+    <result column="PARENTID" property="parentid" jdbcType="DECIMAL" />
+    <result column="ROLEID" property="roleid" jdbcType="DECIMAL" />
+    <result column="SUBROLENAME" property="subrolename" jdbcType="VARCHAR" />
+    <result column="TYPE1" property="type1" jdbcType="VARCHAR" />
+    <result column="TYPE2" property="type2" jdbcType="VARCHAR" />
+    <result column="TYPE3" property="type3" jdbcType="VARCHAR" />
+    <result column="LOGO" property="logo" jdbcType="VARCHAR" />
+    <result column="TYPE4" property="type4" jdbcType="VARCHAR" />
+    <result column="DELETED" property="deleted" jdbcType="VARCHAR" />
+    <result column="VERSION" property="version" jdbcType="VARCHAR" />
+    <result column="TYPE5" property="type5" jdbcType="VARCHAR" />
+    <result column="TYPE6" property="type6" jdbcType="VARCHAR" />
+    <result column="TYPE7" property="type7" jdbcType="VARCHAR" />
+    <result column="TYPE8" property="type8" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, AREA, DEPTID, LEAF, LIMITCOUNT, PARENTID, ROLEID, SUBROLENAME, TYPE1, TYPE2, 
+    TYPE3, LOGO, TYPE4, DELETED, VERSION, TYPE5, TYPE6, TYPE7, TYPE8
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_SUB_ROLE
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from TAW_SYSTEM_SUB_ROLE
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.boco.eoms.tawSystemSubRole.model.TawSystemSubRole" >
+    insert into TAW_SYSTEM_SUB_ROLE (ID, AREA, DEPTID, 
+      LEAF, LIMITCOUNT, PARENTID, 
+      ROLEID, SUBROLENAME, TYPE1, 
+      TYPE2, TYPE3, LOGO, 
+      TYPE4, DELETED, VERSION, 
+      TYPE5, TYPE6, TYPE7, 
+      TYPE8)
+    values (#{id,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{deptid,jdbcType=VARCHAR}, 
+      #{leaf,jdbcType=DECIMAL}, #{limitcount,jdbcType=DECIMAL}, #{parentid,jdbcType=DECIMAL}, 
+      #{roleid,jdbcType=DECIMAL}, #{subrolename,jdbcType=VARCHAR}, #{type1,jdbcType=VARCHAR}, 
+      #{type2,jdbcType=VARCHAR}, #{type3,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, 
+      #{type4,jdbcType=VARCHAR}, #{deleted,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, 
+      #{type5,jdbcType=VARCHAR}, #{type6,jdbcType=VARCHAR}, #{type7,jdbcType=VARCHAR}, 
+      #{type8,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.boco.eoms.tawSystemSubRole.model.TawSystemSubRole" >
+    insert into TAW_SYSTEM_SUB_ROLE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="area != null" >
+        AREA,
+      </if>
+      <if test="deptid != null" >
+        DEPTID,
+      </if>
+      <if test="leaf != null" >
+        LEAF,
+      </if>
+      <if test="limitcount != null" >
+        LIMITCOUNT,
+      </if>
+      <if test="parentid != null" >
+        PARENTID,
+      </if>
+      <if test="roleid != null" >
+        ROLEID,
+      </if>
+      <if test="subrolename != null" >
+        SUBROLENAME,
+      </if>
+      <if test="type1 != null" >
+        TYPE1,
+      </if>
+      <if test="type2 != null" >
+        TYPE2,
+      </if>
+      <if test="type3 != null" >
+        TYPE3,
+      </if>
+      <if test="logo != null" >
+        LOGO,
+      </if>
+      <if test="type4 != null" >
+        TYPE4,
+      </if>
+      <if test="deleted != null" >
+        DELETED,
+      </if>
+      <if test="version != null" >
+        VERSION,
+      </if>
+      <if test="type5 != null" >
+        TYPE5,
+      </if>
+      <if test="type6 != null" >
+        TYPE6,
+      </if>
+      <if test="type7 != null" >
+        TYPE7,
+      </if>
+      <if test="type8 != null" >
+        TYPE8,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="deptid != null" >
+        #{deptid,jdbcType=VARCHAR},
+      </if>
+      <if test="leaf != null" >
+        #{leaf,jdbcType=DECIMAL},
+      </if>
+      <if test="limitcount != null" >
+        #{limitcount,jdbcType=DECIMAL},
+      </if>
+      <if test="parentid != null" >
+        #{parentid,jdbcType=DECIMAL},
+      </if>
+      <if test="roleid != null" >
+        #{roleid,jdbcType=DECIMAL},
+      </if>
+      <if test="subrolename != null" >
+        #{subrolename,jdbcType=VARCHAR},
+      </if>
+      <if test="type1 != null" >
+        #{type1,jdbcType=VARCHAR},
+      </if>
+      <if test="type2 != null" >
+        #{type2,jdbcType=VARCHAR},
+      </if>
+      <if test="type3 != null" >
+        #{type3,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null" >
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="type4 != null" >
+        #{type4,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="type5 != null" >
+        #{type5,jdbcType=VARCHAR},
+      </if>
+      <if test="type6 != null" >
+        #{type6,jdbcType=VARCHAR},
+      </if>
+      <if test="type7 != null" >
+        #{type7,jdbcType=VARCHAR},
+      </if>
+      <if test="type8 != null" >
+        #{type8,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.boco.eoms.tawSystemSubRole.model.TawSystemSubRole" >
+    update TAW_SYSTEM_SUB_ROLE
+    <set >
+      <if test="area != null" >
+        AREA = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="deptid != null" >
+        DEPTID = #{deptid,jdbcType=VARCHAR},
+      </if>
+      <if test="leaf != null" >
+        LEAF = #{leaf,jdbcType=DECIMAL},
+      </if>
+      <if test="limitcount != null" >
+        LIMITCOUNT = #{limitcount,jdbcType=DECIMAL},
+      </if>
+      <if test="parentid != null" >
+        PARENTID = #{parentid,jdbcType=DECIMAL},
+      </if>
+      <if test="roleid != null" >
+        ROLEID = #{roleid,jdbcType=DECIMAL},
+      </if>
+      <if test="subrolename != null" >
+        SUBROLENAME = #{subrolename,jdbcType=VARCHAR},
+      </if>
+      <if test="type1 != null" >
+        TYPE1 = #{type1,jdbcType=VARCHAR},
+      </if>
+      <if test="type2 != null" >
+        TYPE2 = #{type2,jdbcType=VARCHAR},
+      </if>
+      <if test="type3 != null" >
+        TYPE3 = #{type3,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null" >
+        LOGO = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="type4 != null" >
+        TYPE4 = #{type4,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null" >
+        DELETED = #{deleted,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        VERSION = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="type5 != null" >
+        TYPE5 = #{type5,jdbcType=VARCHAR},
+      </if>
+      <if test="type6 != null" >
+        TYPE6 = #{type6,jdbcType=VARCHAR},
+      </if>
+      <if test="type7 != null" >
+        TYPE7 = #{type7,jdbcType=VARCHAR},
+      </if>
+      <if test="type8 != null" >
+        TYPE8 = #{type8,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.boco.eoms.tawSystemSubRole.model.TawSystemSubRole" >
+    update TAW_SYSTEM_SUB_ROLE
+    set AREA = #{area,jdbcType=VARCHAR},
+      DEPTID = #{deptid,jdbcType=VARCHAR},
+      LEAF = #{leaf,jdbcType=DECIMAL},
+      LIMITCOUNT = #{limitcount,jdbcType=DECIMAL},
+      PARENTID = #{parentid,jdbcType=DECIMAL},
+      ROLEID = #{roleid,jdbcType=DECIMAL},
+      SUBROLENAME = #{subrolename,jdbcType=VARCHAR},
+      TYPE1 = #{type1,jdbcType=VARCHAR},
+      TYPE2 = #{type2,jdbcType=VARCHAR},
+      TYPE3 = #{type3,jdbcType=VARCHAR},
+      LOGO = #{logo,jdbcType=VARCHAR},
+      TYPE4 = #{type4,jdbcType=VARCHAR},
+      DELETED = #{deleted,jdbcType=VARCHAR},
+      VERSION = #{version,jdbcType=VARCHAR},
+      TYPE5 = #{type5,jdbcType=VARCHAR},
+      TYPE6 = #{type6,jdbcType=VARCHAR},
+      TYPE7 = #{type7,jdbcType=VARCHAR},
+      TYPE8 = #{type8,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  
+   <select id="queryBySubRoleId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_SUB_ROLE
+    where ROLEID = #{roleId,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="getAllSubRoles" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_SUB_ROLE
+  </select>
+  
+  <select id="getSubRolesByAreaId" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_SUB_ROLE
+    where DEPTID = #{areaId,jdbcType=VARCHAR}
+  </select>
+</mapper>

@@ -1,0 +1,119 @@
+//package com.boco.eoms.mobileApply.test;
+//
+//import java.net.MalformedURLException;
+//import java.rmi.RemoteException;
+//import java.util.ArrayList;
+//import java.util.LinkedHashMap;
+//import java.util.List;
+//
+//import javax.xml.rpc.ServiceException;
+//
+//import com.boco.eoms.mobileApply.model.base.MsgHeader;
+//import com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByAreaSrv.StatisticsFaultByAreaInfo;
+//import com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByAreaSrv.StatisticsFaultByAreaSrvRequest;
+//import com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByAreaSrv.StatisticsFaultByAreaSrvResponse;
+//
+//
+//
+//public class StatisticsFaultByAreaSrv {
+//	public StatisticsFaultByAreaSrvResponse statisticsFaultByAreaSrv(MsgHeader arg0,StatisticsFaultByAreaSrvRequest arg1)throws RemoteException, ServiceException {
+//		MsgHeader msgHeader=new MsgHeader();
+//		StatisticsFaultByAreaSrvRequest statisticsFaultByAreaSrvRequest = new StatisticsFaultByAreaSrvRequest();
+//		/**
+//		 * 输入转换statisticsFaultByAreaSrvRequest 
+//		 */
+//		statisticsFaultByAreaSrvRequest.setStatisticsType(arg1.getStatisticsType());
+//		statisticsFaultByAreaSrvRequest.setStartTime(arg1.getStartTime());
+//		statisticsFaultByAreaSrvRequest.setEndTime(arg1.getEndTime());
+//		statisticsFaultByAreaSrvRequest.setReserved1(arg1.getReserved1());
+//		statisticsFaultByAreaSrvRequest.setReserved2(arg1.getReserved2());
+//		statisticsFaultByAreaSrvRequest.setReserved3(arg1.getReserved3());
+//		statisticsFaultByAreaSrvRequest.setReserved4(arg1.getReserved4());
+//		statisticsFaultByAreaSrvRequest.setReserved5(arg1.getReserved5());
+//
+//		/**
+//		 * 输入转换msgHeader
+//		 */
+//		msgHeader.setSerSupplier(arg0.getSerSupplier());
+//		msgHeader.setSerCaller(arg0.getSerCaller());
+//		msgHeader.setCallerPwd(arg0.getCallerPwd());
+//		msgHeader.setCallTime(arg0.getCallTime());
+//		msgHeader.setOpUserId(arg0.getOpUserId());
+//		msgHeader.setOpUserName	(arg0.getOpUserName());
+//		msgHeader.setOpTime(arg0.getOpTime());
+//		msgHeader.setProviceCode(arg0.getProviceCode());
+//		msgHeader.setPageSize(arg0.getPageSize());
+//		msgHeader.setCurrentPageIndex(arg0.getCurrentPageIndex());
+//		/**
+//		 * 调用接口
+//		 */
+////		//PropertyUrl propertyUrl = new PropertyUrl();
+////		java.net.URL portAddress = null;
+////		try {
+////			portAddress = new java.net.URL(propertyUrl.getPropertyUrl("address_statisticssheet"));
+////		} catch (MalformedURLException e) {
+////			e.printStackTrace();
+////		}
+////		StatisticsSheetProvideSrvServiceLocator provideService  = new StatisticsSheetProvideSrvServiceLocator();	
+////		StatisticsFaultByAreaSrvResponse csr = provideService.getStatisticsSheetProvideSrv(portAddress).statisticsFaultByAreaSrv(msgHeader, statisticsFaultByAreaSrvRequest);
+////		StatisticsFaultByAreaSrvResponse ret = new StatisticsFaultByAreaSrvResponse();
+////		
+////		
+////		/**
+////		 * 将对象信息xml转换成List对象传入结果集（OutputCollection）statisticsFaultByAreaInfo
+////		 */
+////		List<StatisticsFaultByAreaInfo> statisticsFaultByAreaInfoList = new ArrayList<StatisticsFaultByAreaInfo>(); 
+////		String statisticsFaultByAreaInfoListString = Util.nullObject2String(csr.getStatisticsFaultByAreaInfo());
+////		
+////		if(!"".equals(statisticsFaultByAreaInfoListString)){
+////			LinkedHashMap statisticsFaultByAreaInfoMap = new LinkedHashMap();
+////			statisticsFaultByAreaInfoMap=Util.xmlElements(statisticsFaultByAreaInfoListString);
+////			for(int i=0;i<statisticsFaultByAreaInfoMap.size();i++){
+////				
+////				LinkedHashMap mapObj =(LinkedHashMap) statisticsFaultByAreaInfoMap.get(i);
+////				StatisticsFaultByAreaInfo statisticsFaultByAreaInfo = new StatisticsFaultByAreaInfo();
+////				
+////				statisticsFaultByAreaInfo.setAreaName((String) mapObj.get("areaName"));
+////				statisticsFaultByAreaInfo.setAreaId((String) mapObj.get("areaId"));
+////				String undoNum = (String) mapObj.get("undoNum");
+////				if("".equals(undoNum)){
+////					undoNum = "0";
+////				}
+////				statisticsFaultByAreaInfo.setUndoNum(Integer.parseInt(undoNum));
+////				String importNum = (String) mapObj.get("importNum");
+////				if("".equals(importNum)){
+////					importNum = "0";
+////				}
+////				statisticsFaultByAreaInfo.setImportNum(Integer.parseInt(importNum));
+////				String unCheckNum = (String) mapObj.get("unCheckNum");
+////				if("".equals(unCheckNum)){
+////					unCheckNum = "0";
+////				}
+////				statisticsFaultByAreaInfo.setUnCheckNum(Integer.parseInt(unCheckNum));
+////				String overTimeNum = (String) mapObj.get("overTimeNum");
+////				if("".equals(overTimeNum)){
+////					overTimeNum = "0";
+////				}
+////				statisticsFaultByAreaInfo.setOverTimeNum(Integer.parseInt(overTimeNum));
+////				statisticsFaultByAreaInfo.setReserved1((String) mapObj.get("reserved1"));
+////				statisticsFaultByAreaInfo.setReserved2((String) mapObj.get("reserved2"));
+////				statisticsFaultByAreaInfo.setReserved3((String) mapObj.get("reserved3"));
+////				statisticsFaultByAreaInfo.setReserved4((String) mapObj.get("reserved4"));
+////				statisticsFaultByAreaInfo.setReserved5((String) mapObj.get("reserved5"));
+////				    
+////				statisticsFaultByAreaInfoList.add(statisticsFaultByAreaInfo);
+////			}
+////		}
+////		
+////		//list对象转换完成
+////		/**
+////		 * 输出csr转换为ret
+////		 */
+////		ret.setServiceFlag(csr.getServiceFlag());
+////		ret.setServiceMessage(csr.getServiceMessage());
+////		ret.setStatisticsFaultByAreaInfo(statisticsFaultByAreaInfoList);
+//		return ret;
+//	}
+//
+//
+//}

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.tawStatisticModelItem.dao.TawStatisticModelItemMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.tawStatisticModelItem.model.TawStatisticModelItem" >
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="MODEL_ID" property="modelId" jdbcType="VARCHAR" />
+    <result column="PARENT_ITEM_ID" property="parentItemId" jdbcType="VARCHAR" />
+    <result column="TYPE" property="type" jdbcType="VARCHAR" />
+    <result column="ITEM_ID" property="itemId" jdbcType="VARCHAR" />
+    <result column="IS_LEAF" property="isLeaf" jdbcType="VARCHAR" />
+    <result column="ITEM_CODE" property="itemCode" jdbcType="VARCHAR" />
+    <result column="PARENT_MODEL_ITEM_ID" property="parentModelItemId" jdbcType="VARCHAR" />
+  </resultMap>
+  
+    <sql id="Base_Column_List" >
+    ID, MODEL_ID, PARENT_ITEM_ID, TYPE,ITEM_ID,IS_LEAF,ITEM_CODE,PARENT_MODEL_ITEM_ID
+  </sql>
+  
+  <insert id="insert" parameterType="com.boco.eoms.tawStatisticModelItem.model.TawStatisticModelItem" >
+    insert into TAW_STATISTIC_MODEL_ITEM (ID, MODEL_ID, PARENT_ITEM_ID, 
+      TYPE, ITEM_ID,IS_LEAF,ITEM_CODE,PARENT_MODEL_ITEM_ID)
+    values (#{id,jdbcType=VARCHAR}, #{modelId,jdbcType=VARCHAR}, #{parentItemId,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{itemId,jdbcType=VARCHAR}, #{isLeaf,jdbcType=VARCHAR},#{itemCode,jdbcType=VARCHAR},#{parentModelItemId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.boco.eoms.tawStatisticModelItem.model.TawStatisticModelItem" >
+    insert into TAW_STATISTIC_MODEL_ITEM
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="modelId != null" >
+        MODEL_ID,
+      </if>
+      <if test="parentItemId != null" >
+        PARENT_ITEM_ID,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="itemId != null" >
+        ITEM_ID,
+      </if>
+      <if test="isLeaf != null" >
+        IS_LEAF,
+      </if>
+        <if test="itemCode != null" >
+        ITEM_CODE,
+      </if>
+      <if test="parentModelItemId != null" >
+        PARENT_MODEL_ITEM_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="modelId != null" >
+        #{modelId,jdbcType=VARCHAR},
+      </if>
+      <if test="parentItemId != null" >
+        #{parentItemId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="itemId != null" >
+        #{itemId,jdbcType=VARCHAR},
+      </if>
+      <if test="isLeaf != null" >
+        #{isLeaf,jdbcType=VARCHAR},
+      </if>
+      <if test="itemCode != null" >
+        #{itemCode,jdbcType=VARCHAR},
+      </if>
+       <if test="parentModelItemId != null" >
+        #{parentModelItemId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+   <!-- 根据id查询开始 -->
+   
+   <!-- 根据id查询结束-->
+   <select id="getModelItemById" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select <include refid="Base_Column_List" />
+    from TAW_STATISTIC_MODEL_ITEM where 1=1 AND ID=#{id}		
+  </select>
+    <!-- 根据模板号查询开始 -->
+  <select id="getModelItemByModelId" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select <include refid="Base_Column_List" />
+    from TAW_STATISTIC_MODEL_ITEM where 1=1 AND model_id=#{modelId}		
+  </select>
+  
+  <select id="getModelItemByModelIdAndType" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select <include refid="Base_Column_List" />
+    from TAW_STATISTIC_MODEL_ITEM where 1=1 AND model_id=#{model_id} AND TYPE=#{type} order by id
+  </select>
+  
+   <select id="getModelItemDemensionRootByModelIdAndType" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select <include refid="Base_Column_List" />
+    from TAW_STATISTIC_MODEL_ITEM where 1=1 AND model_id=#{model_id} and TYPE=#{type} and PARENT_ITEM_ID='1' order by ITEM_CODE
+  </select>
+  <!-- 根据模板号查询结束-->
+  
+  <!-- 根据模板号查询开始 -->
+  <select id="listByParentId" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select <include refid="Base_Column_List" />
+    from TAW_STATISTIC_MODEL_ITEM where 1=1 AND PARENT_ITEM_ID=#{parentItemId}	order by ITEM_CODE
+  </select>
+  
+  <select id="listByparentModelItemId" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select <include refid="Base_Column_List" />
+    from TAW_STATISTIC_MODEL_ITEM where 1=1 AND PARENT_MODEL_ITEM_ID=#{parentModelItemId}	order by ITEM_CODE
+  </select>
+  
+  <select id="listByparentModelItemIdAndType" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select <include refid="Base_Column_List" />
+    from TAW_STATISTIC_MODEL_ITEM where 1=1 AND PARENT_MODEL_ITEM_ID=#{parentModelItemId}	and TYPE=#{type} order by ITEM_CODE
+  </select>
+  
+  <!-- 根据模板号查询结束-->
+  
+  <!-- 根据模板号查询模板维度开始 -->
+  <select id="getModelItemByModelParam" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select <include refid="Base_Column_List" />
+    from taw_statistic_model_item where model_id=#{modelId} and parent_item_id='1' and is_leaf='1' and item_id like 'D%'
+   </select>
+  <!-- 根据模板号查询模板维度结束-->
+  <!-- 根据模板号查询模板指标开始 -->
+   <select id="getModelItemByModelIndicator" resultMap="BaseResultMap" parameterType="java.lang.String">
+   	select <include refid="Base_Column_List" />
+    from taw_statistic_model_item where model_id=#{modelId} and parent_item_id='1' and is_leaf='1' and item_id like 'I%'
+   </select>
+   
+   <select id="getModelItemByModelComplex" resultMap="BaseResultMap" parameterType="java.lang.String">
+   	select <include refid="Base_Column_List" />
+    from taw_statistic_model_item where model_id=#{modelId} and parent_item_id='1' and is_leaf='0' and item_id like 'D%'
+   </select>
+   <!-- 根据模板号查询模板指标结束-->
+  
+  <!-- 根据模板号查询树的深度开始 -->
+  <select id="getLengthOfModelTree" resultType="int" parameterType="java.lang.String">    
+    select max(length(item_code)) from taw_statistic_model_item where model_id=#{model_id} and TYPE='1'
+  </select>
+  <!-- 根据模板号查询树的深度结束-->
+  
+  
+  
+  
+  
+</mapper>

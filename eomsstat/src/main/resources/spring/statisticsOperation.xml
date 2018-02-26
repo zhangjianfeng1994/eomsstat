@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="GBK"?>
+<boco>
+ <!-- 掌上运维统计模板ID配置 ,需要现场根据实际情况调整对应的模板ID-->
+   <statisticsModelType>
+		<statisticsFaultByArea>8a03be115427bf330154289ddf0f0003</statisticsFaultByArea><!-- 故障区域分析（按地市）服务 -->
+		<statisticsFaultByAreaAndCountry>65f174581b17409398c0fdb370a49e53</statisticsFaultByAreaAndCountry><!-- 故障区域分析（按地市+区县）服务 -->
+		<statisticsFaultByAreaAndNet>a01e0af268964477ba489dfe4e4188cf</statisticsFaultByAreaAndNet><!-- 故障区域分析（按地市+区县+网络一级分类）服务 -->
+		<statisticsFaultByAreaAndNetTwo>8c4f1d7b98bd4582975a69acfa08a58d</statisticsFaultByAreaAndNetTwo><!-- 故障区域分析（按地市+区县+网络一级分类+网络二级分类）服务 -->
+        <statisticsFaultByNet>324a7a4578fe4fae85b7a5b1ec487a80</statisticsFaultByNet><!-- 故障分类分析（按网络一级分类）服务 -->
+        <statisticsFaultByNetAndArea>6015c8fed5b74d42875eb628d98b8d29</statisticsFaultByNetAndArea><!-- 故障分类分析（按网络一级分类+地市）服务 -->
+        <statisticsFaultByNetAndCountry>4c24ccb5e3fc48899bc77b1304ffb756</statisticsFaultByNetAndCountry><!-- 故障分类分析（按网络一级分类+地市+区县）服务 -->
+        <statisticsFaultByNetTwoAndCountry>f2f86a93fe8542aba4682cd6f795de6e</statisticsFaultByNetTwoAndCountry><!-- 故障分类分析（按网络一级分类+地市+区县+网络二级分类）服务 -->
+        
+        <statisticsFaultOutService2GByArea>e46bf168c39c44309aae827a2074a649</statisticsFaultOutService2GByArea><!-- 退服统计分析2G基站（按地市）服务 -->
+		<statisticsFaultOutService2GByCountry>f5947a8074844bb7a91ed81d0861ded5</statisticsFaultOutService2GByCountry><!-- 退服统计分析2G基站（按地市+区县）服务 -->
+		<statisticsFaultOutService3GByArea>daa71e62888b4348a5dacc89b41bf8c7</statisticsFaultOutService3GByArea><!-- 退服统计分析3G基站（按地市）服务 -->
+		<statisticsFaultOutService3GByCountry>9656894ed62a40659df1615197510c4d</statisticsFaultOutService3GByCountry><!-- 退服统计分析3G基站（按地市+区县）服务 -->
+		<statisticsFaultOutServiceRRUByArea>9254ec26df574dea850b5b119ede6b47</statisticsFaultOutServiceRRUByArea><!-- 退服统计分析RRU基站（按地市）服务 -->
+		<statisticsFaultOutServiceRRUByCountry>9254ec26df574dea850b5b119ede6b47</statisticsFaultOutServiceRRUByCountry><!-- 退服统计分析RRU基站（按地市+区县）服务 -->
+		<statisticsFaultOutService4GByArea>f01015bb4f824ac6aa2ff3fa8024d683</statisticsFaultOutService4GByArea><!-- 退服统计分析4G基站（按地市）服务 -->
+		<statisticsFaultOutService4GByCountry>462c981ee3a54a5dbc04abedb8cf8326</statisticsFaultOutService4GByCountry><!-- 退服统计分析4G基站（按地市+区县）服务 -->
+		<statisticsFaultOutServiceWLANByArea>607084306bb54085b11fd0f9f4f73db0</statisticsFaultOutServiceWLANByArea><!-- 退服统计分析WLAN基站（按地市）服务 -->
+		<statisticsFaultOutServiceWLANByCountry>607084306bb54085b11fd0f9f4f73db0</statisticsFaultOutServiceWLANByCountry><!-- 退服统计分析WLAN基站（按地市+区县）服务 -->		
+		<statisticsFaultPowerCutByArea>b1520e7978f348eab14b6f893c9b840c</statisticsFaultPowerCutByArea><!-- 停电统计分析（按地市）服务 -->
+		<statisticsFaultPowerCutByCountry>6540e86121214fadb85e4e949af30318</statisticsFaultPowerCutByCountry><!-- 停电统计分析（按地市+区县）服务 -->		
+		<statisticsFaultLockStation2GByArea>108e0aa4ba0743f385e0bed30888ac2c</statisticsFaultLockStation2GByArea><!-- 锁站统计分析2G（按地市）服务 -->
+		<statisticsFaultLockStation2GByCountry>95e2e83b0909464799a753860330973b</statisticsFaultLockStation2GByCountry><!-- 锁站统计分析2G（按地市+区县）服务 -->
+		<statisticsFaultLockStation3GByArea>e4aee5f6c6594c7e8f9740d5b888eaad</statisticsFaultLockStation3GByArea><!-- 锁站统计分析3G（按地市）服务 -->
+		<statisticsFaultLockStation3GByCountry>77c23652ed4a44cc897e78764110aa39</statisticsFaultLockStation3GByCountry><!-- 锁站统计分析3G（按地市+区县）服务 -->
+		<statisticsFaultLockStation4GByArea>2c3edd515bd2471badf9d640e6b02257</statisticsFaultLockStation4GByArea><!-- 锁站统计分析4G（按地市）服务 -->
+		<statisticsFaultLockStation4GByCountry>88cf6cf423f7491497ff051e42137a81</statisticsFaultLockStation4GByCountry><!-- 锁站统计分析4G（按地市+区县）服务 -->	
+		<statisticsFaultListInfo>2</statisticsFaultListInfo><!-- 故障区域分析&故障分类分析列表服务 -->	
+		<statisticsFaultOutServiceListInfo>3</statisticsFaultOutServiceListInfo><!-- 退服统计分析列表服务 -->
+		<statisticsFaultPowerCutListInfo>4</statisticsFaultPowerCutListInfo><!-- 停电统计分析列表服务 -->
+		<statisticsFaultLockStation2GListInfo>5</statisticsFaultLockStation2GListInfo><!-- 2G锁站统计分析列表服务 -->
+		<statisticsFaultLockStation3GListInfo>6</statisticsFaultLockStation3GListInfo><!-- 3\4G锁站统计分析列表服务 -->
+		
+		<!-- 新添加start -->
+		<statisticsFaultStatusByArea>modelId</statisticsFaultStatusByArea><!-- 故障工单状态统计分析（按地市）服务的 modelId -->
+		<statisticsFaultStatusByCountry>modelId</statisticsFaultStatusByCountry><!-- 故障工单状态统计分析（按地市+区县）服务 的 modelId-->
+		<statisticsFaultTypeByArea>modelId</statisticsFaultTypeByArea><!-- 故障类型统计分析（按地市）服务 的 modelId-->
+		<statisticsFaultTypeByCountry>modelId</statisticsFaultTypeByCountry><!-- 故障类型统计分析（按地市+区县）服务 的 modelId-->
+		<statisticsFaultDealRateByArea>modelId</statisticsFaultDealRateByArea><!-- 处理及时率统计分析（按地市）服务的 modelId -->
+		<statisticsFaultDealRateByCountry>modelId</statisticsFaultDealRateByCountry><!-- 处理及时率统计分析（按地市+区县）服务的 modelId -->
+		
+		<statisticsNewFaultListInfo>detailNum</statisticsNewFaultListInfo><!-- 查询工单状态、故障类型、处理及时率列表服务的 详单号detailNum -->
+		<statisticsTabListInfo>modelId</statisticsTabListInfo><!-- 查询工单状态、故障类型、处理及时率列表服务的 详单号modelId -->
+		
+		<!-- 新添加end -->
+	</statisticsModelType>
+	
+	<statisticsCondition><!-- 指标列表查询条件配置 -->
+	  <undo>TASKNAME='SecondExcuteHumTask'</undo> <!-- 待处理的查询条件 -->
+	  <import>MAINFAULTRESPONSELEVEL='101030401'</import><!-- 重要的查询条件 -->
+	  <uncheck>TASKNAME='CheckingHumTask'</uncheck><!-- 待质检的查询条件 -->
+	  <overtime>MAINCOMPLETELIMITT2='0'</overtime><!-- 已超时的查询条件 -->
+	  <powercut></powercut><!-- 停电基站数的查询条件 -->
+	  <lockstation2G>RESRC_TYPE='1_1'</lockstation2G><!-- 2G锁站数量的查询条件 -->
+	  <lockstation3G>RESRC_TYPE='1_2'</lockstation3G><!-- 3G锁站数量的查询条件 -->
+	  <lockstation4G>RESRC_TYPE='1_3'</lockstation4G><!-- 4G锁站数量的查询条件 -->
+	  <outService2G>mainalarmid in ('155-007-011-00-802851','155-010-012-01-007767','155-008-012-00-800899')</outService2G><!-- 2G退服数量的查询条件 -->
+	  <outService3G>mainalarmid in ('155-008-024-00-800163','155-028-023-00-800272','155-010-024-00-022615','155-026-024-00-800047','155-007-024-00-022615')</outService3G><!-- 3G退服数量的查询条件 -->
+	  <outService4G>mainalarmid in ('155-008-103-00-800240','155-026-103-00-1013000','155-010-103-00-007650')</outService4G><!-- 4G退服数量的查询条件 -->
+	  <outServiceRRU>MAINALARMSTAID in ('026-103-00-1018000','026-103-00-1013000')</outServiceRRU><!-- RRU退服数量的查询条件 -->
+	  <outServiceWLAN>btstype='6'</outServiceWLAN><!-- WLAN退服数量的查询条件 -->
+	  
+	  <!-- 新添加start -->
+	  <status1></status1> <!-- 工单状态分析工单总量列表的查询条件 -->
+	  <status2></status2> <!-- 工单状态分析未接单总量列表的查询条件 -->
+	  <status3></status3> <!-- 工单状态分析未接单未超时列表的查询条件 -->
+	  <status4></status4> <!-- 工单状态分析未接单将超时（30分钟）列表的查询条件 -->
+	  <status5></status5> <!-- 工单状态分析未接单已超时列表的查询条件 -->
+	  <status6></status6> <!-- 工单状态分析已接单总量列表的查询条件 -->
+	  <status7></status7> <!-- 工单状态分析已接单待回单(修改为未超时)列表的查询条件 -->
+	  <status8></status8> <!-- 工单状态分析已接单将超时（1小时）列表的查询条件 -->
+	  <status9></status9> <!-- 工单状态分析已接单回单超时列表的查询条件 -->
+	  <faultType1></faultType1> <!-- 故障类型分析四专业工单总量列表的查询条件 -->
+	  <faultType2></faultType2> <!-- 故障类型分析无线专业工单总量列表的查询条件 -->
+	  <faultType3></faultType3> <!-- 故障类型分析动环专业工单总量列表的查询条件 -->
+	  <faultType4></faultType4> <!-- 故障类型分析传输专业工单总量列表的查询条件 -->
+	  <faultType5></faultType5> <!-- 故障类型分析WLAN专业工单总量列表的查询条件 -->
+	  <dealRate1></dealRate1> <!-- 处理及时率分析工单总量列表的查询条件 -->
+	  <dealRate2></dealRate2> <!-- 处理及时率分析接单超时受理量列表的查询条件 -->
+	  <dealRate3></dealRate3> <!-- 处理及时率分析处理超时工单量列表的查询条件 -->
+	  <!-- 新添加end -->
+	</statisticsCondition>
+ 
+    <!-- 掌上运维接口类型配置 -->
+	<interfaceType>
+		<statisticsFaultByArea>statisticsFaultByAreaInfo</statisticsFaultByArea><!-- 故障区域分析（按地市）服务 -->
+        <statisticsFaultByAreaAndCountry>statisticsFaultByAreaAndCountry</statisticsFaultByAreaAndCountry><!-- 故障区域分析（按地市+区县）服务 --> 
+        <statisticsFaultByAreaAndNet>statisticsFaultByAreaAndNet</statisticsFaultByAreaAndNet><!-- 故障区域分析（按地市+区县+网络一级分类）服务 -->
+	    <statisticsFaultByAreaAndNetTwo>statisticsFaultByAreaAndNetTwo</statisticsFaultByAreaAndNetTwo><!-- 故障区域分析（按地市+区县+网络一级分类+网络二级分类）服务 -->
+	    <statisticsFaultByNet>statisticsFaultByNet</statisticsFaultByNet><!-- 故障区域分析（按地市）服务 -->
+	    <statisticsFaultByNetAndArea>statisticsFaultByNetAndArea</statisticsFaultByNetAndArea><!-- 故障区域分析（按网络一级分类+地市）服务 -->
+	    <statisticsFaultByNetAndCountry>statisticsFaultByNetAndCountry</statisticsFaultByNetAndCountry><!-- 故障区域分析（按网络一级分类+地市+区县）服务 -->
+	    <statisticsFaultByNetTwoAndCountry>statisticsFaultByNetTwoAndCountry</statisticsFaultByNetTwoAndCountry><!-- 故障区域分析（按网络一级分类+地市+区县+网络二级分类）服务 -->
+        <statisticsFaultOutService2GByArea>statisticsFaultOutService2GByArea</statisticsFaultOutService2GByArea><!-- 退服统计分析2G基站（按地市）服务 -->
+		<statisticsFaultOutService2GByCountry>statisticsFaultOutService2GByCountry</statisticsFaultOutService2GByCountry><!-- 退服统计分析2G基站（按地市+区县）服务 -->
+		<statisticsFaultOutService3GByArea>statisticsFaultOutService3GByArea</statisticsFaultOutService3GByArea><!-- 退服统计分析2G基站（按地市）服务 -->
+		<statisticsFaultOutService3GByCountry>statisticsFaultOutService3GByCountry</statisticsFaultOutService3GByCountry><!-- 退服统计分析3G基站（按地市+区县）服务 -->
+		<statisticsFaultOutServiceRRUByArea>statisticsFaultOutServiceRRUByArea</statisticsFaultOutServiceRRUByArea><!-- 退服统计分析RRU基站（按地市）服务 -->
+		<statisticsFaultOutServiceRRUByCountry>statisticsFaultOutServiceRRUByCountry</statisticsFaultOutServiceRRUByCountry><!-- 退服统计分析RRU基站（按地市+区县）服务 -->
+		<statisticsFaultOutService4GByArea>statisticsFaultOutService4GByArea</statisticsFaultOutService4GByArea><!-- 退服统计分析4G基站（按地市）服务 -->
+		<statisticsFaultOutService4GByCountry>statisticsFaultOutService4GByCountry</statisticsFaultOutService4GByCountry><!-- 退服统计分析4G基站（按地市+区县）服务 -->
+		<statisticsFaultOutServiceWLANByArea>statisticsFaultOutServiceWLANByArea</statisticsFaultOutServiceWLANByArea><!-- 退服统计分析WLAN基站（按地市）服务 -->
+		<statisticsFaultOutServiceWLANByCountry>statisticsFaultOutServiceWLANByCountry</statisticsFaultOutServiceWLANByCountry><!-- 退服统计分析WLAN基站（按地市+区县）服务 -->
+	    <statisticsFaultPowerCutByArea>statisticsFaultPowerCutByArea</statisticsFaultPowerCutByArea><!-- 停电统计分析（按地市）服务 -->
+		<statisticsFaultPowerCutByCountry>statisticsFaultPowerCutByCountry</statisticsFaultPowerCutByCountry><!-- 停电统计分析（按地市+区县）服务 -->
+		<statisticsFaultLockStation2GByArea>statisticsFaultLockStation2GByArea</statisticsFaultLockStation2GByArea><!-- 锁站统计分析2G（按地市）服务 -->
+		<statisticsFaultLockStation2GByCountry>statisticsFaultLockStation2GByCountry</statisticsFaultLockStation2GByCountry><!-- 锁站统计分析2G（按地市+区县）服务 -->
+		<statisticsFaultLockStation3GByArea>statisticsFaultLockStation3GByArea</statisticsFaultLockStation3GByArea><!-- 锁站统计分析3G（按地市）服务 -->
+		<statisticsFaultLockStation3GByCountry>statisticsFaultLockStation3GByCountry</statisticsFaultLockStation3GByCountry><!-- 锁站统计分析3G（按地市+区县）服务 -->
+		<statisticsFaultLockStation4GByArea>statisticsFaultLockStation4GByArea</statisticsFaultLockStation4GByArea><!-- 锁站统计分析4G（按地市）服务 -->
+		<statisticsFaultLockStation4GByCountry>statisticsFaultLockStation4GByCountry</statisticsFaultLockStation4GByCountry><!-- 锁站统计分析4G（按地市+区县）服务 -->
+		<statisticsFaultListInfo>statisticsFaultListInfo</statisticsFaultListInfo><!-- 故障区域分析&故障分类分析列表服务 -->
+		<statisticsFaultOutServiceListInfo>statisticsFaultOutServiceListInfo</statisticsFaultOutServiceListInfo><!-- 退服统计分析列表服务 -->
+		<statisticsFaultPowerCutListInfo>statisticsFaultPowerCutListInfo</statisticsFaultPowerCutListInfo><!-- 停电统计分析列表服务 -->	
+		<statisticsFaultLockStationListInfo>statisticsFaultLockStationListInfo</statisticsFaultLockStationListInfo><!-- 锁站统计分析列表服务 -->
+		
+		<!-- 新添加start -->
+		<statisticsFaultStatusByArea>statisticsFaultStatusByArea</statisticsFaultStatusByArea><!-- 故障工单状态统计分析（按地市）服务 -->
+		<statisticsFaultStatusByCountry>statisticsFaultStatusByCountry</statisticsFaultStatusByCountry><!-- 故障工单状态统计分析（按地市+区县）服务 -->
+		<statisticsFaultTypeByArea>statisticsFaultTypeByArea</statisticsFaultTypeByArea><!-- 故障类型统计分析（按地市）服务 -->
+		<statisticsFaultTypeByCountry>statisticsFaultTypeByCountry</statisticsFaultTypeByCountry><!-- 故障类型统计分析（按地市+区县）服务 -->
+		<statisticsFaultDealRateByArea>statisticsFaultDealRateByArea</statisticsFaultDealRateByArea><!-- 处理及时率统计分析（按地市）服务 -->
+		<statisticsFaultDealRateByCountry>statisticsFaultDealRateByCountry</statisticsFaultDealRateByCountry><!-- 处理及时率统计分析（按地市+区县）服务 -->
+		<statisticsNewFaultListInfo>statisticsNewFaultListInfo</statisticsNewFaultListInfo><!-- 查询工单状态、故障类型、处理及时率列表服务 -->
+		<statisticsTabListInfo>statisticsTabListInfo</statisticsTabListInfo><!-- 查询工单状态、故障类型、处理及时率列表服务 -->
+		<!-- 新添加end -->
+	</interfaceType>
+
+
+ 	<statisticsFaultByAreaInfo>
+		<content columnName="地市名称" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="地市" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="待处理" interfaceEnName="undoNum" defauleValue="" />	
+		<content columnName="重要" interfaceEnName="importNum" defauleValue="" />
+		<content columnName="待质检" interfaceEnName="unCheckNum" defauleValue="" />
+		<content columnName="已超时" interfaceEnName="overTimeNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultByAreaInfo>
+	<statisticsFaultByAreaAndCountry>
+		<content columnName="区县名称" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="区县" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="待处理" interfaceEnName="undoNum" defauleValue="" />	
+		<content columnName="重要" interfaceEnName="importNum" defauleValue="" />
+		<content columnName="待质检" interfaceEnName="unCheckNum" defauleValue="" />
+		<content columnName="已超时" interfaceEnName="overTimeNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultByAreaAndCountry>
+	<statisticsFaultByAreaAndNet>
+		<content columnName="一级分类名称" interfaceEnName="netType1Name" defauleValue="" />
+		<content columnName="一级分类" interfaceEnName="netType1Id" defauleValue="" />
+		<content columnName="待处理" interfaceEnName="undoNum" defauleValue="" />	
+		<content columnName="重要" interfaceEnName="importNum" defauleValue="" />
+		<content columnName="待质检" interfaceEnName="unCheckNum" defauleValue="" />
+		<content columnName="已超时" interfaceEnName="overTimeNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultByAreaAndNet>
+	<statisticsFaultByAreaAndNetTwo>
+		<content columnName="二级分类名称" interfaceEnName="netType2Name" defauleValue="" />
+		<content columnName="二级分类" interfaceEnName="netType2Id" defauleValue="" />
+		<content columnName="待处理" interfaceEnName="undoNum" defauleValue="" />	
+		<content columnName="重要" interfaceEnName="importNum" defauleValue="" />
+		<content columnName="待质检" interfaceEnName="unCheckNum" defauleValue="" />
+		<content columnName="已超时" interfaceEnName="overTimeNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultByAreaAndNetTwo>
+	<statisticsFaultByNet>
+		<content columnName="一级分类名称" interfaceEnName="netType1Name" defauleValue="" />
+		<content columnName="一级分类" interfaceEnName="netType1Id" defauleValue="" />
+		<content columnName="待处理" interfaceEnName="undoNum" defauleValue="" />	
+		<content columnName="重要" interfaceEnName="importNum" defauleValue="" />
+		<content columnName="待质检" interfaceEnName="unCheckNum" defauleValue="" />
+		<content columnName="已超时" interfaceEnName="overTimeNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultByNet>
+	<statisticsFaultByNetAndArea>
+		<content columnName="地市名称" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="地市" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="待处理" interfaceEnName="undoNum" defauleValue="" />	
+		<content columnName="重要" interfaceEnName="importNum" defauleValue="" />
+		<content columnName="待质检" interfaceEnName="unCheckNum" defauleValue="" />
+		<content columnName="已超时" interfaceEnName="overTimeNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultByNetAndArea>
+	<statisticsFaultByNetAndCountry>
+		<content columnName="区县名称" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="区县" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="待处理" interfaceEnName="undoNum" defauleValue="" />	
+		<content columnName="重要" interfaceEnName="importNum" defauleValue="" />
+		<content columnName="待质检" interfaceEnName="unCheckNum" defauleValue="" />
+		<content columnName="已超时" interfaceEnName="overTimeNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultByNetAndCountry>
+	<statisticsFaultByNetTwoAndCountry>
+		<content columnName="二级分类名称" interfaceEnName="netType2Name" defauleValue="" />
+		<content columnName="二级分类" interfaceEnName="netType2Id" defauleValue="" />
+		<content columnName="待处理" interfaceEnName="undoNum" defauleValue="" />	
+		<content columnName="重要" interfaceEnName="importNum" defauleValue="" />
+		<content columnName="待质检" interfaceEnName="unCheckNum" defauleValue="" />
+		<content columnName="已超时" interfaceEnName="overTimeNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultByNetTwoAndCountry>
+	
+	<statisticsFaultOutService2GByArea>
+		<content columnName="地市名称" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="地市" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="2G退服基站数" interfaceEnName="stationNum" defauleValue="" />
+		<content columnName="2G小区退服" interfaceEnName="communityNum" defauleValue="" />
+		<content columnName="2G退服占比" interfaceEnName="stationRate" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultOutService2GByArea>
+	<statisticsFaultOutService2GByCountry>
+		<content columnName="区县名称" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="区县" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="2G退服基站数" interfaceEnName="stationNum" defauleValue="" />
+		<content columnName="2G小区退服" interfaceEnName="communityNum" defauleValue="" />
+		<content columnName="2G退服占比" interfaceEnName="stationRate" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultOutService2GByCountry>
+	<statisticsFaultOutService3GByArea>
+		<content columnName="地市名称" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="地市" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="3G 退服基站数" interfaceEnName="stationNum" defauleValue="" />
+		<content columnName="3G退服小区数" interfaceEnName="communityNum" defauleValue="" />
+		<content columnName="3G退服占比" interfaceEnName="stationRate" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultOutService3GByArea>
+	<statisticsFaultOutService3GByCountry>
+		<content columnName="区县名称" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="区县" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="3G 退服基站数" interfaceEnName="stationNum" defauleValue="" />
+		<content columnName="3G退服小区数" interfaceEnName="communityNum" defauleValue="" />
+		<content columnName="3G退服占比" interfaceEnName="stationRate" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultOutService3GByCountry>
+	<statisticsFaultOutServiceRRUByArea>
+		<content columnName="地市名称" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="地市" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="RRU退服数" interfaceEnName="rruNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultOutServiceRRUByArea>
+	<statisticsFaultOutServiceRRUByCountry>
+		<content columnName="区县名称" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="区县" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="RRU退服数" interfaceEnName="rruNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultOutServiceRRUByCountry>
+	<statisticsFaultOutService4GByArea>
+		<content columnName="地市名称" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="地市" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="4G基站退服" interfaceEnName="stationNum" defauleValue="" />
+		<content columnName="4G退服小区数" interfaceEnName="communityNum" defauleValue="" />
+		<content columnName="4G退服占比" interfaceEnName="stationRate" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultOutService4GByArea>
+	<statisticsFaultOutService4GByCountry>
+		<content columnName="区县名称" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="区县" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="4G基站退服" interfaceEnName="stationNum" defauleValue="" />
+		<content columnName="4G退服小区数" interfaceEnName="communityNum" defauleValue="" />
+		<content columnName="4G退服占比" interfaceEnName="stationRate" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultOutService4GByCountry>
+	<statisticsFaultOutServiceWLANByArea>
+		<content columnName="地市名称" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="地市" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="wlan退服数" interfaceEnName="hotSiteNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultOutServiceWLANByArea>
+	<statisticsFaultOutServiceWLANByCountry>
+		<content columnName="区县名称" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="区县" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="wlan退服数" interfaceEnName="hotSiteNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultOutServiceWLANByCountry>
+	<statisticsFaultPowerCutByArea>
+		<content columnName="地市名称" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="地市" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="停电基站数" interfaceEnName="stationNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultPowerCutByArea>
+	<statisticsFaultPowerCutByCountry>
+		<content columnName="区县名称" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="区县" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="停电基站数" interfaceEnName="stationNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultPowerCutByCountry>
+	<statisticsFaultLockStation2GByArea>
+		<content columnName="地市名称" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="地市" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="2G锁站数量" interfaceEnName="lockStationNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultLockStation2GByArea>
+	<statisticsFaultLockStation2GByCountry>
+		<content columnName="区县名称" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="区县" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="2G锁站数量" interfaceEnName="lockStationNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultLockStation2GByCountry>
+	<statisticsFaultLockStation3GByArea>
+		<content columnName="地市名称" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="地市" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="3G锁站数量" interfaceEnName="lockStationNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultLockStation3GByArea>
+	<statisticsFaultLockStation3GByCountry>
+		<content columnName="区县名称" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="区县" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="3G锁站数量" interfaceEnName="lockStationNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultLockStation3GByCountry>
+	<statisticsFaultLockStation4GByArea>
+		<content columnName="地市名称" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="地市" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="4G锁站数量" interfaceEnName="lockStationNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultLockStation4GByArea>
+	<statisticsFaultLockStation4GByCountry>
+		<content columnName="区县名称" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="区县" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="4G锁站数量" interfaceEnName="lockStationNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultLockStation4GByCountry>
+	<statisticsFaultListInfo>
+	    <content columnName="MAINNETNAME" interfaceEnName="netName" defauleValue="" />
+		<content columnName="SHEETID" interfaceEnName="sheetId" defauleValue="" />
+		<content columnName="TITLE" interfaceEnName="title" defauleValue="" />
+		<content columnName="MAINFAULTGENERANTTIME" interfaceEnName="alarmOccurTime" defauleValue="" />
+		<content columnName="SHEETCOMPLETELIMIT" interfaceEnName="dealTime2" defauleValue="" />
+		<content columnName="id" interfaceEnName="sheetKey" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultListInfo>
+	<statisticsFaultOutServiceListInfo>
+	    <content columnName="" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="SITE_ID" interfaceEnName="stationNum" defauleValue="" />
+		<content columnName="MAINSITENAME" interfaceEnName="stationName" defauleValue="" />
+		<content columnName="MAINOBJECTLEVER" interfaceEnName="stationLevel" defauleValue="" />
+		<content columnName="BTSTYPE" interfaceEnName="faultType" defauleValue="" />
+		<content columnName="" interfaceEnName="outServiceNum" defauleValue="" />
+		<content columnName="MAINFAULTSURFFERTTIME" interfaceEnName="faultTime" defauleValue="" />
+		<content columnName="MAINALARMSOURCE" interfaceEnName="faultReason" defauleValue="" />
+		<content columnName="MAINCOMPLETELIMITT2" interfaceEnName="dealLimint" defauleValue="" />
+		<content columnName="SHEETID" interfaceEnName="sheetId" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultOutServiceListInfo>
+    <statisticsFaultPowerCutListInfo>
+        <content columnName="" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="MAINNETCODE" interfaceEnName="stationNum" defauleValue="" />
+		<content columnName="MAINSITENAME" interfaceEnName="stationName" defauleValue="" />
+		<content columnName="MAINOBJECTLEVER" interfaceEnName="stationLevel" defauleValue="" />
+		<content columnName="MAINALARMSTAID" interfaceEnName="faultType" defauleValue="" />
+		<content columnName="MAINFAULTGENERANTTIME" interfaceEnName="stopStartTime" defauleValue="" />
+		<content columnName="FAULTSUFFERING" interfaceEnName="faultTime" defauleValue="" />
+		<content columnName="MAINALARMTITLE" interfaceEnName="batteryTime" defauleValue="" />
+		<content columnName="SHEETACCEPTLIMIT" interfaceEnName="dealLimint" defauleValue="" />
+		<content columnName="SHEETID" interfaceEnName="sheetId" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+    </statisticsFaultPowerCutListInfo>
+    <statisticsFaultLockStationListInfo>
+        <content columnName="" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="SITE_ID" interfaceEnName="stationNum" defauleValue="" />
+		<content columnName="SITE_NAME" interfaceEnName="stationName" defauleValue="" />
+		<content columnName="SITE_LEVEL" interfaceEnName="stationLevel" defauleValue="" />
+		<content columnName="LOCK_REASON" interfaceEnName="lockStationReason" defauleValue="" />
+		<content columnName="LOCK_TIME" interfaceEnName="lockStationTime" defauleValue="" />
+		<content columnName="UNLOCK_TIME" interfaceEnName="unLockStationTime" defauleValue="" />
+		<content columnName="" interfaceEnName="contact" defauleValue="" />
+		<content columnName="CREATOR" interfaceEnName="createUser" defauleValue="" />
+		<content columnName="SENDTIME" interfaceEnName="createTime" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+    </statisticsFaultLockStationListInfo>
+    
+    <!-- 新添加start -->
+    <statisticsFaultStatusByArea>
+		<content columnName="地市名称" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="地市ID" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="工单总量" interfaceEnName="totalNum" defauleValue="" />	
+		<content columnName="未接单总量" interfaceEnName="unAcceptCnt" defauleValue="" />
+		<content columnName="未接单未超时量" interfaceEnName="unOverAcceptCnt" defauleValue="" />
+		<content columnName="未接单将超时（30分钟）量" interfaceEnName="toOverAcceptTimeCnt" defauleValue="" />
+		<content columnName="未接单已超时量" interfaceEnName="overAcceptCnt" defauleValue="" />
+		<content columnName="已接单总量" interfaceEnName="acceptCnt" defauleValue="" />	
+		<content columnName="已接单待回单总量" interfaceEnName="unOverReplyCnt" defauleValue="" />
+		<content columnName="已接单将超时（1小时）量" interfaceEnName="toOverReplyTimeCnt" defauleValue="" />
+		<content columnName="已接单已回复超时量" interfaceEnName="overReplyCnt" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultStatusByArea>
+    <statisticsFaultStatusByCountry>
+		<content columnName="区县名称" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="区县ID" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="工单总量" interfaceEnName="totalNum" defauleValue="" />	
+		<content columnName="未接单总量" interfaceEnName="unAcceptCnt" defauleValue="" />
+		<content columnName="未接单未超时量" interfaceEnName="unOverAcceptCnt" defauleValue="" />
+		<content columnName="未接单将超时（30分钟）量" interfaceEnName="toOverAcceptTimeCnt" defauleValue="" />
+		<content columnName="未接单已超时量" interfaceEnName="overAcceptCnt" defauleValue="" />
+		<content columnName="已接单总量" interfaceEnName="acceptCnt" defauleValue="" />	
+		<content columnName="已接单待回单总量" interfaceEnName="unOverReplyCnt" defauleValue="" />
+		<content columnName="已接单将超时（1小时）量" interfaceEnName="toOverReplyTimeCnt" defauleValue="" />
+		<content columnName="已接单已回复超时量" interfaceEnName="overReplyCnt" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultStatusByCountry>
+    <statisticsFaultTypeByArea>
+		<content columnName="地市名称" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="地市ID" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="四专业工单总量" interfaceEnName="totalNum" defauleValue="" />	
+		<content columnName="无线专业工单量" interfaceEnName="wxTotalNum" defauleValue="" />
+		<content columnName="动环专业工单量" interfaceEnName="dhTotalNum" defauleValue="" />
+		<content columnName="传输专业工单量" interfaceEnName="csTotalNum" defauleValue="" />
+		<content columnName="WLAN专业工单量" interfaceEnName="wlanTotalNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultTypeByArea>
+    <statisticsFaultTypeByCountry>
+		<content columnName="区县名称" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="区县ID" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="四专业工单总量" interfaceEnName="totalNum" defauleValue="" />	
+		<content columnName="无线专业工单量" interfaceEnName="wxTotalNum" defauleValue="" />
+		<content columnName="动环专业工单量" interfaceEnName="dhTotalNum" defauleValue="" />
+		<content columnName="传输专业工单量" interfaceEnName="csTotalNum" defauleValue="" />
+		<content columnName="WLAN专业工单量" interfaceEnName="wlanTotalNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultTypeByCountry>
+    <statisticsFaultDealRateByArea>
+		<content columnName="地市名称" interfaceEnName="areaName" defauleValue="" />
+		<content columnName="地市ID" interfaceEnName="areaId" defauleValue="" />
+		<content columnName="工单总量" interfaceEnName="totalNum" defauleValue="" />	
+		<content columnName="工单接单超时量" interfaceEnName="acceptOverTimeNum" defauleValue="" />
+		<content columnName="工单处理超时量" interfaceEnName="dealOverTimeNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultDealRateByArea>
+    <statisticsFaultDealRateByCountry>
+		<content columnName="区县名称" interfaceEnName="countryName" defauleValue="" />
+		<content columnName="区县ID" interfaceEnName="countryId" defauleValue="" />
+		<content columnName="工单总量" interfaceEnName="totalNum" defauleValue="" />	
+		<content columnName="工单接单超时量" interfaceEnName="acceptOverTimeNum" defauleValue="" />
+		<content columnName="工单处理超时量" interfaceEnName="dealOverTimeNum" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsFaultDealRateByCountry>
+    <statisticsNewFaultListInfo>
+		<content columnName="工单ID" interfaceEnName="sheetKey" defauleValue="" />
+		<content columnName="故障网元名称" interfaceEnName="netName" defauleValue="" />
+		<content columnName="工单流水号" interfaceEnName="sheetId" defauleValue="" />	
+		<content columnName="工单名称" interfaceEnName="title" defauleValue="" />
+		<content columnName="告警发生时间" interfaceEnName="alarmOccurTime" defauleValue="" />
+		<content columnName="T2处理时限" interfaceEnName="dealTime2" defauleValue="" />
+		<content columnName="工单状态" interfaceEnName="sheetStatus" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsNewFaultListInfo>
+    <statisticsTabListInfo>
+		<content columnName="tab项名称" interfaceEnName="tabName" defauleValue="" />
+		<content columnName="tab项ID" interfaceEnName="tabId" defauleValue="" />
+		<content columnName="tab项内容数量" interfaceEnName="totalNum" defauleValue="" />	
+		<content columnName="" interfaceEnName="reserved1" defauleValue="" /> 
+		<content columnName="" interfaceEnName="reserved2" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved3" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved4" defauleValue="" />
+		<content columnName="" interfaceEnName="reserved5" defauleValue="" />
+	</statisticsTabListInfo>
+	<!-- 新添加end -->
+</boco>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.tawSystemRole.dao.TawSystemRoleMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.tawSystemRole.model.TawSystemRole" >
+    <id column="ROLE_ID" property="roleId" jdbcType="DECIMAL" />
+    <result column="DELETED" property="deleted" jdbcType="DECIMAL" />
+    <result column="DEPT_ID" property="deptId" jdbcType="VARCHAR" />
+    <result column="LEVEL_ID" property="levelId" jdbcType="DECIMAL" />
+    <result column="LIMIT_COUNT" property="limitCount" jdbcType="DECIMAL" />
+    <result column="NOTES" property="notes" jdbcType="VARCHAR" />
+    <result column="PARENT_ID" property="parentId" jdbcType="DECIMAL" />
+    <result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
+    <result column="ROLETYPE_ID" property="roletypeId" jdbcType="DECIMAL" />
+    <result column="SINGLE_ID" property="singleId" jdbcType="VARCHAR" />
+    <result column="STRUCTURE_FLAG" property="structureFlag" jdbcType="VARCHAR" />
+    <result column="TITLE_ID" property="titleId" jdbcType="DECIMAL" />
+    <result column="WORKFLOW_FLAG" property="workflowFlag" jdbcType="DECIMAL" />
+    <result column="LEAF" property="leaf" jdbcType="DECIMAL" />
+    <result column="POSTID" property="postid" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ROLE_ID, DELETED, DEPT_ID, LEVEL_ID, LIMIT_COUNT, NOTES, PARENT_ID, ROLE_NAME, ROLETYPE_ID, 
+    SINGLE_ID, STRUCTURE_FLAG, TITLE_ID, WORKFLOW_FLAG, LEAF, POSTID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_ROLE
+    where ROLE_ID = #{roleId,jdbcType=DECIMAL}
+  </select>
+  
+  <!-- 查询所有 -->
+  <select id="listTawSystemRoleAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from taw_system_role
+  </select>
+  
+  
+  <!-- 根据父id查询 -->
+  <select id="listTawSystemRoleByParentRoleID" resultMap="BaseResultMap" parameterType="java.lang.String">	
+	select  
+	<include refid="Base_Column_List" />
+	from taw_system_role
+	where  PARENT_ID=#{parentId,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from TAW_SYSTEM_ROLE
+    where ROLE_ID = #{roleId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.boco.eoms.tawSystemRole.model.TawSystemRole" >
+    insert into TAW_SYSTEM_ROLE (ROLE_ID, DELETED, DEPT_ID, 
+      LEVEL_ID, LIMIT_COUNT, NOTES, 
+      PARENT_ID, ROLE_NAME, ROLETYPE_ID, 
+      SINGLE_ID, STRUCTURE_FLAG, TITLE_ID, 
+      WORKFLOW_FLAG, LEAF, POSTID
+      )
+    values (#{roleId,jdbcType=DECIMAL}, #{deleted,jdbcType=DECIMAL}, #{deptId,jdbcType=VARCHAR}, 
+      #{levelId,jdbcType=DECIMAL}, #{limitCount,jdbcType=DECIMAL}, #{notes,jdbcType=VARCHAR}, 
+      #{parentId,jdbcType=DECIMAL}, #{roleName,jdbcType=VARCHAR}, #{roletypeId,jdbcType=DECIMAL}, 
+      #{singleId,jdbcType=VARCHAR}, #{structureFlag,jdbcType=VARCHAR}, #{titleId,jdbcType=DECIMAL}, 
+      #{workflowFlag,jdbcType=DECIMAL}, #{leaf,jdbcType=DECIMAL}, #{postid,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.boco.eoms.tawSystemRole.model.TawSystemRole" >
+    insert into TAW_SYSTEM_ROLE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        ROLE_ID,
+      </if>
+      <if test="deleted != null" >
+        DELETED,
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="levelId != null" >
+        LEVEL_ID,
+      </if>
+      <if test="limitCount != null" >
+        LIMIT_COUNT,
+      </if>
+      <if test="notes != null" >
+        NOTES,
+      </if>
+      <if test="parentId != null" >
+        PARENT_ID,
+      </if>
+      <if test="roleName != null" >
+        ROLE_NAME,
+      </if>
+      <if test="roletypeId != null" >
+        ROLETYPE_ID,
+      </if>
+      <if test="singleId != null" >
+        SINGLE_ID,
+      </if>
+      <if test="structureFlag != null" >
+        STRUCTURE_FLAG,
+      </if>
+      <if test="titleId != null" >
+        TITLE_ID,
+      </if>
+      <if test="workflowFlag != null" >
+        WORKFLOW_FLAG,
+      </if>
+      <if test="leaf != null" >
+        LEAF,
+      </if>
+      <if test="postid != null" >
+        POSTID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        #{roleId,jdbcType=DECIMAL},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=DECIMAL},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="levelId != null" >
+        #{levelId,jdbcType=DECIMAL},
+      </if>
+      <if test="limitCount != null" >
+        #{limitCount,jdbcType=DECIMAL},
+      </if>
+      <if test="notes != null" >
+        #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=DECIMAL},
+      </if>
+      <if test="roleName != null" >
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="roletypeId != null" >
+        #{roletypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="singleId != null" >
+        #{singleId,jdbcType=VARCHAR},
+      </if>
+      <if test="structureFlag != null" >
+        #{structureFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="titleId != null" >
+        #{titleId,jdbcType=DECIMAL},
+      </if>
+      <if test="workflowFlag != null" >
+        #{workflowFlag,jdbcType=DECIMAL},
+      </if>
+      <if test="leaf != null" >
+        #{leaf,jdbcType=DECIMAL},
+      </if>
+      <if test="postid != null" >
+        #{postid,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.boco.eoms.tawSystemRole.model.TawSystemRole" >
+    update TAW_SYSTEM_ROLE
+    <set >
+      <if test="deleted != null" >
+        DELETED = #{deleted,jdbcType=DECIMAL},
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="levelId != null" >
+        LEVEL_ID = #{levelId,jdbcType=DECIMAL},
+      </if>
+      <if test="limitCount != null" >
+        LIMIT_COUNT = #{limitCount,jdbcType=DECIMAL},
+      </if>
+      <if test="notes != null" >
+        NOTES = #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        PARENT_ID = #{parentId,jdbcType=DECIMAL},
+      </if>
+      <if test="roleName != null" >
+        ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="roletypeId != null" >
+        ROLETYPE_ID = #{roletypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="singleId != null" >
+        SINGLE_ID = #{singleId,jdbcType=VARCHAR},
+      </if>
+      <if test="structureFlag != null" >
+        STRUCTURE_FLAG = #{structureFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="titleId != null" >
+        TITLE_ID = #{titleId,jdbcType=DECIMAL},
+      </if>
+      <if test="workflowFlag != null" >
+        WORKFLOW_FLAG = #{workflowFlag,jdbcType=DECIMAL},
+      </if>
+      <if test="leaf != null" >
+        LEAF = #{leaf,jdbcType=DECIMAL},
+      </if>
+      <if test="postid != null" >
+        POSTID = #{postid,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ROLE_ID = #{roleId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.boco.eoms.tawSystemRole.model.TawSystemRole" >
+    update TAW_SYSTEM_ROLE
+    set DELETED = #{deleted,jdbcType=DECIMAL},
+      DEPT_ID = #{deptId,jdbcType=VARCHAR},
+      LEVEL_ID = #{levelId,jdbcType=DECIMAL},
+      LIMIT_COUNT = #{limitCount,jdbcType=DECIMAL},
+      NOTES = #{notes,jdbcType=VARCHAR},
+      PARENT_ID = #{parentId,jdbcType=DECIMAL},
+      ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+      ROLETYPE_ID = #{roletypeId,jdbcType=DECIMAL},
+      SINGLE_ID = #{singleId,jdbcType=VARCHAR},
+      STRUCTURE_FLAG = #{structureFlag,jdbcType=VARCHAR},
+      TITLE_ID = #{titleId,jdbcType=DECIMAL},
+      WORKFLOW_FLAG = #{workflowFlag,jdbcType=DECIMAL},
+      LEAF = #{leaf,jdbcType=DECIMAL},
+      POSTID = #{postid,jdbcType=DECIMAL}
+    where ROLE_ID = #{roleId,jdbcType=DECIMAL}
+  </update>
+</mapper>

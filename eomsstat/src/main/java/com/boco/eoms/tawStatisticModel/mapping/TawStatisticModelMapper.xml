@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.tawStatisticModel.dao.TawStatisticModelMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.tawStatisticModel.model.TawStatisticModel" >
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="MODEL_NAME" property="modelName" jdbcType="VARCHAR" />
+    <result column="CYCLE" property="cycle" jdbcType="VARCHAR" />
+    <result column="IS_SHARE_FLAG" property="isShareFlag" jdbcType="VARCHAR" />
+    <result column="IS_COMMON_FLAG" property="isCommonFlag" jdbcType="VARCHAR" />
+    <result column="GROUP_TYPE" property="groupType" jdbcType="VARCHAR" />
+    <result column="DETAIL_ID" property="detailId" jdbcType="VARCHAR" />
+    <result column="COMPUTE_RULE" property="computeRule" jdbcType="VARCHAR" />
+    <result column="USERID" property="userid" jdbcType="VARCHAR" />
+    <result column="MODEL_TYPE" property="modelType" jdbcType="VARCHAR" />
+    <result column="XML_NAME" property="xmlName" jdbcType="VARCHAR" />
+    <result column="CHOOSE_BEFORE" property="chooseBefore" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    ID, MODEL_NAME,CYCLE, IS_SHARE_FLAG, IS_COMMON_FLAG,GROUP_TYPE,DETAIL_ID,COMPUTE_RULE,USERID,MODEL_TYPE,XML_NAME,CHOOSE_BEFORE
+  </sql>
+  
+  <insert id="insert" parameterType="com.boco.eoms.tawStatisticModel.model.TawStatisticModel" >
+    insert into TAW_STATISTIC_MODEL (ID, MODEL_NAME, 
+      CYCLE, IS_SHARE_FLAG, IS_COMMON_FLAG,GROUP_TYPE,DETAIL_ID,COMPUTE_RULE,USERID,XML_NAME,MODEL_TYPE
+      )
+    values (#{id,jdbcType=VARCHAR}, #{modelName,jdbcType=VARCHAR}, 
+      #{cycle,jdbcType=VARCHAR}, #{isShareFlag,jdbcType=VARCHAR}, #{isCommonFlag,jdbcType=VARCHAR},#{groupType,jdbcType=VARCHAR},#{detailId,jdbcType=VARCHAR},#{computeRule,jdbcType=VARCHAR},#{userid,jdbcType=VARCHAR},#{xmlName,jdbcType=VARCHAR},#{modelType,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.boco.eoms.tawStatisticModel.model.TawStatisticModel" >
+    insert into TAW_STATISTIC_MODEL
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="modelName != null" >
+        MODEL_NAME,
+      </if>
+      <if test="cycle != null" >
+        CYCLE,
+      </if>
+      <if test="isShareFlag != null" >
+        IS_SHARE_FLAG,
+      </if>
+      <if test="isCommonFlag != null" >
+        IS_COMMON_FLAG,
+      </if>
+       <if test="groupType != null" >
+        GROUP_TYPE,
+      </if>
+       <if test="detailId != null" >
+        DETAIL_ID,
+      </if>
+      <if test="computeRule != null" >
+        COMPUTE_RULE,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="modelName != null" >
+        #{modelName,jdbcType=VARCHAR},
+      </if>
+      <if test="cycle != null" >
+        #{cycle,jdbcType=VARCHAR},
+      </if>
+      <if test="isShareFlag != null" >
+        #{isShareFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="isCommonFlag != null" >
+        #{isCommonFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="groupType != null" >
+        #{groupType,jdbcType=VARCHAR},
+      </if>
+       <if test="detailId != null" >
+         #{detailId,jdbcType=VARCHAR},
+      </if>
+       <if test="computeRule != null" >
+         #{computeRule,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+         #{userid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  
+   <delete id="deleteModel" parameterType="java.lang.String">
+        delete TAW_STATISTIC_MODEL where id=#{id}
+  </delete>
+  
+  
+  <!-- 根据id进行查询 -->
+  <select id="getModelById" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_STATISTIC_MODEL where ID=#{id,jdbcType=VARCHAR}
+  </select>
+    <!-- 查询所有 -->
+  <select id="getModel" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select  <include refid="Base_Column_List" />
+	from (select rownum AS rowno,<include refid="Base_Column_List" />
+    from TAW_STATISTIC_MODEL where 1=1
+    <if test="indicateNamequery != ''">
+		      AND MODEL_NAME like '%'||#{indicateNamequery}||'%'
+		    </if>
+		    <if test="groupTypequery != ''">
+		      AND GROUP_TYPE = #{groupTypequery}
+		    </if>
+		    <if test="indicateValuequery !=''">
+		      AND INDICATE_VALUE = #{indicateValuequery}
+		    </if>
+		    <if test="userid !=''">
+		      AND USERID = #{userid}
+		    </if>
+		    <if test="isCommonFlag != ''">
+		      AND IS_COMMON_FLAG = #{isCommonFlag}
+		    </if>
+		     <if test="isShareFlag != ''">
+		      AND IS_SHARE_FLAG = #{isShareFlag}
+		    </if>
+		    and ROWNUM <![CDATA[<=]]>#{endPageNum}) tablealias
+	WHERE tablealias.rowno <![CDATA[>=]]>#{begainPageNum}
+  </select>
+  <select id="listModelConditonAllCount" resultType="java.lang.String" parameterType="java.util.Map">
+    select count(ID)
+    from taw_statistic_MODEL where 1=1 
+    		<if test="indicateNamequery != ''">
+		      AND MODEL_NAME like '%'||#{indicateNamequery}||'%'
+		    </if>
+		    <if test="groupTypequery != ''">
+		      AND GROUP_TYPE = #{groupTypequery}
+		    </if>
+		    <if test="indicateValuequery !=''">
+		      AND INDICATE_VALUE = #{indicateValuequery}
+		    </if>
+		    <if test="userid !=''">
+		      AND USERID = #{userid}
+		    </if>
+		    <if test="isCommonFlag != ''">
+		      AND IS_COMMON_FLAG = #{isCommonFlag}
+		    </if>
+		    <if test="isShareFlag != ''">
+		      AND IS_SHARE_FLAG = #{isShareFlag}
+		    </if>
+  </select>
+  
+  
+  
+  
+  
+  
+  
+  <select id="listModelRepComditionCountByPage" resultType="java.lang.String" parameterType="java.util.Map">
+     select  <include refid="Base_Column_List" />
+	from (select rownum AS rowno,<include refid="Base_Column_List" />
+    from taw_statistic_MODEL where 1=1 
+
+
+		    <if test="userid != ''">
+		      AND USERID = #{userid}
+		    </if>
+		and ROWNUM <![CDATA[<=]]>#{endPageNum}) tablealias
+	WHERE tablealias.rowno <![CDATA[>=]]>#{begainPageNum}  
+  </select>
+  
+  <select id="listModelRepComditionCount" resultType="java.lang.String" parameterType="java.util.Map">
+    select count(ID)
+    from taw_statistic_MODEL where 1=1 
+
+		     <if test="userid != ''">
+		      AND USERID = #{userid}
+		    </if>
+		  
+  </select>
+  
+
+   <!-- 根据报表归属查询开始 -->
+  <select id="getModelByTable" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select <include refid="Base_Column_List" />
+    from taw_statistic_MODEL where 1=1 AND GROUP_TYPE=#{table_Name}		
+  </select>
+  <!-- 根据报表归属查询结束-->
+    <update id="updateByModel" parameterType="com.boco.eoms.tawStatisticModel.model.TawStatisticModel" >
+    update taw_statistic_model
+    	set MODEL_NAME=#{modelName,jdbcType=VARCHAR},
+    	CYCLE=#{cycle,jdbcType=VARCHAR},
+    	IS_SHARE_FLAG=#{isShareFlag,jdbcType=VARCHAR},
+    	IS_COMMON_FLAG=#{isCommonFlag,jdbcType=VARCHAR},
+   	 	GROUP_TYPE=#{groupType,jdbcType=VARCHAR},
+   	 	DETAIL_ID=#{detailId,jdbcType=VARCHAR},
+   	 	COMPUTE_RULE=#{computeRule,jdbcType=VARCHAR},
+   	 	USERID=#{userid,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  
+</mapper>

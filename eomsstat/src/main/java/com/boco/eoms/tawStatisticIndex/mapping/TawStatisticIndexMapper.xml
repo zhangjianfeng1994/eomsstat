@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.tawStatisticIndex.dao.TawStatisticIndexMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.tawStatisticIndex.model.TawStatisticIndex" >
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="INDICATE_NAME" property="indicateName" jdbcType="VARCHAR" />
+    <result column="INDICATE_VALUE" property="indicateValue" jdbcType="VARCHAR" />
+    <result column="INDICATE_OVER_VALUE" property="indicateOverValue" jdbcType="VARCHAR" />
+    <result column="PERCENT_SIGN" property="percentSign" jdbcType="VARCHAR" />
+    <result column="CONDITION" property="condition" jdbcType="VARCHAR" />
+    <result column="COMPLEX_FLAG" property="complexFlag" jdbcType="VARCHAR" />
+    <result column="GROUP_TYPE" property="groupType" jdbcType="VARCHAR" />
+    <result column="INDICATORFIR_ADD" property="indicatorFir_add" jdbcType="VARCHAR" />
+    <result column="OPERATEFLAG" property="operateFlag" jdbcType="VARCHAR" />
+    <result column="INDICATOREND_ADD" property="indicatorEnd_add" jdbcType="VARCHAR" />
+    <result column="DELETE_STATUS" property="deleteStatus" jdbcType="VARCHAR" />
+    <result column="IS_GRASP" property="isGrasp" jdbcType="VARCHAR" />
+    <result column="INDICATE_DESCRIBE" property="indicateDescribe" jdbcType="VARCHAR" />
+    <result column="DETAIL_ID" property="detailId" jdbcType="VARCHAR" />
+    
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    ID,INDICATE_NAME,INDICATE_VALUE,INDICATE_DESCRIBE,INDICATE_OVER_VALUE,PERCENT_SIGN,CONDITION,COMPLEX_FLAG,GROUP_TYPE,INDICATORFIR_ADD,OPERATEFLAG,INDICATOREND_ADD,DELETE_STATUS,IS_GRASP
+  </sql>
+  
+  <insert id="insert" parameterType="com.boco.eoms.tawStatisticIndex.model.TawStatisticIndex" >
+    insert into TAW_STATISTIC_INDICATE (ID,INDICATE_NAME,INDICATE_VALUE, INDICATE_DESCRIBE,INDICATE_OVER_VALUE,PERCENT_SIGN,CONDITION,COMPLEX_FLAG,GROUP_TYPE,DETAIL_ID,INDICATORFIR_ADD,OPERATEFLAG,INDICATOREND_ADD,DELETE_STATUS,IS_GRASP)
+    values (#{id,jdbcType=VARCHAR}, #{indicateName,jdbcType=VARCHAR}, #{indicateValue,jdbcType=VARCHAR},#{indicateDescribe,jdbcType=VARCHAR},  
+      #{indicateOverValue,jdbcType=VARCHAR}, #{percentSign,jdbcType=VARCHAR}, #{condition,jdbcType=VARCHAR}, 
+      #{complexFlag,jdbcType=VARCHAR}, #{groupType,jdbcType=VARCHAR}, #{detailId,jdbcType=VARCHAR}, #{indicatorFir_add,jdbcType=VARCHAR}, 
+      #{operateFlag,jdbcType=VARCHAR}, #{indicatorEnd_add,jdbcType=VARCHAR},#{deleteStatus,jdbcType=VARCHAR},#{isGrasp,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.boco.eoms.tawStatisticIndex.model.TawStatisticIndex" >
+    insert into TAW_STATISTIC_INDICATE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="indicateName != null" >
+        INDICATE_NAME,
+      </if>
+      <if test="indicateValue != null" >
+        INDICATE_VALUE,
+      </if>
+      <if test="complexFlag != null" >
+        COMPLEX_FLAG,
+      </if>
+      <if test="condition != null" >
+        CONDITION,
+      </if>
+      <if test="parentId != null" >
+        PARENT_ID,
+      </if>
+      <if test="groupType != null" >
+        GROUP_TYPE,
+      </if>
+      <if test="netFlag != null" >
+        NET_FLAG,
+      </if>
+      <if test="validFlag != null" >
+        VALID_FLAG,
+      </if>
+      <if test="percentSign != null" >
+        PERCENT_SIGN,
+      </if>
+      <if test="indicateOverValue != null" >
+        INDICATE_OVER_VALUE,
+      </if>
+      <if test="deleteStatus != null" >
+        DELETE_STATUS,
+      </if>
+      <if test="isGrasp != null" >
+        IS_GRASP,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="indicateName != null" >
+        #{indicateName,jdbcType=VARCHAR},
+      </if>
+      <if test="indicateValue != null" >
+        #{indicateValue,jdbcType=VARCHAR},
+      </if>
+      <if test="complexFlag != null" >
+        #{complexFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="condition != null" >
+        #{condition,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupType != null" >
+        #{groupType,jdbcType=VARCHAR},
+      </if>
+      <if test="netFlag != null" >
+        #{netFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="validFlag != null" >
+        #{validFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="percentSign != null" >
+        #{percentSign,jdbcType=VARCHAR},
+      </if>
+      <if test="indicateOverValue != null" >
+        #{indicateOverValue,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteStatus != null" >
+        #{deleteStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isGrasp != null" >
+         #{isGrasp,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+    <delete id="deleteIndex" parameterType="java.lang.String">
+        delete taw_statistic_indicate where id=#{id}
+  </delete>
+  
+   <!-- 跟新记录 -->
+  <update id="updateByIndex" parameterType="com.boco.eoms.tawStatisticIndex.model.TawStatisticIndex" >
+    update taw_statistic_indicate
+    	set 
+    	INDICATE_NAME=#{indicateName,jdbcType=VARCHAR},
+    	INDICATE_VALUE=#{indicateValue,jdbcType=VARCHAR},
+    	INDICATE_OVER_VALUE=#{indicateOverValue,jdbcType=VARCHAR},
+    	PERCENT_SIGN=#{percentSign,jdbcType=VARCHAR},
+    	CONDITION=#{condition,jdbcType=VARCHAR},
+    	COMPLEX_FLAG=#{complexFlag,jdbcType=VARCHAR},
+    	GROUP_TYPE=#{groupType,jdbcType=VARCHAR},
+    	DETAIL_ID=#{detailId,jdbcType=VARCHAR},
+   	 	INDICATORFIR_ADD=#{indicatorFir_add,jdbcType=VARCHAR},
+    	OPERATEFLAG=#{operateFlag,jdbcType=VARCHAR},
+    	INDICATOREND_ADD=#{indicatorEnd_add,jdbcType=VARCHAR},
+    	DELETE_STATUS=#{deleteStatus,jdbcType=VARCHAR},
+    	IS_GRASP=#{isGrasp,jdbcType=VARCHAR},
+    	INDICATE_DESCRIBE=#{indicateDescribe,jdbcType=VARCHAR}
+    	
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+    <!-- 条件查询 -->
+  <select id="listIndexsConditionByPage" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select  <include refid="Base_Column_List" />
+	from (select rownum AS rowno,<include refid="Base_Column_List" />
+	from taw_statistic_indicate
+	where  1=1 
+		    <if test="indicateNamequery != ''">
+		      AND INDICATE_NAME like '%'||#{indicateNamequery}||'%'
+		    </if>
+		    <if test="groupTypequery != ''">
+		      AND GROUP_TYPE = #{groupTypequery}
+		    </if>
+		    <if test="indicateValuequery !=''">
+		      AND INDICATE_VALUE = #{indicateValuequery}
+		    </if>
+	 and ROWNUM <![CDATA[<=]]>#{endPageNum}) tablealias
+	WHERE tablealias.rowno <![CDATA[>=]]>#{begainPageNum}
+  </select>
+  
+  <!-- 条件查询数据总数 -->
+  <select id="listIndexConditonAllCount" resultType="java.lang.String" parameterType="java.util.Map">
+    select count(ID)
+    from taw_statistic_indicate where 1=1 
+    		<if test="indicateNamequery != ''">
+		      AND INDICATE_NAME like '%'||#{indicateNamequery}||'%'
+		    </if>
+		    <if test="groupTypequery != ''">
+		      AND GROUP_TYPE = #{groupTypequery}
+		    </if>
+		    <if test="indicateValuequery !=''">
+		      AND INDICATE_VALUE = #{indicateValuequery}
+		    </if>
+  </select>
+  <!-- 查询结束 -->
+  
+  <!-- 根据id查询开始 -->
+              
+  <select id="getIndicateById" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select *
+    from taw_statistic_indicate where 1=1 AND ID=#{id}
+  </select>
+  <!-- 根据id查询结束-->
+  
+  <!-- 根据报表归属查询开始 -->
+  <select id="getIndexByTable" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select <include refid="Base_Column_List" />
+    from taw_statistic_indicate where 1=1 and DELETE_STATUS='1' AND GROUP_TYPE=#{tableName}	
+    <if test="tableCNName != ''">     
+      AND INDICATE_NAME LIKE '%'||#{tableCNName}||'%'
+    </if>
+  </select>
+  
+  <!-- 根据报表归属查询结束-->
+  
+  
+  
+</mapper>

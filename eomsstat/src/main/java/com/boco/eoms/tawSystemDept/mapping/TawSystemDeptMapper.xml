@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.tawSystemDept.dao.TawSystemDeptMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.tawSystemDept.model.TawSystemDept" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="DELETED" property="deleted" jdbcType="VARCHAR" />
+    <result column="DEPTEMAIL" property="deptemail" jdbcType="VARCHAR" />
+    <result column="DEPTFAX" property="deptfax" jdbcType="VARCHAR" />
+    <result column="DEPTID" property="deptid" jdbcType="VARCHAR" />
+    <result column="DEPTMANAGER" property="deptmanager" jdbcType="VARCHAR" />
+    <result column="DEPTMOBILE" property="deptmobile" jdbcType="VARCHAR" />
+    <result column="DEPTNAME" property="deptname" jdbcType="VARCHAR" />
+    <result column="DEPTPHONE" property="deptphone" jdbcType="VARCHAR" />
+    <result column="DEPTTYPE" property="depttype" jdbcType="VARCHAR" />
+    <result column="OPERREMOTEIP" property="operremoteip" jdbcType="VARCHAR" />
+    <result column="OPERTIME" property="opertime" jdbcType="VARCHAR" />
+    <result column="OPERUSERID" property="operuserid" jdbcType="VARCHAR" />
+    <result column="ORDERCODE" property="ordercode" jdbcType="DECIMAL" />
+    <result column="PARENTDEPTID" property="parentdeptid" jdbcType="VARCHAR" />
+    <result column="REGIONFLAG" property="regionflag" jdbcType="DECIMAL" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="TMPORARYBEGINTIME" property="tmporarybegintime" jdbcType="VARCHAR" />
+    <result column="TMPORARYMANAGER" property="tmporarymanager" jdbcType="VARCHAR" />
+    <result column="TMPORARYSTOPTIME" property="tmporarystoptime" jdbcType="VARCHAR" />
+    <result column="UPDATETIME" property="updatetime" jdbcType="VARCHAR" />
+    <result column="LEAF" property="leaf" jdbcType="VARCHAR" />
+    <result column="AREAID" property="areaid" jdbcType="VARCHAR" />
+    <result column="LINKID" property="linkid" jdbcType="VARCHAR" />
+    <result column="PARENTLINKID" property="parentlinkid" jdbcType="VARCHAR" />
+    <result column="TMPDEPTID" property="tmpdeptid" jdbcType="VARCHAR" />
+    <result column="ISPARTNERS" property="ispartners" jdbcType="VARCHAR" />
+    <result column="ISDAIWEIROOT" property="isdaiweiroot" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, DELETED, DEPTEMAIL, DEPTFAX, DEPTID, DEPTMANAGER, DEPTMOBILE, DEPTNAME, DEPTPHONE, 
+    DEPTTYPE, OPERREMOTEIP, OPERTIME, OPERUSERID, ORDERCODE, PARENTDEPTID, REGIONFLAG, 
+    REMARK, TMPORARYBEGINTIME, TMPORARYMANAGER, TMPORARYSTOPTIME, UPDATETIME, LEAF, AREAID, 
+    LINKID, PARENTLINKID, TMPDEPTID, ISPARTNERS, ISDAIWEIROOT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_DEPT
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  
+    <!-- 查询所有 -->
+  <select id="listTawSystemDeptAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from taw_system_dept where and deleted='0'
+  </select>
+  
+  
+  <!-- 根据父id查询 -->
+  <select id="listDeptByParentDeptID" resultMap="BaseResultMap" parameterType="java.lang.String">	
+	select  
+	<include refid="Base_Column_List" />
+	from taw_system_dept
+	where PARENTDEPTID=#{parentId,jdbcType=VARCHAR} and deleted='0' order by deptid
+  </select>
+  
+  <!-- 递归查询所有的部门 -->
+  <select id="listAllDeptByParentDeptID" resultMap="BaseResultMap" parameterType="java.lang.String">
+	select <include refid="Base_Column_List" />  from taw_system_dept d where d.deleted='0' start with d.parentDeptId=#{parentId,jdbcType=VARCHAR}  CONNECT BY PRIOR  d.deptid=d.parentDeptId
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from TAW_SYSTEM_DEPT
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.boco.eoms.tawSystemDept.model.TawSystemDept" >
+    insert into TAW_SYSTEM_DEPT (ID, DELETED, DEPTEMAIL, 
+      DEPTFAX, DEPTID, DEPTMANAGER, 
+      DEPTMOBILE, DEPTNAME, DEPTPHONE, 
+      DEPTTYPE, OPERREMOTEIP, OPERTIME, 
+      OPERUSERID, ORDERCODE, PARENTDEPTID, 
+      REGIONFLAG, REMARK, TMPORARYBEGINTIME, 
+      TMPORARYMANAGER, TMPORARYSTOPTIME, UPDATETIME, 
+      LEAF, AREAID, LINKID, 
+      PARENTLINKID, TMPDEPTID, ISPARTNERS, 
+      ISDAIWEIROOT)
+    values (#{id,jdbcType=DECIMAL}, #{deleted,jdbcType=VARCHAR}, #{deptemail,jdbcType=VARCHAR}, 
+      #{deptfax,jdbcType=VARCHAR}, #{deptid,jdbcType=VARCHAR}, #{deptmanager,jdbcType=VARCHAR}, 
+      #{deptmobile,jdbcType=VARCHAR}, #{deptname,jdbcType=VARCHAR}, #{deptphone,jdbcType=VARCHAR}, 
+      #{depttype,jdbcType=VARCHAR}, #{operremoteip,jdbcType=VARCHAR}, #{opertime,jdbcType=VARCHAR}, 
+      #{operuserid,jdbcType=VARCHAR}, #{ordercode,jdbcType=DECIMAL}, #{parentdeptid,jdbcType=VARCHAR}, 
+      #{regionflag,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{tmporarybegintime,jdbcType=VARCHAR}, 
+      #{tmporarymanager,jdbcType=VARCHAR}, #{tmporarystoptime,jdbcType=VARCHAR}, #{updatetime,jdbcType=VARCHAR}, 
+      #{leaf,jdbcType=VARCHAR}, #{areaid,jdbcType=VARCHAR}, #{linkid,jdbcType=VARCHAR}, 
+      #{parentlinkid,jdbcType=VARCHAR}, #{tmpdeptid,jdbcType=VARCHAR}, #{ispartners,jdbcType=VARCHAR}, 
+      #{isdaiweiroot,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.boco.eoms.tawSystemDept.model.TawSystemDept" >
+    insert into TAW_SYSTEM_DEPT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="deleted != null" >
+        DELETED,
+      </if>
+      <if test="deptemail != null" >
+        DEPTEMAIL,
+      </if>
+      <if test="deptfax != null" >
+        DEPTFAX,
+      </if>
+      <if test="deptid != null" >
+        DEPTID,
+      </if>
+      <if test="deptmanager != null" >
+        DEPTMANAGER,
+      </if>
+      <if test="deptmobile != null" >
+        DEPTMOBILE,
+      </if>
+      <if test="deptname != null" >
+        DEPTNAME,
+      </if>
+      <if test="deptphone != null" >
+        DEPTPHONE,
+      </if>
+      <if test="depttype != null" >
+        DEPTTYPE,
+      </if>
+      <if test="operremoteip != null" >
+        OPERREMOTEIP,
+      </if>
+      <if test="opertime != null" >
+        OPERTIME,
+      </if>
+      <if test="operuserid != null" >
+        OPERUSERID,
+      </if>
+      <if test="ordercode != null" >
+        ORDERCODE,
+      </if>
+      <if test="parentdeptid != null" >
+        PARENTDEPTID,
+      </if>
+      <if test="regionflag != null" >
+        REGIONFLAG,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="tmporarybegintime != null" >
+        TMPORARYBEGINTIME,
+      </if>
+      <if test="tmporarymanager != null" >
+        TMPORARYMANAGER,
+      </if>
+      <if test="tmporarystoptime != null" >
+        TMPORARYSTOPTIME,
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME,
+      </if>
+      <if test="leaf != null" >
+        LEAF,
+      </if>
+      <if test="areaid != null" >
+        AREAID,
+      </if>
+      <if test="linkid != null" >
+        LINKID,
+      </if>
+      <if test="parentlinkid != null" >
+        PARENTLINKID,
+      </if>
+      <if test="tmpdeptid != null" >
+        TMPDEPTID,
+      </if>
+      <if test="ispartners != null" >
+        ISPARTNERS,
+      </if>
+      <if test="isdaiweiroot != null" >
+        ISDAIWEIROOT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=VARCHAR},
+      </if>
+      <if test="deptemail != null" >
+        #{deptemail,jdbcType=VARCHAR},
+      </if>
+      <if test="deptfax != null" >
+        #{deptfax,jdbcType=VARCHAR},
+      </if>
+      <if test="deptid != null" >
+        #{deptid,jdbcType=VARCHAR},
+      </if>
+      <if test="deptmanager != null" >
+        #{deptmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="deptmobile != null" >
+        #{deptmobile,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null" >
+        #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="deptphone != null" >
+        #{deptphone,jdbcType=VARCHAR},
+      </if>
+      <if test="depttype != null" >
+        #{depttype,jdbcType=VARCHAR},
+      </if>
+      <if test="operremoteip != null" >
+        #{operremoteip,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null" >
+        #{opertime,jdbcType=VARCHAR},
+      </if>
+      <if test="operuserid != null" >
+        #{operuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordercode != null" >
+        #{ordercode,jdbcType=DECIMAL},
+      </if>
+      <if test="parentdeptid != null" >
+        #{parentdeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="regionflag != null" >
+        #{regionflag,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="tmporarybegintime != null" >
+        #{tmporarybegintime,jdbcType=VARCHAR},
+      </if>
+      <if test="tmporarymanager != null" >
+        #{tmporarymanager,jdbcType=VARCHAR},
+      </if>
+      <if test="tmporarystoptime != null" >
+        #{tmporarystoptime,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="leaf != null" >
+        #{leaf,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null" >
+        #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="linkid != null" >
+        #{linkid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentlinkid != null" >
+        #{parentlinkid,jdbcType=VARCHAR},
+      </if>
+      <if test="tmpdeptid != null" >
+        #{tmpdeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="ispartners != null" >
+        #{ispartners,jdbcType=VARCHAR},
+      </if>
+      <if test="isdaiweiroot != null" >
+        #{isdaiweiroot,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.boco.eoms.tawSystemDept.model.TawSystemDept" >
+    update TAW_SYSTEM_DEPT
+    <set >
+      <if test="deleted != null" >
+        DELETED = #{deleted,jdbcType=VARCHAR},
+      </if>
+      <if test="deptemail != null" >
+        DEPTEMAIL = #{deptemail,jdbcType=VARCHAR},
+      </if>
+      <if test="deptfax != null" >
+        DEPTFAX = #{deptfax,jdbcType=VARCHAR},
+      </if>
+      <if test="deptid != null" >
+        DEPTID = #{deptid,jdbcType=VARCHAR},
+      </if>
+      <if test="deptmanager != null" >
+        DEPTMANAGER = #{deptmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="deptmobile != null" >
+        DEPTMOBILE = #{deptmobile,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null" >
+        DEPTNAME = #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="deptphone != null" >
+        DEPTPHONE = #{deptphone,jdbcType=VARCHAR},
+      </if>
+      <if test="depttype != null" >
+        DEPTTYPE = #{depttype,jdbcType=VARCHAR},
+      </if>
+      <if test="operremoteip != null" >
+        OPERREMOTEIP = #{operremoteip,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null" >
+        OPERTIME = #{opertime,jdbcType=VARCHAR},
+      </if>
+      <if test="operuserid != null" >
+        OPERUSERID = #{operuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordercode != null" >
+        ORDERCODE = #{ordercode,jdbcType=DECIMAL},
+      </if>
+      <if test="parentdeptid != null" >
+        PARENTDEPTID = #{parentdeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="regionflag != null" >
+        REGIONFLAG = #{regionflag,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="tmporarybegintime != null" >
+        TMPORARYBEGINTIME = #{tmporarybegintime,jdbcType=VARCHAR},
+      </if>
+      <if test="tmporarymanager != null" >
+        TMPORARYMANAGER = #{tmporarymanager,jdbcType=VARCHAR},
+      </if>
+      <if test="tmporarystoptime != null" >
+        TMPORARYSTOPTIME = #{tmporarystoptime,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME = #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="leaf != null" >
+        LEAF = #{leaf,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null" >
+        AREAID = #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="linkid != null" >
+        LINKID = #{linkid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentlinkid != null" >
+        PARENTLINKID = #{parentlinkid,jdbcType=VARCHAR},
+      </if>
+      <if test="tmpdeptid != null" >
+        TMPDEPTID = #{tmpdeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="ispartners != null" >
+        ISPARTNERS = #{ispartners,jdbcType=VARCHAR},
+      </if>
+      <if test="isdaiweiroot != null" >
+        ISDAIWEIROOT = #{isdaiweiroot,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.boco.eoms.tawSystemDept.model.TawSystemDept" >
+    update TAW_SYSTEM_DEPT
+    set DELETED = #{deleted,jdbcType=VARCHAR},
+      DEPTEMAIL = #{deptemail,jdbcType=VARCHAR},
+      DEPTFAX = #{deptfax,jdbcType=VARCHAR},
+      DEPTID = #{deptid,jdbcType=VARCHAR},
+      DEPTMANAGER = #{deptmanager,jdbcType=VARCHAR},
+      DEPTMOBILE = #{deptmobile,jdbcType=VARCHAR},
+      DEPTNAME = #{deptname,jdbcType=VARCHAR},
+      DEPTPHONE = #{deptphone,jdbcType=VARCHAR},
+      DEPTTYPE = #{depttype,jdbcType=VARCHAR},
+      OPERREMOTEIP = #{operremoteip,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=VARCHAR},
+      OPERUSERID = #{operuserid,jdbcType=VARCHAR},
+      ORDERCODE = #{ordercode,jdbcType=DECIMAL},
+      PARENTDEPTID = #{parentdeptid,jdbcType=VARCHAR},
+      REGIONFLAG = #{regionflag,jdbcType=DECIMAL},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      TMPORARYBEGINTIME = #{tmporarybegintime,jdbcType=VARCHAR},
+      TMPORARYMANAGER = #{tmporarymanager,jdbcType=VARCHAR},
+      TMPORARYSTOPTIME = #{tmporarystoptime,jdbcType=VARCHAR},
+      UPDATETIME = #{updatetime,jdbcType=VARCHAR},
+      LEAF = #{leaf,jdbcType=VARCHAR},
+      AREAID = #{areaid,jdbcType=VARCHAR},
+      LINKID = #{linkid,jdbcType=VARCHAR},
+      PARENTLINKID = #{parentlinkid,jdbcType=VARCHAR},
+      TMPDEPTID = #{tmpdeptid,jdbcType=VARCHAR},
+      ISPARTNERS = #{ispartners,jdbcType=VARCHAR},
+      ISDAIWEIROOT = #{isdaiweiroot,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  
+   <select id="selectByDeptid" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_DEPT
+    where deptid = #{deptid,jdbcType=VARCHAR}
+  </select>
+  
+</mapper>

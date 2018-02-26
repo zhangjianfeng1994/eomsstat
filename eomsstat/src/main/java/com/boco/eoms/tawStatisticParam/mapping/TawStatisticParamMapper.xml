@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.tawStatisticParam.dao.TawStatisticParamMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.tawStatisticParam.model.TawStatisticParam" >
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="PARAM_NAME" property="paramName" jdbcType="VARCHAR" />
+    <result column="PARAM_ENG" property="paramEng" jdbcType="VARCHAR" />
+    <result column="PARAM_CODE" property="paramCode" jdbcType="VARCHAR" />
+    <result column="PARAM_CODE_TYPE" property="paramCodeType" jdbcType="VARCHAR" />
+    <result column="PARENT_PARAM_ID" property="parentParamId" jdbcType="VARCHAR" />
+    <result column="PARAM_CONDITION" property="paramCondition" jdbcType="VARCHAR" />
+    <result column="GROUP_TYPE" property="groupType" jdbcType="VARCHAR" />
+    <result column="DELETE_STATUS" property="deleteStatus" jdbcType="VARCHAR" />
+     <result column="EOMS_PARAM_TYPE" property="eomsParamType" jdbcType="VARCHAR" />
+ 
+  </resultMap>
+    <sql id="Base_Column_List" >
+    ID,PARAM_NAME,PARAM_ENG,PARAM_CODE,PARAM_CODE_TYPE,PARENT_PARAM_ID,PARAM_CONDITION,GROUP_TYPE,DELETE_STATUS,EOMS_PARAM_TYPE
+  </sql>
+  <insert id="insert" parameterType="com.boco.eoms.tawStatisticParam.model.TawStatisticParam" >
+    insert into TAW_STATISTIC_PARAMETER (ID, PARAM_NAME, PARAM_ENG, 
+      PARAM_CODE, PARAM_CODE_TYPE, PARENT_PARAM_ID,PARAM_CONDITION,GROUP_TYPE,DELETE_STATUS,EOMS_PARAM_TYPE
+      )
+    values (#{id,jdbcType=VARCHAR}, #{paramName,jdbcType=VARCHAR}, #{paramEng,jdbcType=VARCHAR}, 
+      #{paramCode,jdbcType=VARCHAR}, #{paramCodeType,jdbcType=VARCHAR}, #{parentParamId,jdbcType=VARCHAR}, #{paramCondition,jdbcType=VARCHAR},#{groupType,jdbcType=VARCHAR},#{deleteStatus,jdbcType=VARCHAR},#{eomsParamType,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.boco.eoms.tawStatisticParam.model.TawStatisticParam" >
+    insert into TAW_STATISTIC_PARAMETER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="paramName != null" >
+        PARAM_NAME,
+      </if>
+      <if test="paramEng != null" >
+        PARAM_ENG,
+      </if>
+      <if test="paramCode != null" >
+        PARAM_CODE,
+      </if>
+      <if test="paramCodeType != null" >
+        PARAM_CODE_TYPE,
+      </if>
+      <if test="parentParamId != null" >
+        PARENT_PARAM_ID,
+      </if>
+      <if test="paramCondition != null" >
+        PARAM_CONDITION,
+      </if>
+      <if test="deleteStatus != null" >
+        DELETE_STATUS,
+      </if>
+      <if test="eomsParamType != null" >
+        EOMS_PARAM_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="paramName != null" >
+        #{paramName,jdbcType=VARCHAR},
+      </if>
+      <if test="paramEng != null" >
+        #{paramEng,jdbcType=VARCHAR},
+      </if>
+      <if test="paramCode != null" >
+        #{paramCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paramCodeType != null" >
+        #{paramCodeType,jdbcType=VARCHAR},
+      </if>
+      <if test="parentParamId != null" >
+        #{parentParamId,jdbcType=VARCHAR},
+      </if>
+       <if test="paramCondition != null" >
+         #{paramCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteStatus != null" >
+        #{deleteStatus,jdbcType=VARCHAR},
+      </if>
+       <if test="eomsParamType != null" >
+         #{eomsParamType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+     <!-- 跟新记录 -->
+  <update id="updateByParam" parameterType="com.boco.eoms.tawStatisticParam.model.TawStatisticParam" >
+    update taw_statistic_parameter
+    	set PARAM_NAME=#{paramName,jdbcType=VARCHAR},
+    	PARAM_ENG=#{paramEng,jdbcType=VARCHAR},
+    	PARAM_CODE=#{paramCode,jdbcType=VARCHAR},
+    	PARAM_CODE_TYPE=#{paramCodeType,jdbcType=VARCHAR},
+   	 	PARENT_PARAM_ID=#{parentParamId,jdbcType=VARCHAR},
+   	 	PARAM_CONDITION=#{paramCondition,jdbcType=VARCHAR},
+   	 	DELETE_STATUS=#{deleteStatus,jdbcType=VARCHAR},
+   	 	EOMS_PARAM_TYPE=#{eomsParamType,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  
+      <!-- 条件查询 -->
+  <select id="listParamsConditionByPage" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select  <include refid="Base_Column_List" />
+	from (select rownum AS rowno,<include refid="Base_Column_List" />
+	from TAW_STATISTIC_PARAMETER
+	where  1=1 
+		    <if test="indicateNamequery != ''">
+		       AND PARAM_NAME like '%'||#{indicateNamequery}||'%' 
+		    </if>
+		    <if test="groupTypequery != ''">
+		     AND GROUP_TYPE = #{groupTypequery} 
+		    </if>
+		    <if test="indicateValuequery !=''">
+		     AND INDICATE_VALUE = #{indicateValuequery}
+		    </if>
+	 and ROWNUM <![CDATA[<=]]>#{endPageNum}) tablealias
+	WHERE tablealias.rowno <![CDATA[>=]]>#{begainPageNum}
+  </select>
+  
+  <!-- 条件查询数据总数 -->
+  <select id="listParamConditionAllCount" resultType="java.lang.String" parameterType="java.util.Map">
+    select count(ID)
+    from TAW_STATISTIC_PARAMETER where 1=1 
+    		<if test="indicateNamequery != ''">
+		      AND PARAM_NAME like '%'||#{indicateNamequery}||'%'
+		    </if>
+		    <if test="groupTypequery != ''">
+		      AND GROUP_TYPE = #{groupTypequery}
+		    </if>
+		    <if test="indicateValuequery !=''">
+		      AND INDICATE_VALUE = #{indicateValuequery}
+		    </if>
+  </select>
+  <!-- 查询结束 -->
+  <!-- 根据id查询开始 -->
+  <select id="getParamById" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select *
+    from taw_statistic_parameter where 1=1 AND id=#{id}		
+  </select>
+  <!-- 根据id查询结束-->
+  
+  <delete id="deleteParam" parameterType="java.lang.String">
+        delete taw_statistic_parameter where id=#{id}
+  </delete>
+  
+  
+  
+  
+   <!-- 根据报表归属查询开始 -->
+  <select id="getParamByTable" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select <include refid="Base_Column_List" />
+    from taw_statistic_parameter where 1=1 and DELETE_STATUS='1' AND GROUP_TYPE=#{tableName}
+    <if test="tableCNName != ''">
+     AND PARAM_NAME LIKE '%'||#{tableCNName}||'%'
+    </if>
+  </select>
+  <!-- 根据报表归属查询结束-->
+  
+  
+  
+  
+</mapper>

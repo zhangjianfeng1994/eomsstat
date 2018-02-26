@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/"
+	xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<globalConfiguration>
+		<parameter name="sendMultiRefs" value="true" />
+		<parameter name="disablePrettyXML" value="true" />
+		<parameter name="dotNetSoapEncFix" value="true" />
+		<parameter name="enableNamespacePrefixOptimization" value="false" />
+		<parameter name="sendXMLDeclaration" value="true" />
+		<parameter name="sendXsiTypes" value="true" />
+		<parameter name="attachments.implementation"
+			value="org.apache.axis.attachments.AttachmentsImpl" />
+	</globalConfiguration>
+
+	<handler type="java:org.apache.axis.handlers.http.URLMapper"
+		name="URLMapper" />
+	<transport name="http">
+		<requestFlow>
+			<handler type="URLMapper" />
+		</requestFlow>
+	</transport>
+	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	<service name="StatisticsSheetProvideSrv" type="" regenerateElement="true"
+		provider="java:RPC" style="wrapped" use="literal">
+		<parameter name="scope" value="Request"
+			regenerateElement="false" />
+		<parameter name="className"
+			value="com.boco.eoms.mobileApply.service.statisticssheet.StatisticsSheetProvideSrv"
+			regenerateElement="false" />
+		<parameter name="allowedMethod"
+			value="statisticsFaultByAreaSrv,statisticsFaultByAreaAndCountrySrv,statisticsFaultByAreaAndNetSrv,statisticsFaultByAreaAndNetTwoSrv,statisticsFaultByNetSrv,statisticsFaultByNetAndAreaSrv,statisticsFaultByNetAndCountrySrv,statisticsFaultByNetTwoAndCountrySrv,statisticsFaultOutService2GByAreaSrv,statisticsFaultOutService2GByCountrySrv,statisticsFaultOutService3GByAreaSrv,statisticsFaultOutService3GByCountrySrv,statisticsFaultOutServiceRRUByAreaSrv,statisticsFaultOutServiceRRUByCountrySrv,statisticsFaultOutService4GByAreaSrv,statisticsFaultOutService4GByCountrySrv,statisticsFaultOutServiceWLANByAreaSrv,statisticsFaultOutServiceWLANByCountrySrv,statisticsFaultPowerCutByAreaSrv,statisticsFaultPowerCutByCountrySrv,statisticsFaultLockStation2GByAreaSrv,statisticsFaultLockStation2GByCountrySrv,statisticsFaultLockStation3GByAreaSrv,statisticsFaultLockStation3GByCountrySrv,statisticsFaultLockStation4GByAreaSrv,statisticsFaultLockStation4GByCountrySrv,statisticsFaultListInfoSrv,statisticsFaultOutServiceListInfoSrv,statisticsFaultPowerCutListInfoSrv,statisticsFaultLockStationListInfoSrv,statisticsFaultStatusByAreaSrv,statisticsFaultStatusByCountrySrv,statisticsFaultTypeByAreaSrv,statisticsFaultTypeByCountrySrv,statisticsFaultDealRateByAreaSrv,statisticsFaultDealRateByCountrySrv,statisticsNewFaultListInfoSrv"
+			regenerateElement="false" />
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.base.MsgHeader" qname="ns1:MsgHeader" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByAreaAndCountrySrv.StatisticsFaultByAreaAndCountryInfo" qname="ns1:StatisticsFaultByAreaAndCountryInfo" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByAreaAndCountrySrv.StatisticsFaultByAreaAndCountrySrvRequest" qname="ns1:StatisticsFaultByAreaAndCountrySrvRequest" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByAreaAndCountrySrv.StatisticsFaultByAreaAndCountrySrvResponse" qname="ns1:StatisticsFaultByAreaAndCountrySrvResponse" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByAreaAndNetSrv.StatisticsFaultByAreaAndNetSrvInfo" qname="ns1:StatisticsFaultByAreaAndNetSrvInfo" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByAreaAndNetSrv.StatisticsFaultByAreaAndNetSrvRequest" qname="ns1:StatisticsFaultByAreaAndNetSrvRequest" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByAreaAndNetSrv.StatisticsFaultByAreaAndNetSrvResponse" qname="ns1:StatisticsFaultByAreaAndNetSrvResponse" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByAreaAndNetTwoSrv.StatisticsFaultByAreaAndNetTwoSrvInfo" qname="ns1: StatisticsFaultByAreaAndNetTwoSrvInfo" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByAreaAndNetTwoSrv.StatisticsFaultByAreaAndNetTwoSrvRequest" qname="ns1:StatisticsFaultByAreaAndNetTwoSrvRequest" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByAreaAndNetTwoSrv.StatisticsFaultByAreaAndNetTwoSrvResponse" qname="ns1:StatisticsFaultByAreaAndNetTwoSrvResponse" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByAreaSrv.StatisticsFaultByAreaInfo" qname="ns1:StatisticsFaultByAreaInfo" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByAreaSrv.StatisticsFaultByAreaSrvRequest" qname="ns1:StatisticsFaultByAreaSrvRequest" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByAreaSrv.StatisticsFaultByAreaSrvResponse" qname="ns1:StatisticsFaultByAreaSrvResponse" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByNetAndAreaSrv.StatisticsFaultByNetAndAreaSrvInfo" qname="ns1:StatisticsFaultByNetAndAreaSrvInfo" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByNetAndAreaSrv.StatisticsFaultByNetAndAreaSrvRequest" qname="ns1:StatisticsFaultByNetAndAreaSrvRequest" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByNetAndAreaSrv.StatisticsFaultByNetAndAreaSrvResponse" qname="ns1:StatisticsFaultByNetAndAreaSrvResponse" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByNetAndCountrySrv.StatisticsFaultByNetAndCountrySrvInfo" qname="ns1:StatisticsFaultByNetAndCountrySrvInfo" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByNetAndCountrySrv.StatisticsFaultByNetAndCountrySrvRequest" qname="ns1:StatisticsFaultByNetAndCountrySrvRequest" xmlns:ns1="urn:BeanService"/> 
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByNetAndCountrySrv.StatisticsFaultByNetAndCountrySrvResponse" qname="ns1:StatisticsFaultByNetAndCountrySrvResponse" xmlns:ns1="urn:BeanService"/> 
+ 		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByNetSrv.StatisticsFaultByNetSrvInfo" qname="ns1:StatisticsFaultByNetSrvInfo" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByNetSrv.StatisticsFaultByNetSrvRequest" qname="ns1:StatisticsFaultByNetSrvRequest" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByNetSrv.StatisticsFaultByNetSrvResponse" qname="ns1:StatisticsFaultByNetSrvResponse" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByNetTwoAndCountrySrv.StatisticsFaultByNetTwoAndCountrySrvInfo" qname="ns1:StatisticsFaultByNetTwoAndCountrySrvInfo" xmlns:ns1="urn:BeanService"/> 
+ 	 	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByNetTwoAndCountrySrv.StatisticsFaultByNetTwoAndCountrySrvRequest" qname="ns1:StatisticsFaultByNetTwoAndCountrySrvRequest" xmlns:ns1="urn:BeanService"/> 
+ 	 	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultByNetTwoAndCountrySrv.StatisticsFaultByNetTwoAndCountrySrvResponse" qname="ns1:StatisticsFaultByNetTwoAndCountrySrvResponse" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultListInfoSrv.StatisticsFaultListInfo" qname="ns1:StatisticsFaultListInfo" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultListInfoSrv.StatisticsFaultListInfoSrvRequest" qname="ns1:StatisticsFaultListInfoSrvRequest" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultListInfoSrv.StatisticsFaultListInfoSrvResponse" qname="ns1:StatisticsFaultListInfoSrvResponse" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation2GByAreaSrv.StatisticsFaultLockStation2GByAreaSrvInfo" qname="ns1:StatisticsFaultLockStation2GByAreaSrvInfo" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation2GByAreaSrv.StatisticsFaultLockStation2GByAreaSrvRequest" qname="ns1:StatisticsFaultLockStation2GByAreaSrvRequest" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation2GByAreaSrv.StatisticsFaultLockStation2GByAreaSrvResponse" qname="ns1:StatisticsFaultLockStation2GByAreaSrvResponse" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation2GByCountrySrv.StatisticsFaultLockStation2GByCountrySrvInfo" qname="ns1:StatisticsFaultLockStation2GByCountrySrvInfo" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation2GByCountrySrv.StatisticsFaultLockStation2GByCountrySrvRequest" qname="ns1:StatisticsFaultLockStation2GByCountrySrvRequest" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation2GByCountrySrv.StatisticsFaultLockStation2GByCountrySrvResponse" qname="ns1:StatisticsFaultLockStation2GByCountrySrvResponse" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation3GByAreaSrv.StatisticsFaultLockStation3GByAreaSrvInfo" qname="ns1:StatisticsFaultLockStation3GByAreaSrvInfo" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation3GByAreaSrv.StatisticsFaultLockStation3GByAreaSrvRequest" qname="ns1:StatisticsFaultLockStation3GByAreaSrvRequest" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation3GByAreaSrv.StatisticsFaultLockStation3GByAreaSrvResponse" qname="ns1:StatisticsFaultLockStation3GByAreaSrvResponse" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation3GByCountrySrv.StatisticsFaultLockStation3GByCountrySrvInfo" qname="ns1:StatisticsFaultLockStation3GByCountrySrvInfo" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation3GByCountrySrv.StatisticsFaultLockStation3GByCountrySrvRequest" qname="ns1:StatisticsFaultLockStation3GByCountrySrvRequest" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation3GByCountrySrv.StatisticsFaultLockStation3GByCountrySrvResponse" qname="ns1:StatisticsFaultLockStation3GByCountrySrvResponse" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation4GByAreaSrv.StatisticsFaultLockStation4GByAreaSrvInfo" qname="ns1:StatisticsFaultLockStation4GByAreaSrvInfo" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation4GByAreaSrv.StatisticsFaultLockStation4GByAreaSrvRequest" qname="ns1:StatisticsFaultLockStation4GByAreaSrvRequest" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation4GByAreaSrv.StatisticsFaultLockStation4GByAreaSrvResponse" qname="ns1:StatisticsFaultLockStation4GByAreaSrvResponse" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation4GByCountrySrv.StatisticsFaultLockStation4GByCountrySrvInfo" qname="ns1:StatisticsFaultLockStation4GByCountrySrvInfo" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation4GByCountrySrv.StatisticsFaultLockStation4GByCountrySrvRequest" qname="ns1:StatisticsFaultLockStation4GByCountrySrvRequest" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStation4GByCountrySrv.StatisticsFaultLockStation4GByCountrySrvResponse" qname="ns1:StatisticsFaultLockStation4GByCountrySrvResponse" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStationListInfoSrv.StatisticsFaultLockStationListInfo" qname="ns1:StatisticsFaultLockStationListInfo" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStationListInfoSrv.StatisticsFaultLockStationListInfoSrvRequest" qname="ns1:StatisticsFaultLockStationListInfoSrvRequest" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultLockStationListInfoSrv.StatisticsFaultLockStationListInfoSrvResponse" qname="ns1:StatisticsFaultLockStationListInfoSrvResponse" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService2GByAreaSrv.StatisticsFaultOutService2GByAreaSrvInfo" qname="ns1:StatisticsFaultOutService2GByAreaSrvInfo" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService2GByAreaSrv.StatisticsFaultOutService2GByAreaSrvRequest" qname="ns1:StatisticsFaultOutService2GByAreaSrvRequest" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService2GByAreaSrv.StatisticsFaultOutService2GByAreaSrvResponse" qname="ns1:StatisticsFaultOutService2GByAreaSrvResponse" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService2GByCountrySrv.StatisticsFaultOutService2GByCountrySrvInfo" qname="ns1:StatisticsFaultOutService2GByCountrySrvInfo" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService2GByCountrySrv.StatisticsFaultOutService2GByCountrySrvRequest" qname="ns1:StatisticsFaultOutService2GByCountrySrvRequest" xmlns:ns1="urn:BeanService"/> 
+  		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService2GByCountrySrv.StatisticsFaultOutService2GByCountrySrvResponse" qname="ns1:StatisticsFaultOutService2GByCountrySrvResponse" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService3GByAreaSrv.StatisticsFaultOutService3GByAreaSrvInfo" qname="ns1:StatisticsFaultOutService3GByAreaSrvInfo" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService3GByAreaSrv.StatisticsFaultOutService3GByAreaSrvRequest" qname="ns1:StatisticsFaultOutService3GByAreaSrvRequest" xmlns:ns1="urn:BeanService"/>
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService3GByAreaSrv.StatisticsFaultOutService3GByAreaSrvResponse" qname="ns1:StatisticsFaultOutService3GByAreaSrvResponse" xmlns:ns1="urn:BeanService"/>  
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService3GByCountrySrv.StatisticsFaultOutService3GByCountrySrvInfo" qname="ns1:StatisticsFaultOutService3GByCountrySrvInfo" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService3GByCountrySrv.StatisticsFaultOutService3GByCountrySrvRequest" qname="ns1:StatisticsFaultOutService3GByCountrySrvRequest" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService3GByCountrySrv.StatisticsFaultOutService3GByCountrySrvResponse" qname="ns1:StatisticsFaultOutService3GByCountrySrvResponse" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService4GByAreaSrv.StatisticsFaultOutService4GByAreaSrvInfo" qname="ns1:StatisticsFaultOutService4GByAreaSrvInfo" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService4GByAreaSrv.StatisticsFaultOutService4GByAreaSrvRequest" qname="ns1:StatisticsFaultOutService4GByAreaSrvRequest" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService4GByAreaSrv.StatisticsFaultOutService4GByAreaSrvResponse" qname="ns1:StatisticsFaultOutService4GByAreaSrvResponse" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService4GByCountrySrv.StatisticsFaultOutService4GByCountrySrvInfo" qname="ns1:StatisticsFaultOutService4GByCountrySrvInfo" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService4GByCountrySrv.StatisticsFaultOutService4GByCountrySrvRequest" qname="ns1:StatisticsFaultOutService4GByCountrySrvRequest" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutService4GByCountrySrv.StatisticsFaultOutService4GByCountrySrvResponse" qname="ns1:StatisticsFaultOutService4GByCountrySrvResponse" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutServiceListInfoSrv.StatisticsFaultOutServiceListInfo" qname="ns1:StatisticsFaultOutServiceListInfo" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutServiceListInfoSrv.StatisticsFaultOutServiceListInfoSrvRequest" qname="ns1:StatisticsFaultOutServiceListInfoSrvRequest" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutServiceListInfoSrv.StatisticsFaultOutServiceListInfoSrvResponse" qname="ns1:StatisticsFaultOutServiceListInfoSrvResponse" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutServiceRRUByAreaSrv.StatisticsFaultOutServiceRRUByAreaSrvInfo" qname="ns1:StatisticsFaultOutServiceRRUByAreaSrvInfo" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutServiceRRUByAreaSrv.StatisticsFaultOutServiceRRUByAreaSrvRequest" qname="ns1:StatisticsFaultOutServiceRRUByAreaSrvRequest" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutServiceRRUByAreaSrv.StatisticsFaultOutServiceRRUByAreaSrvResponse" qname="ns1:StatisticsFaultOutServiceRRUByAreaSrvResponse" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutServiceRRUByCountrySrv.StatisticsFaultOutServiceRRUByCountrySrvInfo" qname="ns1:StatisticsFaultOutServiceRRUByCountrySrvInfo" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutServiceRRUByCountrySrv.StatisticsFaultOutServiceRRUByCountrySrvRequest" qname="ns1:StatisticsFaultOutServiceRRUByCountrySrvRequest" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutServiceRRUByCountrySrv.StatisticsFaultOutServiceRRUByCountrySrvResponse" qname="ns1:StatisticsFaultOutServiceRRUByCountrySrvResponse" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutServiceWLANByAreaSrv.StatisticsFaultOutServiceWLANByAreaSrvInfo" qname="ns1:StatisticsFaultOutServiceWLANByAreaSrvInfo" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutServiceWLANByAreaSrv.StatisticsFaultOutServiceWLANByAreaSrvRequest" qname="ns1:StatisticsFaultOutServiceWLANByAreaSrvRequest" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutServiceWLANByAreaSrv.StatisticsFaultOutServiceWLANByAreaSrvResponse" qname="ns1:StatisticsFaultOutServiceWLANByAreaSrvResponse" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutServiceWLANByCountrySrv.StatisticsFaultOutServiceWLANByCountrySrvInfo" qname="ns1:StatisticsFaultOutServiceWLANByCountrySrvInfo" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutServiceWLANByCountrySrv.StatisticsFaultOutServiceWLANByCountrySrvRequest" qname="ns1:StatisticsFaultOutServiceWLANByCountrySrvRequest" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultOutServiceWLANByCountrySrv.StatisticsFaultOutServiceWLANByCountrySrvResponse" qname="ns1:StatisticsFaultOutServiceWLANByCountrySrvResponse" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultPowerCutByAreaSrv.StatisticsFaultPowerCutByAreaSrvInfo" qname="ns1:StatisticsFaultPowerCutByAreaSrvInfo" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultPowerCutByAreaSrv.StatisticsFaultPowerCutByAreaSrvRequest" qname="ns1:StatisticsFaultPowerCutByAreaSrvRequest" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultPowerCutByAreaSrv.StatisticsFaultPowerCutByAreaSrvResponse" qname="ns1:StatisticsFaultPowerCutByAreaSrvResponse" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultPowerCutByCountrySrv.StatisticsFaultPowerCutByCountrySrvInfo" qname="ns1:StatisticsFaultPowerCutByCountrySrvInfo" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultPowerCutByCountrySrv.StatisticsFaultPowerCutByCountrySrvRequest" qname="ns1:StatisticsFaultPowerCutByCountrySrvRequest" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultPowerCutByCountrySrv.StatisticsFaultPowerCutByCountrySrvResponse" qname="ns1:StatisticsFaultPowerCutByCountrySrvResponse" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultPowerCutListInfoSrv.StatisticsFaultPowerCutListInfo" qname="ns1:StatisticsFaultPowerCutListInfo" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultPowerCutListInfoSrv.StatisticsFaultPowerCutListInfoSrvRequest" qname="ns1:StatisticsFaultPowerCutListInfoSrvRequest" xmlns:ns1="urn:BeanService"/> 
+	  	<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultPowerCutListInfoSrv.StatisticsFaultPowerCutListInfoSrvResponse" qname="ns1:StatisticsFaultPowerCutListInfoSrvResponse" xmlns:ns1="urn:BeanService"/> 
+		
+		 <beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultStatusByAreaSrv.StatisticsFaultStatusByAreaSrvResponse" qname="ns1:StatisticsFaultStatusByAreaSrvResponse" xmlns:ns1="urn:BeanService"/>
+		 <beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultStatusByAreaSrv.StatisticsFaultStatusByAreaSrvRequest" qname="ns1:StatisticsFaultStatusByAreaSrvRequest" xmlns:ns1="urn:BeanService"/>
+		 <beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultStatusByAreaSrv.StatisticsFaultStatusByAreaSrvInfo" qname="ns1:StatisticsFaultStatusByAreaSrvInfo" xmlns:ns1="urn:BeanService"/>
+	
+		 <beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultStatusByCountrySrv.StatisticsFaultStatusByCountrySrvResponse" qname="ns1:StatisticsFaultStatusByCountrySrvResponse" xmlns:ns1="urn:BeanService"/>
+		 <beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultStatusByCountrySrv.StatisticsFaultStatusByCountrySrvRequest" qname="ns1:StatisticsFaultStatusByCountrySrvRequest" xmlns:ns1="urn:BeanService"/>
+		 <beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultStatusByCountrySrv.StatisticsFaultStatusByCountrySrvInfo" qname="ns1:StatisticsFaultStatusByCountrySrvInfo" xmlns:ns1="urn:BeanService"/>
+	
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultTypeByAreaSrv.StatisticsFaultTypeByAreaSrvResponse" qname="ns1:StatisticsFaultTypeByAreaSrvResponse" xmlns:ns1="urn:BeanService"/>
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultTypeByAreaSrv.StatisticsFaultTypeByAreaSrvRequest" qname="ns1:StatisticsFaultTypeByAreaSrvRequest" xmlns:ns1="urn:BeanService"/>
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultTypeByAreaSrv.StatisticsFaultTypeByAreaSrvInfo" qname="ns1:StatisticsFaultTypeByAreaSrvInfo" xmlns:ns1="urn:BeanService"/>
+	
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultTypeByCountrySrv.StatisticsFaultTypeByCountrySrvResponse" qname="ns1:StatisticsFaultTypeByCountrySrvResponse" xmlns:ns1="urn:BeanService"/>
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultTypeByCountrySrv.StatisticsFaultTypeByCountrySrvRequest" qname="ns1:StatisticsFaultTypeByCountrySrvRequest" xmlns:ns1="urn:BeanService"/>
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultTypeByCountrySrv.StatisticsFaultTypeByCountrySrvInfo" qname="ns1:StatisticsFaultTypeByCountrySrvInfo" xmlns:ns1="urn:BeanService"/>
+	
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultDealRateByAreaSrv.StatisticsFaultDealRateByAreaSrvResponse" qname="ns1:StatisticsFaultDealRateByAreaSrvResponse" xmlns:ns1="urn:BeanService"/>
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultDealRateByAreaSrv.StatisticsFaultDealRateByAreaSrvRequest" qname="ns1:StatisticsFaultDealRateByAreaSrvRequest" xmlns:ns1="urn:BeanService"/>
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultDealRateByAreaSrv.StatisticsFaultDealRateByAreaSrvInfo" qname="ns1:StatisticsFaultDealRateByAreaSrvInfo" xmlns:ns1="urn:BeanService"/>
+	
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultDealRateByCountrySrv.StatisticsFaultDealRateByCountrySrvResponse" qname="ns1:StatisticsFaultDealRateByCountrySrvResponse" xmlns:ns1="urn:BeanService"/>
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultDealRateByCountrySrv.StatisticsFaultDealRateByCountrySrvRequest" qname="ns1:StatisticsFaultDealRateByCountrySrvRequest" xmlns:ns1="urn:BeanService"/>
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsFaultDealRateByCountrySrv.StatisticsFaultDealRateByCountrySrvInfo" qname="ns1:StatisticsFaultDealRateByCountrySrvInfo" xmlns:ns1="urn:BeanService"/>
+	
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsNewFaultListInfoSrv.StatisticsNewFaultListInfoSrvResponse" qname="ns1:StatisticsNewFaultListInfoSrvResponse" xmlns:ns1="urn:BeanService"/>
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsNewFaultListInfoSrv.StatisticsNewFaultListInfoSrvRequest" qname="ns1:StatisticsNewFaultListInfoSrvRequest" xmlns:ns1="urn:BeanService"/>
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsNewFaultListInfoSrv.StatisticsNewFaultListInfo" qname="ns1:StatisticsNewFaultListInfo" xmlns:ns1="urn:BeanService"/>
+		<beanMapping languageSpecificType="java:com.boco.eoms.mobileApply.model.statisticssheet.statisticsNewFaultListInfoSrv.StatisticsTabListInfo" qname="ns1:StatisticsTabListInfo" xmlns:ns1="urn:BeanService"/>
+
+  	</service>
+ 	
+	
+</deployment>  
